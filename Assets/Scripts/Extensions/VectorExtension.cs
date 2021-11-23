@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class VectorExtension
 {
-    public static Vector3 InputDirection(this Vector3 direction)
+    public static Vector3 InputDirection(this Vector3 direction, Animator animator)
     {
         Vector3 result = Vector3.zero;
 
@@ -12,6 +12,15 @@ public static class VectorExtension
         float inputVertical = Input.GetAxisRaw("Vertical");
 
         result = Vector3.forward * inputVertical + Vector3.right * inputHorizontal;
+
+        float percent;
+
+        if (Input.GetAxisRaw("Vertical") < 0)
+            percent = -1f * result.magnitude;
+        else
+            percent = 1f * result.magnitude;
+
+        animator.SetFloat("RunPercent", percent, 0.1f, Time.deltaTime);
 
         return result.normalized;
     }
