@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 128039421}
   - component: {fileID: 129390241}
   - component: {fileID: 65714774107652167}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Tiles_05 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 142524267}
   - component: {fileID: 141119543}
   - component: {fileID: 65714774137210577}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Tiles_05 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 187669461}
   - component: {fileID: 188249225}
   - component: {fileID: 65714774182240879}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Tiles_05 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -954,7 +954,7 @@ GameObject:
   - component: {fileID: 272361512}
   - component: {fileID: 271320948}
   - component: {fileID: 65714774267449746}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Tiles_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1118,7 +1118,7 @@ GameObject:
   - component: {fileID: 358859552}
   - component: {fileID: 359935100}
   - component: {fileID: 65714774355016346}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Tiles_05 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1283,7 +1283,7 @@ GameObject:
   - component: {fileID: 439423267}
   - component: {fileID: 438763135}
   - component: {fileID: 65714774435834009}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Tiles_05 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1365,7 +1365,7 @@ GameObject:
   - component: {fileID: 532277546}
   - component: {fileID: 531498614}
   - component: {fileID: 65714774510850192}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Tiles_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1592,7 +1592,7 @@ GameObject:
   - component: {fileID: 550815553}
   - component: {fileID: 549660701}
   - component: {fileID: 65714773456322299}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Tiles_05 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1660,7 +1660,7 @@ GameObject:
   - component: {fileID: 575796524}
   - component: {fileID: 575019632}
   - component: {fileID: 65714773498449046}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Tiles_05 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1756,7 +1756,7 @@ GameObject:
   - component: {fileID: 593232571}
   - component: {fileID: 592178663}
   - component: {fileID: 65714773514468097}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Tiles_05 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1868,7 +1868,7 @@ GameObject:
   - component: {fileID: 719524333}
   - component: {fileID: 720699057}
   - component: {fileID: 65714773625153623}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Tiles_05 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1950,7 +1950,7 @@ GameObject:
   - component: {fileID: 812783685}
   - component: {fileID: 811740571}
   - component: {fileID: 64218202069554417}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Stairs_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2166,7 +2166,7 @@ GameObject:
   - component: {fileID: 915651767}
   - component: {fileID: 914641899}
   - component: {fileID: 65714773821261069}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Tiles_05 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2295,7 +2295,7 @@ GameObject:
   - component: {fileID: 958736025}
   - component: {fileID: 959629765}
   - component: {fileID: 65714773880872739}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Tiles_05 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2822,7 +2822,7 @@ GameObject:
   - component: {fileID: 1205531979}
   - component: {fileID: 1204469909}
   - component: {fileID: 64218201320372735}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Stairs_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3114,7 +3114,7 @@ GameObject:
   - component: {fileID: 1295313461}
   - component: {fileID: 1294140777}
   - component: {fileID: 65714775291319183}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Tiles_05 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3561,7 +3561,7 @@ GameObject:
   - component: {fileID: 1591377822}
   - component: {fileID: 1590530242}
   - component: {fileID: 65714775569810980}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Tiles_05 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3581,6 +3581,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1869967942}
   m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1608604525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1608604526}
+  m_Layer: 0
+  m_Name: groundCheckPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1608604526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608604525}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3361834574889350665}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1677863382
 MeshRenderer:
@@ -4052,7 +4082,7 @@ GameObject:
   - component: {fileID: 1980503026}
   - component: {fileID: 1981545646}
   - component: {fileID: 65714774901729864}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Tiles_05 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4134,7 +4164,7 @@ GameObject:
   - component: {fileID: 2047250492}
   - component: {fileID: 2047967072}
   - component: {fileID: 65714774969264518}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Tiles_05 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5398,8 +5428,9 @@ GameObject:
   - component: {fileID: 3361834574889350665}
   - component: {fileID: 8667052617045257331}
   - component: {fileID: 2732684519019097268}
+  - component: {fileID: 2732684519019097269}
   m_Layer: 0
-  m_Name: Free Burrow
+  m_Name: HolyMoleLee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5423,6 +5454,27 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &2732684519019097269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2732684519019097267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f888d6a4f1e15e040884c37fc40c03c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  isMovement: 1
+  groundDistance: 2
+  groundCheckPosition: {fileID: 1608604526}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  isGrounded: 1
+  controller: {fileID: 0}
 --- !u!1 &2748282422742464772
 GameObject:
   m_ObjectHideFlags: 0
@@ -5677,6 +5729,7 @@ Transform:
   - {fileID: 8015805252775943126}
   - {fileID: 3597979474026572650}
   - {fileID: 6372866723074186274}
+  - {fileID: 1608604526}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
