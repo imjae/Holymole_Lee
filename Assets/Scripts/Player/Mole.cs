@@ -5,6 +5,7 @@ using UnityEngine;
 public class Mole : Player
 {
     public float moveSpeed = 10f;
+    public float hangOnMoveSpeed = 1f;
     public float groundDistance = 2f;
     public Transform groundCheckPoint;
     public Transform hangOnCheckPoint;
@@ -41,6 +42,7 @@ public class Mole : Player
 
         if (!isHangOn)
         {
+            animator.SetBool("IsHangOn", false);
             ApplyGravity();
             InputMovement();
 
@@ -49,8 +51,24 @@ public class Mole : Player
         }
         else
         {
-
+            animator.SetBool("IsHangOn", true);
+            InputHangOnMovement();
         }
+    }
+
+    void InputHangOnMovement()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+
+
+        Vector3 direction = transform.right * horizontal;
+        Debug.Log(direction.normalized);
+
+
+        animator.SetFloat("HangOnMovement", horizontal, 0.1f, Time.deltaTime);
+
+        controller.Move(direction.normalized * 1f * Time.deltaTime);
+
     }
 
     void InputMovement()
@@ -59,20 +77,18 @@ public class Mole : Player
         float vertical = Input.GetAxis("Vertical");
 
         direction = new Vector3(horizontal, 0, vertical);
+        Debug.Log(direction);
 
         if (direction != Vector3.zero)
         {
             float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
         }
-
-
-
         float percent = direction.magnitude;
-
         animator.SetFloat("RunPercent", percent, 0.1f, Time.deltaTime);
 
         controller.Move(direction.normalized * moveSpeed * Time.deltaTime);
+
 
 
 
