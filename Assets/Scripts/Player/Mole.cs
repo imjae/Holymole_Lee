@@ -53,18 +53,11 @@ public class Mole : Player
         {
             animator.SetBool("IsHangOn", true);
             InputHangOnMovement();
+
+            
+            if (Input.GetButtonDown("Jump"))
+                InputHangOnJump();
         }
-    }
-
-    void InputHangOnMovement()
-    {
-        float horizontal = Input.GetAxis("Horizontal");
-
-        Vector3 direction = transform.right * horizontal;
-
-        animator.SetFloat("HangOnMovement", horizontal, 0.1f, Time.deltaTime);
-
-        controller.Move(direction.normalized * hangOnMoveSpeed * Time.deltaTime);
     }
 
     void InputMovement()
@@ -84,6 +77,16 @@ public class Mole : Player
 
         controller.Move(direction.normalized * moveSpeed * Time.deltaTime);
     }
+    void InputHangOnMovement()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+
+        Vector3 direction = transform.right * horizontal;
+
+        animator.SetFloat("HangOnMovement", horizontal, 0.1f, Time.deltaTime);
+
+        controller.Move(direction.normalized * hangOnMoveSpeed * Time.deltaTime);
+    }
 
     void InputJump()
     {
@@ -98,6 +101,13 @@ public class Mole : Player
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             controller.Move(velocity * Time.deltaTime);
         }
+    }
+    void InputHangOnJump()
+    {
+        isHangOn = false;
+            // 일반상태 : 점프
+        velocity.y = Mathf.Sqrt(jumpHeight/2f * -2f * gravity);
+        controller.Move(velocity * Time.deltaTime);
     }
 
 
