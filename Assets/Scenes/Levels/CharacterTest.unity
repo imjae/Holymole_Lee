@@ -1264,8 +1264,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363717719}
-  m_LocalRotation: {x: 0.21662782, y: -0.31939638, z: 0.07499951, w: 0.91947454}
-  m_LocalPosition: {x: -24.812923, y: 9.57205, z: 1.7568283}
+  m_LocalRotation: {x: 0.22835767, y: 0.00805557, z: -0.0020867602, w: 0.9735418}
+  m_LocalPosition: {x: -34.594826, y: 10.036789, z: -1.7926712}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2949,7 +2949,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219537765}
   m_LocalRotation: {x: -0, y: 0.5674804, z: -0, w: 0.82338697}
-  m_LocalPosition: {x: -30.149363, y: 1, z: 15.304406}
+  m_LocalPosition: {x: -30.1, y: 1, z: 15.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5496,15 +5496,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f888d6a4f1e15e040884c37fc40c03c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  isMovement: 1
-  groundDistance: 2
+  moveSpeed: 4
+  groundDistance: 0.2
   groundCheckPosition: {fileID: 1608604526}
   groundLayer:
     serializedVersion: 2
     m_Bits: 1024
+  jumpHeight: 2
+  isMovement: 1
   isGrounded: 1
-  controller: {fileID: 0}
+  isAttacked: 0
+  controller: {fileID: 2732684519019097268}
+  velocity: {x: 0, y: 0, z: 0}
 --- !u!1 &2748282422742464772
 GameObject:
   m_ObjectHideFlags: 0
