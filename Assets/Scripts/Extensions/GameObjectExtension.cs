@@ -31,4 +31,18 @@ public static class GameObjectExtension
 
         return result;
     }
+
+    public static bool HangOnCheck(
+            this GameObject targetObject,
+            Transform groundCheckPosition,
+            LayerMask checkLayer,
+            float groundDistance = 1f
+            )
+    {
+        bool result = true;
+
+        result = Physics.CheckSphere(groundCheckPosition.position, groundDistance, checkLayer);
+
+        return result;
+    }
 }

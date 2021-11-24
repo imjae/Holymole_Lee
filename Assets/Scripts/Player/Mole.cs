@@ -6,7 +6,8 @@ public class Mole : Player
 {
     public float moveSpeed = 10f;
     public float groundDistance = 2f;
-    public Transform groundCheckPosition;
+    public Transform groundCheckPoint;
+    public Transform hangOnCheckPoint;
     public LayerMask groundLayer;
 
     public float jumpHeight = 0.1f;
@@ -15,13 +16,14 @@ public class Mole : Player
     public bool isMovement = true;
     public bool isGrounded = true;
     public bool isAttacked = false;
+    public bool isHangOn = false;
 
 
     float gravity = -19.62f;
     public CharacterController controller;
-    Vector3 moveDirection;
+    Vector3 direction;
     public Vector3 velocity;
-    Animator animator;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -35,14 +37,20 @@ public class Mole : Player
     // Update is called once per frame
     void Update()
     {
-        isGrounded = gameObject.GroundCheck(groundCheckPosition, groundLayer, groundDistance);
+        isGrounded = gameObject.GroundCheck(groundCheckPoint, groundLayer, groundDistance);
 
-        ApplyGravity();
+        if (!isHangOn)
+        {
+            ApplyGravity();
+            InputMovement();
 
-        InputMovement();
+            if (Input.GetButtonDown("Jump") && isGrounded)
+                InputJump();
+        }
+        else
+        {
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
-            InputJump();
+        }
     }
 
     void InputMovement()
@@ -50,17 +58,28 @@ public class Mole : Player
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        // 입력에 따른 방향
-        Vector3 direction = new Vector3(horizontal, 0, vertical);
+        direction = new Vector3(horizontal, 0, vertical);
 
-        float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, angle, 0f);
+        if (direction != Vector3.zero)
+        {
+            float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+        }
+
+
 
         float percent = direction.magnitude;
 
         animator.SetFloat("RunPercent", percent, 0.1f, Time.deltaTime);
 
         controller.Move(direction.normalized * moveSpeed * Time.deltaTime);
+
+
+
+        if (velocity.y > 0)
+        {
+            // Debug.Log("올라간다 ~");
+        }
     }
 
     void InputJump()
