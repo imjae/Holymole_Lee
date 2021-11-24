@@ -62,12 +62,10 @@ public class Mole : Player
 
 
         Vector3 direction = transform.right * horizontal;
-        Debug.Log(direction.normalized);
-
 
         animator.SetFloat("HangOnMovement", horizontal, 0.1f, Time.deltaTime);
 
-        controller.Move(direction.normalized * 1f * Time.deltaTime);
+        controller.Move(direction.normalized * hangOnMoveSpeed * Time.deltaTime);
 
     }
 
@@ -77,7 +75,6 @@ public class Mole : Player
         float vertical = Input.GetAxis("Vertical");
 
         direction = new Vector3(horizontal, 0, vertical);
-        Debug.Log(direction);
 
         if (direction != Vector3.zero)
         {
@@ -88,14 +85,6 @@ public class Mole : Player
         animator.SetFloat("RunPercent", percent, 0.1f, Time.deltaTime);
 
         controller.Move(direction.normalized * moveSpeed * Time.deltaTime);
-
-
-
-
-        if (velocity.y > 0)
-        {
-            // Debug.Log("올라간다 ~");
-        }
     }
 
     void InputJump()
