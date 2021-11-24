@@ -8,7 +8,7 @@ public class Mole : Player
     public float groundDistance = 2f;
     public Transform groundCheckPosition;
     public LayerMask groundLayer;
-    
+
     public float jumpHeight = 0.1f;
 
 
@@ -38,7 +38,7 @@ public class Mole : Player
         isGrounded = gameObject.GroundCheck(groundCheckPosition, groundLayer, groundDistance);
 
         ApplyGravity();
-        
+
         InputMovement();
 
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -47,30 +47,20 @@ public class Mole : Player
 
     void InputMovement()
     {
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        Vector3 right = transform.TransformDirection(Vector3.right);
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
-        moveDirection =  forward * Input.GetAxisRaw("Vertical") +
-                    right * Input.GetAxisRaw("Horizontal");
+        // 입력에 따른 방향
+        Vector3 direction = new Vector3(horizontal, 0, vertical);
 
-        float percent;
-        float finalSpeed;
+        float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-        // float percent = ((run) ? 1f : 0.5f) * moveDirection.magnitude;
-        if (Input.GetAxisRaw("Vertical") < 0)
-        {
-            percent = -1f * moveDirection.magnitude;
-            finalSpeed = moveSpeed / 2f;
-        }
-        else
-        {
-            percent = 1f * moveDirection.magnitude;
-            finalSpeed = moveSpeed;
-        }
+        float percent = direction.magnitude;
 
         animator.SetFloat("RunPercent", percent, 0.1f, Time.deltaTime);
 
-        controller.Move(moveDirection.normalized * finalSpeed * Time.deltaTime);
+        controller.Move(direction.normalized * moveSpeed * Time.deltaTime);
     }
 
     void InputJump()
