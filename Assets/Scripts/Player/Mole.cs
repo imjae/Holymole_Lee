@@ -97,6 +97,7 @@ public class Mole : Player
         }
         else
         {
+            animator.SetTrigger("Jump");
             // 일반상태 : 점프
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             controller.Move(velocity * Time.deltaTime);
