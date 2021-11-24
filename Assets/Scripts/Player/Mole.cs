@@ -105,6 +105,12 @@ public class Mole : Player
     void InputHangOnJump()
     {
         isHangOn = false;
+
+        animator.SetTrigger("HangOnJump");
+        if(TryGetComponent<Rigidbody>(out Rigidbody rigid))
+        {
+            rigid.AddForce(transform.forward * -100);
+        }
             // 일반상태 : 점프
         velocity.y = Mathf.Sqrt(jumpHeight/2f * -2f * gravity);
         controller.Move(velocity * Time.deltaTime);

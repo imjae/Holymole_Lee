@@ -22,7 +22,7 @@ public class HangOnPlayer : MonoBehaviour
     {
         if(other.CompareTag("HangOnTarget"))
         {
-            player.animator.SetTrigger("RunBlendTree");
+            // player.animator.SetTrigger("RunBlendTree");
             player = transform.parent.GetComponent<Mole>();
             player.isHangOn = false;
         }
