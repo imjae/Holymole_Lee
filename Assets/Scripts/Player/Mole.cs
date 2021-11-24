@@ -60,13 +60,11 @@ public class Mole : Player
     {
         float horizontal = Input.GetAxis("Horizontal");
 
-
         Vector3 direction = transform.right * horizontal;
 
         animator.SetFloat("HangOnMovement", horizontal, 0.1f, Time.deltaTime);
 
         controller.Move(direction.normalized * hangOnMoveSpeed * Time.deltaTime);
-
     }
 
     void InputMovement()

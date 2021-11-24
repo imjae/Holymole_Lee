@@ -9,7 +9,6 @@ public class HangOnPlayer : MonoBehaviour
     {
         if(other.CompareTag("HangOnTarget"))
         {
-            Debug.Log("트리거 들어옴");
             player = transform.parent.GetComponent<Mole>();
             player.isHangOn = true;
             player.velocity = Vector3.zero;
@@ -23,7 +22,6 @@ public class HangOnPlayer : MonoBehaviour
     {
         if(other.CompareTag("HangOnTarget"))
         {
-            Debug.Log("트리거 빠져나감");
             player.animator.SetTrigger("RunBlendTree");
             player = transform.parent.GetComponent<Mole>();
             player.isHangOn = false;
