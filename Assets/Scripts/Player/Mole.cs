@@ -26,9 +26,19 @@ public class Mole : Player
     public Vector3 velocity;
     public Animator animator;
 
+    void Awake()
+    {
+        if(FindObjectsOfType<Player>().Length != 1)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        velocity = Vector3.zero;
+        
         if (!TryGetComponent<CharacterController>(out controller))
             Debug.LogError("CharacterController 컴포넌트가 없습니다.");
         if (!TryGetComponent<Animator>(out animator))
@@ -54,10 +64,11 @@ public class Mole : Player
             animator.SetBool("IsHangOn", true);
             InputHangOnMovement();
 
-            
             if (Input.GetButtonDown("Jump"))
                 InputHangOnJump();
         }
+        
+        controller.Move(velocity * Time.deltaTime);
     }
 
     void InputMovement()
@@ -67,6 +78,8 @@ public class Mole : Player
 
         direction = new Vector3(horizontal, 0, vertical);
 
+        ;
+
         if (direction != Vector3.zero)
         {
             float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
@@ -75,7 +88,7 @@ public class Mole : Player
         float percent = direction.magnitude;
         animator.SetFloat("RunPercent", percent, 0.1f, Time.deltaTime);
 
-        controller.Move(direction.normalized * moveSpeed * Time.deltaTime);
+        controller.Move(Vector3.Scale(direction, new Vector3(1f, 0f, 1f)).normalized * moveSpeed * Time.deltaTime);
     }
     void InputHangOnMovement()
     {
@@ -105,25 +118,29 @@ public class Mole : Player
     }
     void InputHangOnJump()
     {
-        isHangOn = false;
-
         animator.SetTrigger("HangOnJump");
-        if(TryGetComponent<Rigidbody>(out Rigidbody rigid))
-        {
-            rigid.AddForce(transform.forward * -100);
-        }
-            // 일반상태 : 점프
-        velocity.y = Mathf.Sqrt(jumpHeight/2f * -2f * gravity);
-        controller.Move(velocity * Time.deltaTime);
+        // if(TryGetComponent<Rigidbody>(out Rigidbody rigid))
+        // {
+        //     rigid.AddForce(transform.forward * -100);
+        // }
+        //     // 일반상태 : 점프
+        // velocity.y = Mathf.Sqrt(jumpHeight/2f * -2f * gravity);
+        // controller.Move(velocity * Time.deltaTime);
     }
 
+    public void HangOnClimbTranslate()
+    {
+        Vector3 distance = new Vector3(-0.10125f, 1.4394f, 0.31301f) - new Vector3(-0.0021783f, 0.38276f, -0.031938f);
+        controller.Move(distance * 1.2f);
+
+        isHangOn = false;
+    }
 
     void ApplyGravity()
     {
         if (isGrounded && velocity.y < 0)
             velocity.y = -2f;
-
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        else
+            velocity.y += gravity * Time.deltaTime;
     }
 }
