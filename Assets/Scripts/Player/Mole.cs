@@ -26,6 +26,14 @@ public class Mole : Player
     public Vector3 velocity;
     public Animator animator;
 
+    void Awake()
+    {
+        if(FindObjectsOfType<Player>().Length != 1)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
