@@ -6669,17 +6669,17 @@ AnimationClip:
       - serializedVersion: 3
         time: 1.1833333
         value: {x: -1.7, y: 0.114, z: 3.196}
-        inSlope: {x: 1.1127275, y: 0, z: 6.7636366}
-        outSlope: {x: 1.1127275, y: 0, z: 6.7636366}
+        inSlope: {x: 1.1127276, y: 0, z: 12.960001}
+        outSlope: {x: 1.1127276, y: 0, z: 12.960001}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 1.2833333
-        value: {x: -1.435, y: 0.162, z: 3.506}
-        inSlope: {x: 0.61153865, y: 0.11076922, z: 0}
-        outSlope: {x: 0.61153865, y: 0.11076922, z: 0}
+        value: {x: -0.43, y: 0.162, z: 3.79}
+        inSlope: {x: 0.45692292, y: 0.11076922, z: 0}
+        outSlope: {x: 0.45692292, y: 0.11076922, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -6745,11 +6745,76 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0
         outWeight: 0
+      - serializedVersion: 3
+        time: 2.9166667
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
     path: HolyMissileLeft
+    classID: 1
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: RigPelvis/RigSpine1/RigSpine2/RigRibcage/RigRArm1/RigRArm2/RigRArmPalm/RigRArmFinger1/RigRArmFinger2/RigRArmFinger3/HolyMissile
+    classID: 1
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.95
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 2.9166667
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: RigPelvis/RigSpine1/RigSpine2/RigRibcage/RigLArm1/RigLArm2/RigLArmPalm/RigLArmFinger1/RigLArmFinger2/RigLArmFinger3/HolyMissile
     classID: 1
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -6895,6 +6960,20 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 893840467
+      attribute: 2086281974
+      script: {fileID: 0}
+      typeID: 1
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 753357447
+      attribute: 2086281974
+      script: {fileID: 0}
+      typeID: 1
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 3366047967
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -33199,6 +33278,15 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0
         outWeight: 0
+      - serializedVersion: 3
+        time: 2.9166667
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -33248,17 +33336,17 @@ AnimationClip:
       - serializedVersion: 3
         time: 1.1833333
         value: -1.7
-        inSlope: 1.1127275
-        outSlope: 1.1127275
+        inSlope: 1.1127276
+        outSlope: 1.1127276
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1.2833333
-        value: -1.435
-        inSlope: 0.61153865
-        outSlope: 0.61153865
+        value: -0.43
+        inSlope: 0.45692292
+        outSlope: 0.45692292
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -33394,15 +33482,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 1.1833333
         value: 3.196
-        inSlope: 6.7636366
-        outSlope: 6.7636366
+        inSlope: 12.960001
+        outSlope: 12.960001
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1.2833333
-        value: 3.506
+        value: 3.79
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -33424,6 +33512,62 @@ AnimationClip:
     attribute: m_LocalPosition.z
     path: HolyMissileLeft
     classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: RigPelvis/RigSpine1/RigSpine2/RigRibcage/RigRArm1/RigRArm2/RigRArmPalm/RigRArmFinger1/RigRArmFinger2/RigRArmFinger3/HolyMissile
+    classID: 1
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.95
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 2.9166667
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: RigPelvis/RigSpine1/RigSpine2/RigRibcage/RigLArm1/RigLArm2/RigLArmPalm/RigLArmFinger1/RigLArmFinger2/RigLArmFinger3/HolyMissile
+    classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:
