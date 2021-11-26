@@ -16,7 +16,7 @@ public class Mole : Player
 
     public bool isMovement = true;
     public bool isGrounded = true;
-    public bool isAttacked = false;
+    public bool isAttacked { get; set; }
     public bool isHangOn = false;
 
 
@@ -28,7 +28,7 @@ public class Mole : Player
 
     void Awake()
     {
-        if(FindObjectsOfType<Player>().Length != 1)
+        if (FindObjectsOfType<Player>().Length != 1)
         {
             Destroy(gameObject);
         }
@@ -38,7 +38,8 @@ public class Mole : Player
     void Start()
     {
         velocity = Vector3.zero;
-        
+        isAttacked = false;
+
         if (!TryGetComponent<CharacterController>(out controller))
             Debug.LogError("CharacterController 컴포넌트가 없습니다.");
         if (!TryGetComponent<Animator>(out animator))
@@ -58,6 +59,9 @@ public class Mole : Player
 
             if (Input.GetButtonDown("Jump") && isGrounded)
                 InputJump();
+
+            if (Input.GetButtonDown("Attack"))
+                InputAttack();
         }
         else
         {
@@ -67,8 +71,63 @@ public class Mole : Player
             if (Input.GetButtonDown("Jump"))
                 InputHangOnJump();
         }
-        
+
         controller.Move(velocity * Time.deltaTime);
+    }
+    void InputAttack()
+    {
+        Attack();
+    }
+
+    public int comboStep;
+    public bool comboPossible;
+
+    // 칼 공격 콤보 관련 함수
+    public void Attack()
+    {
+        Debug.Log("Attack 시점에서 " + comboStep);
+        if (comboStep == 0)
+        {
+            animator.Play("LeftPunching");
+            comboStep = 1;
+            return;
+        }
+        else
+        {
+            if (comboPossible)
+            {
+                comboPossible = false;
+                comboStep += 1;
+            }
+        }
+    }
+    public void ComboPossible()
+    {
+        // Debug.Log("Combo Possible");
+        comboPossible = true;
+    }
+    public void Combo()
+    {
+        // Debug.Log("Combo!" + comboStep);
+        switch (comboStep)
+        {
+            case 1: animator.Play("LeftPunching"); break;
+            case 2: animator.Play("RightPunching"); break;
+            case 3: animator.Play("LeftPunching"); break;
+            case 4: animator.Play("LeftHook"); break;
+            case 5: animator.Play("RightCrossPunch"); break;
+            default: ComboReset(); break;
+        }
+    }
+    public void ComboReset()
+    {
+        Debug.Log("콤보 리셋");
+        comboPossible = false;
+        comboStep = 0;
+    }
+    public void IsAttackedToggle()
+    {
+        isAttacked = !isAttacked;
     }
 
     void InputMovement()
