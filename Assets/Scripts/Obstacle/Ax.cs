@@ -9,6 +9,7 @@ public class Ax : MonoBehaviour
 
     }
 
+
     void Update()
     {
         transform.localRotation = Quaternion.Euler(0, 0, Mathf.Sin(Time.realtimeSinceStartup * 2.5f) * 60f);
