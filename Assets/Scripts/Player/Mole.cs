@@ -23,6 +23,13 @@ public class Mole : Player
     float gravity = -19.62f;
     public CharacterController controller;
     Vector3 direction;
+    private Transform _standardTransform;
+    public Transform StandardTransform
+    {
+        get { return _standardTransform; }
+        set { _standardTransform = value; }
+    }
+
     public Vector3 velocity;
     public Animator animator;
 
@@ -37,6 +44,7 @@ public class Mole : Player
     // Start is called before the first frame update
     void Start()
     {
+        // StandardTransform = CameraManager.Instance.currentNode.Value;
         velocity = Vector3.zero;
         isAttacked = false;
 
@@ -74,6 +82,7 @@ public class Mole : Player
 
         controller.Move(velocity * Time.deltaTime);
     }
+
     void InputAttack()
     {
         Attack();
@@ -85,7 +94,6 @@ public class Mole : Player
     // 칼 공격 콤보 관련 함수
     public void Attack()
     {
-        Debug.Log("Attack 시점에서 " + comboStep);
         if (comboStep == 0)
         {
             animator.Play("LeftPunching");
@@ -101,11 +109,13 @@ public class Mole : Player
             }
         }
     }
+
     public void ComboPossible()
     {
         // Debug.Log("Combo Possible");
         comboPossible = true;
     }
+
     public void Combo()
     {
         // Debug.Log("Combo!" + comboStep);
@@ -119,12 +129,13 @@ public class Mole : Player
             default: ComboReset(); break;
         }
     }
+
     public void ComboReset()
     {
-        Debug.Log("콤보 리셋");
         comboPossible = false;
         comboStep = 0;
     }
+
     public void IsAttackedToggle()
     {
         isAttacked = !isAttacked;
@@ -135,9 +146,10 @@ public class Mole : Player
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        direction = new Vector3(horizontal, 0, vertical);
+        // StandardTransform = CameraManager.Instance.currentNode.Value;
+        StandardTransform = Camera.main.transform;
 
-        ;
+        direction = StandardTransform.forward * vertical + StandardTransform.right * horizontal;
 
         if (direction != Vector3.zero)
         {
@@ -149,6 +161,7 @@ public class Mole : Player
 
         controller.Move(Vector3.Scale(direction, new Vector3(1f, 0f, 1f)).normalized * moveSpeed * Time.deltaTime);
     }
+
     void InputHangOnMovement()
     {
         float horizontal = Input.GetAxis("Horizontal");
@@ -175,6 +188,7 @@ public class Mole : Player
             controller.Move(velocity * Time.deltaTime);
         }
     }
+
     void InputHangOnJump()
     {
         animator.SetTrigger("HangOnJump");

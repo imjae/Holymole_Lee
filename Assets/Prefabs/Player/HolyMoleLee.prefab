@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 1513090705227320027}
   m_Layer: 0
   m_Name: HolyMoleLee
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,7 +216,7 @@ Transform:
   m_GameObject: {fileID: 1513090705227320026}
   m_LocalRotation: {x: 0, y: 0.57131535, z: 0, w: 0.8207306}
   m_LocalPosition: {x: -31.464766, y: 0.09486604, z: 9.559133}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 6686850660584593622}
   - {fileID: 1258173102923290873}
