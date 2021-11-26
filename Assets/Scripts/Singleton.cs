@@ -25,5 +25,9 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             }
             return _instance;
         }
+        set
+        {
+            _instance = value;
+        }
     }
 }
