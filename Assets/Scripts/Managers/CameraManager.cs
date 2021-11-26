@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraManager : MonoBehaviour
+public class CameraManager : Singleton<CameraManager>
 {
     // TODO Camera는 VR의 캐릭터가 될 예정
     // 카메라의 위치를 담고있는 리스트
@@ -48,6 +48,7 @@ public class CameraManager : MonoBehaviour
 
     public void NextCamera()
     {
+        
         TransferCamera(NextNode());
     }
     public void PreviousCamera()
