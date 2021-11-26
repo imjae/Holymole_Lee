@@ -12,7 +12,6 @@ public class TransferCameraTrigger : MonoBehaviour
             if (dir < 90f)
             {
                 // 다음 카메라
-                Debug.Log("다음카메라!!");
                 CameraManager.Instance.NextCamera();
             }
             else
