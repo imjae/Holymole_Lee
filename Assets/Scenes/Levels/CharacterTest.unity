@@ -2233,6 +2233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 947894163}
+  - component: {fileID: 947894164}
   m_Layer: 0
   m_Name: Fragged Box Wood 04
   m_TagString: Untagged
@@ -2258,6 +2259,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &947894164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947894162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7892d07f2fd7e7d489f545c659ea11af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fragEnabled: 1
+  forceMax: 250
+  forceMin: 50
+  fragOffScale: 1
+  rotateOnHit: 10
+  fragMass: 0.01
+  hitPointDecrease: 0.2
+  limitFragmentSpeed: 25
+  fragAllOnDamage: 0
+  collidefragMagnitude: 0
+  collideMask:
+    serializedVersion: 2
+    m_Bits: 0
+  fragEmitMinMax: {x: 2, y: 4}
+  stickyTop: 0
+  stickyBottom: 0
+  connectedFragments: 3
+  connectOverlapSphere: 0.5
+  stickyMask:
+    serializedVersion: 2
+    m_Bits: 1
+  disableMask:
+    serializedVersion: 2
+    m_Bits: 0
+  disableDelay: 0
+  combineFrags: 1
+  combineMeshesDelay: 3
+  startMesh: {fileID: 0}
+  fragParticles: {fileID: 0}
+  dustParticles: {fileID: 0}
+  reCounter: 1
+  combinedFrags: {fileID: 0}
+  meshFilters: []
+  fragments: {fileID: 0}
+  fragMaterials: []
+  impactSound: {fileID: 0}
+  maxPitch: 1
+  minPitch: 1
+  volume: 1
+  minVelocity: 1
 --- !u!33 &948610727
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2844,6 +2897,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1166278832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1143359148701457559, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
+  m_PrefabInstance: {fileID: 1589645442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1166278833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166278832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 212663e46048e044585e10659a284448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1166278837
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166278832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1170363729
 GameObject:
   m_ObjectHideFlags: 0
@@ -3133,7 +3216,6 @@ GameObject:
   - component: {fileID: 1260313455}
   - component: {fileID: 1261070545}
   - component: {fileID: 1262192527}
-  - component: {fileID: 64198741632231321}
   m_Layer: 0
   m_Name: Original Mesh
   m_TagString: Untagged
@@ -3837,6 +3919,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 964336600529386973, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 964336600529386973, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1513090705227320026, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
       propertyPath: m_Name
       value: HolyMoleLee
@@ -3884,6 +3974,14 @@ PrefabInstance:
     - target: {fileID: 2461377765063485521, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8418394783191276816, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8418394783191276816, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
@@ -4282,6 +4380,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1878438364 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8532106198917528666, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
+  m_PrefabInstance: {fileID: 1589645442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1878438365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878438364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 212663e46048e044585e10659a284448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1878438369
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878438364}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1908989516
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4628,20 +4756,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 7c5e5660a5c4b7848a000d480bb262db, type: 3}
---- !u!64 &64198741632231321
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1260007531}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43937063509711532, guid: 3e48533eb7828d141a98d694e527e834, type: 2}
 --- !u!64 &64218201320372735
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5264,7 +5378,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2206294140797008349}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5341,6 +5455,7 @@ GameObject:
   - component: {fileID: 404946442370979848}
   - component: {fileID: 2206294140797008350}
   - component: {fileID: 2206294140797008351}
+  - component: {fileID: 2206294140797008352}
   m_Layer: 0
   m_Name: woodbox_sculpture1
   m_TagString: Untagged
@@ -5356,7 +5471,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2206294140797008349}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.0071915435, y: 0.012077987, z: 0.004041403}
@@ -5377,6 +5492,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2206294140797008352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2206294140797008349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4313d58daab963d45a184fe331ef9e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fragged: 0
+  hitPoints: 1
+  stickyFrag: 0
+  connected: 1
+  released: 0
+  cacheRB: {fileID: 0}
 --- !u!33 &2484403616908340418
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14863,7 +14996,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4768226939562558348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.558, z: 0}
+  m_LocalPosition: {x: -1.538, y: 0.731, z: -1.969}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 947894163}
@@ -14980,7 +15113,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9215615336344108106}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -15035,7 +15168,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8943940696045347966}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -15076,7 +15209,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8619613616157241818}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -15123,6 +15256,7 @@ GameObject:
   - component: {fileID: 8465652884286097300}
   - component: {fileID: 7961508728812725826}
   - component: {fileID: 7961508728812725827}
+  - component: {fileID: 7961508728812725828}
   m_Layer: 0
   m_Name: woodbox_sculpture5
   m_TagString: Untagged
@@ -15138,7 +15272,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7961508728812725825}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.009143161, y: 0.012177255, z: 0.012279098}
@@ -15159,6 +15293,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7961508728812725828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7961508728812725825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4313d58daab963d45a184fe331ef9e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fragged: 0
+  hitPoints: 1
+  stickyFrag: 0
+  connected: 1
+  released: 0
+  cacheRB: {fileID: 0}
 --- !u!4 &8408117145776350960
 Transform:
   m_ObjectHideFlags: 0
@@ -15180,7 +15332,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7961508728812725825}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -15241,6 +15393,7 @@ GameObject:
   - component: {fileID: 7827248019757305871}
   - component: {fileID: 8619613616157241819}
   - component: {fileID: 8619613616157241820}
+  - component: {fileID: 8619613616157241821}
   m_Layer: 0
   m_Name: woodbox_sculpture4
   m_TagString: Untagged
@@ -15256,7 +15409,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8619613616157241818}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.012614784, y: 0.01199715, z: 0.009986562}
@@ -15277,6 +15430,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8619613616157241821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8619613616157241818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4313d58daab963d45a184fe331ef9e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fragged: 0
+  hitPoints: 1
+  stickyFrag: 0
+  connected: 1
+  released: 0
+  cacheRB: {fileID: 0}
 --- !u!1 &8943940696045347966
 GameObject:
   m_ObjectHideFlags: 0
@@ -15290,6 +15461,7 @@ GameObject:
   - component: {fileID: 7430867767544169899}
   - component: {fileID: 8943940696045347967}
   - component: {fileID: 8943940696045347968}
+  - component: {fileID: 8943940696045347969}
   m_Layer: 0
   m_Name: woodbox_sculpture3
   m_TagString: Untagged
@@ -15305,7 +15477,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8943940696045347966}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.011265599, y: 0.011907029, z: 0.012014846}
@@ -15326,6 +15498,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8943940696045347969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8943940696045347966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4313d58daab963d45a184fe331ef9e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fragged: 0
+  hitPoints: 1
+  stickyFrag: 0
+  connected: 1
+  released: 0
+  cacheRB: {fileID: 0}
 --- !u!4 &8995047756479097696
 Transform:
   m_ObjectHideFlags: 0
@@ -15353,6 +15543,7 @@ GameObject:
   - component: {fileID: 7270090877190610335}
   - component: {fileID: 9215615336344108107}
   - component: {fileID: 9215615336344108108}
+  - component: {fileID: 9215615336344108109}
   m_Layer: 0
   m_Name: woodbox_sculpture2
   m_TagString: Untagged
@@ -15368,7 +15559,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9215615336344108106}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.0078657335, y: 0.0123701785, z: 0.013169724}
@@ -15389,3 +15580,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &9215615336344108109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9215615336344108106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4313d58daab963d45a184fe331ef9e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fragged: 0
+  hitPoints: 1
+  stickyFrag: 0
+  connected: 1
+  released: 0
+  cacheRB: {fileID: 0}
