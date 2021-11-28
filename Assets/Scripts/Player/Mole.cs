@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mole : Player
+public class Mole : Singleton<Mole>
 {
     public float moveSpeed = 10f;
     public float hangOnMoveSpeed = 1f;
@@ -33,13 +33,13 @@ public class Mole : Player
     public Vector3 velocity;
     public Animator animator;
 
-    void Awake()
-    {
-        if (FindObjectsOfType<Player>().Length != 1)
-        {
-            Destroy(gameObject);
-        }
-    }
+    // void Awake()
+    // {
+    //     if (FindObjectsOfType<Mole>().Length != 1)
+    //     {
+    //         Destroy(gameObject);
+    //     }
+    // }
 
     // Start is called before the first frame update
     void Start()
