@@ -19,6 +19,7 @@ public class SceneStreamingTrigger : MonoBehaviour
             // Additive 설정하지 않으면 다음씬이 로드될때 첫번째 씬의 모든 오브젝트가 사라져 문제가 발생한다.
             var op = SceneManager.LoadSceneAsync(streamTargetScene, LoadSceneMode.Additive);
             
+            
             while(!op.isDone)
             {
                 yield return null;
@@ -33,7 +34,7 @@ public class SceneStreamingTrigger : MonoBehaviour
         if(targetScene.isLoaded)
         {
             var currentScene = SceneManager.GetSceneByName(triggerOwnScene);
-            SceneManager.MoveGameObjectToScene(GameObject.FindGameObjectWithTag("Player"), currentScene);
+            SceneManager.MoveGameObjectToScene(GameObject.FindGameObjectWithTag("MoveToSceneObject"), currentScene);
 
             var op = SceneManager.UnloadSceneAsync(streamTargetScene);
             while(!op.isDone)
