@@ -28,11 +28,15 @@ public class CameraManager : Singleton<CameraManager>
         Transform[] tmpArr = Resources.LoadAll<Transform>("CameraTransform");
         cameraTransformList = new LinkedList<Transform>(tmpArr);
 
-        // 첫 번째 노드 초기화
-        currentNode = cameraTransformList.First;
-        mainCamera = Camera.main;
+        if (currentNode == null)
+        {
+            // 첫 번째 노드 초기화
+            currentNode = cameraTransformList.First;
+            mainCamera = Camera.main;
 
-        TransferCamera(currentNode);
+            TransferCamera(currentNode);
+        }
+
     }
 
     // 노드의 위치값을 카메라에 덮어쓰기
@@ -56,7 +60,7 @@ public class CameraManager : Singleton<CameraManager>
 
     public void NextCamera()
     {
-        
+
         TransferCamera(NextNode());
     }
     public void PreviousCamera()

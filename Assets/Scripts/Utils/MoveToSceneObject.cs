@@ -2,13 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveToSceneObject : MonoBehaviour
+public class MoveToSceneObject : Singleton<MoveToSceneObject>
 {
-    void Awake()
-    {
-        if (FindObjectsOfType<MoveToSceneObject>().Length != 1)
-        {
-            Destroy(gameObject);
-        }
-    }
+    
 }
