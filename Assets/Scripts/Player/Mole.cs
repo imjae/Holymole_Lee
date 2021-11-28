@@ -79,8 +79,10 @@ public class Mole : Singleton<Mole>
             if (Input.GetButtonDown("Jump"))
                 InputHangOnJump();
         }
+        Debug.Log(DistanceFromFloor());
 
         controller.Move(velocity * Time.deltaTime);
+
     }
 
     void InputAttack()
@@ -161,7 +163,7 @@ public class Mole : Singleton<Mole>
         animator.SetFloat("RunPercent", percent, 0.1f, Time.deltaTime);
 
         float finalSpeed = moveSpeed;
-        if(isAttacked)
+        if (isAttacked)
             finalSpeed = moveSpeed / 3f;
 
         controller.Move(Vector3.Scale(direction, new Vector3(1f, 0f, 1f)).normalized * finalSpeed * Time.deltaTime);
@@ -220,5 +222,19 @@ public class Mole : Singleton<Mole>
             velocity.y = -2f;
         else
             velocity.y += gravity * Time.deltaTime;
+    }
+
+    float DistanceFromFloor()
+    {
+        float result = 0f;
+
+        RaycastHit hit;
+        if (Physics.Raycast(groundCheckPoint.position, (transform.up * -1f), out hit, 1000f, LayerMask.NameToLayer("Ground")))
+        {
+            Debug.Log("¿©±â?");
+            result = hit.distance;
+        }
+
+        return result;
     }
 }
