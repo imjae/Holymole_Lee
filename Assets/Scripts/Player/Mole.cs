@@ -61,7 +61,7 @@ public class Mole : Singleton<Mole>
         distanceFromFloor = DistanceFromFloor();
         isGrounded = gameObject.GroundCheck(groundCheckPoint, groundLayer, groundDistance);
 
-        #region ??????, ????, ????
+        #region Move, Jump, Attack
         if (!isHangOn)
         {
             animator.SetBool("IsHangOn", false);
@@ -200,13 +200,12 @@ public class Mole : Singleton<Mole>
     {
         if (isAttacked)
         {
-            // ?????? : ???
-            Debug.Log("?–è!");
+            Debug.Log("Dash!!");
         }
         else
         {
             animator.SetTrigger("Jump");
-            // ?????? : ????
+            
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             controller.Move(velocity * Time.deltaTime);
         }

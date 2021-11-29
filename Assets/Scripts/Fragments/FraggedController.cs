@@ -117,7 +117,7 @@ public class FraggedController : MonoBehaviour
 		meshFilters = fragments.transform.GetComponentsInChildren<MeshFilter>(true);
 		FindSticky();
 		if (startMesh == null) CombineFrags();
-		InvokeRepeating("reCombine", 1.0f, 1.0f);
+		// InvokeRepeating("reCombine", 1.0f, 1.0f);
 		ChangeMaterials();
 	}
 
