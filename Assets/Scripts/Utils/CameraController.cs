@@ -2,18 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraRotation : MonoBehaviour
+public class CameraController : Singleton<CameraController>
 {
     float rotX;
     float rotY;
     float sensitivity = 400f;
     float clampAngle = 40f;
-
-    void Start()
-    {
-        
-    }
-
 
     void Update()
     {
