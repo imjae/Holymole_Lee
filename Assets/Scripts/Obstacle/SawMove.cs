@@ -5,10 +5,15 @@ using System;
 
 public class SawMove : MonoBehaviour
 {
-    float mSpeed = 0.1f;
+    public float mSpeed;
     float railLength;
     float sawLength;
+    int direction = 1;
 
+    private void Start()
+    {
+        mSpeed = 0.01f;
+    }
     void Update()
     {
         Moving();
@@ -16,16 +21,21 @@ public class SawMove : MonoBehaviour
 
     public void Moving()
     {
-        railLength = gameObject.GetComponentInParent<MeshCollider>().bounds.size.x;//饭老狼 气
-        sawLength = gameObject.GetComponent<MeshCollider>().bounds.size.x;//砰聪狼 气
+        railLength = transform.parent.GetComponent<MeshCollider>().bounds.size.z;//饭老狼 气
+        sawLength = gameObject.GetComponent<MeshCollider>().bounds.size.z;//砰聪狼 气
         
-        if (transform.localPosition.z <= Math.Abs(railLength / 2 - sawLength / 2))
+        if (transform.localPosition.z >= Math.Abs(railLength - sawLength))
         {
-            transform.Translate(Vector3.forward * mSpeed,Space.Self);
+            direction = -1;
         }
-        if(transform.localPosition.z >= -Math.Abs(railLength/2 - sawLength/2))
+        else if(transform.localPosition.z <= -Math.Abs(railLength - sawLength))
         {
-            transform.Translate(Vector3.forward * -mSpeed, Space.Self);
+            direction = 1;
         }
+
+        transform.Translate(Vector3.forward * mSpeed * direction);
+        Debug.Log(railLength);
+        Debug.Log(sawLength);
+        Debug.Log(railLength - sawLength);
     }
 }
