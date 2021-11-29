@@ -12,15 +12,16 @@ public class Mole : Singleton<Mole>
     public LayerMask groundLayer;
 
     public float jumpHeight = 0.1f;
+    public float distanceFromFloor = 0f;
 
 
     public bool isMovement = true;
     public bool isGrounded = true;
     public bool isAttacked { get; set; }
     public bool isHangOn = false;
+    public bool isFalling { get; set; }
 
-
-    float gravity = -19.62f;
+    float gravity = -13.62f;
     public CharacterController controller;
     Vector3 direction;
     private Transform _standardTransform;
@@ -41,7 +42,6 @@ public class Mole : Singleton<Mole>
     //     }
     // }
 
-    // Start is called before the first frame update
     void Start()
     {
         // StandardTransform = CameraManager.Instance.currentNode.Value;
@@ -57,8 +57,10 @@ public class Mole : Singleton<Mole>
     // Update is called once per frame
     void Update()
     {
+        distanceFromFloor = DistanceFromFloor();
         isGrounded = gameObject.GroundCheck(groundCheckPoint, groundLayer, groundDistance);
 
+        #region Move, Jump, Attack
         if (!isHangOn)
         {
             animator.SetBool("IsHangOn", false);
@@ -79,6 +81,13 @@ public class Mole : Singleton<Mole>
             if (Input.GetButtonDown("Jump"))
                 InputHangOnJump();
         }
+        #endregion
+
+        if (distanceFromFloor > 3)
+        {
+            IsFallingToggle();
+            animator.SetTrigger("FallingIdle");
+        }
 
         controller.Move(velocity * Time.deltaTime);
     }
@@ -91,7 +100,6 @@ public class Mole : Singleton<Mole>
     public int comboStep;
     public bool comboPossible;
 
-    // 칼 공격 콤보 관련 함수
     public void Attack()
     {
         if (comboStep == 0)
@@ -132,14 +140,23 @@ public class Mole : Singleton<Mole>
 
     public void ComboReset()
     {
-        IsAttackedToggle();
+        IsAttackedFalse();
         comboPossible = false;
         comboStep = 0;
     }
 
-    public void IsAttackedToggle()
+    public void IsAttackedTrue()
     {
-        isAttacked = !isAttacked;
+        isAttacked = true;
+    }
+    public void IsAttackedFalse()
+    {
+        isAttacked = false;
+    }
+
+    public void IsFallingToggle()
+    {
+        isFalling = !isFalling;
     }
 
     void InputMovement()
@@ -161,8 +178,12 @@ public class Mole : Singleton<Mole>
         animator.SetFloat("RunPercent", percent, 0.1f, Time.deltaTime);
 
         float finalSpeed = moveSpeed;
-        if(isAttacked)
+
+        if (isAttacked)
             finalSpeed = moveSpeed / 3f;
+
+        else if (isFalling)
+            finalSpeed = moveSpeed / 2f;
 
         controller.Move(Vector3.Scale(direction, new Vector3(1f, 0f, 1f)).normalized * finalSpeed * Time.deltaTime);
     }
@@ -182,13 +203,12 @@ public class Mole : Singleton<Mole>
     {
         if (isAttacked)
         {
-            // 공격중 : 대쉬
-            Debug.Log("대쉬!");
+            Debug.Log("Dash!!");
         }
         else
         {
             animator.SetTrigger("Jump");
-            // 일반상태 : 점프
+
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             controller.Move(velocity * Time.deltaTime);
         }
@@ -201,7 +221,7 @@ public class Mole : Singleton<Mole>
         // {
         //     rigid.AddForce(transform.forward * -100);
         // }
-        //     // 일반상태 : 점프
+        //     // ?????? : ????
         // velocity.y = Mathf.Sqrt(jumpHeight/2f * -2f * gravity);
         // controller.Move(velocity * Time.deltaTime);
     }
@@ -220,5 +240,32 @@ public class Mole : Singleton<Mole>
             velocity.y = -2f;
         else
             velocity.y += gravity * Time.deltaTime;
+    }
+
+    float DistanceFromFloor()
+    {
+        float result = 0f;
+
+        Debug.DrawRay(groundCheckPoint.position, (Vector3.down * 10f), Color.red);
+
+        RaycastHit hit;
+        if (Physics.Raycast(groundCheckPoint.position, Vector3.down, out hit, 100f))
+        {
+            result = hit.distance;
+        }
+
+        return result;
+    }
+
+    void KnockBack(Vector3 knockBackVelocity)
+    {
+        velocity = knockBackVelocity;
+        StartCoroutine(DelayVectorZero(.5f));
+    }
+
+    IEnumerator DelayVectorZero(float time)
+    {
+        yield return new WaitForSeconds(time);
+        velocity = Vector3.zero;
     }
 }
