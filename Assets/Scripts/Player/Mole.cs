@@ -42,7 +42,6 @@ public class Mole : Singleton<Mole>
     //     }
     // }
 
-    // Start is called before the first frame update
     void Start()
     {
         // StandardTransform = CameraManager.Instance.currentNode.Value;
@@ -87,7 +86,7 @@ public class Mole : Singleton<Mole>
         if (distanceFromFloor > 3)
         {
             IsFallingToggle();
-            animator.SetTrigger("Falling");
+            animator.SetTrigger("FallingIdle");
         }
 
         controller.Move(velocity * Time.deltaTime);
@@ -101,7 +100,6 @@ public class Mole : Singleton<Mole>
     public int comboStep;
     public bool comboPossible;
 
-    // ? ???? ??? ???? ???
     public void Attack()
     {
         if (comboStep == 0)
@@ -210,7 +208,7 @@ public class Mole : Singleton<Mole>
         else
         {
             animator.SetTrigger("Jump");
-            
+
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             controller.Move(velocity * Time.deltaTime);
         }

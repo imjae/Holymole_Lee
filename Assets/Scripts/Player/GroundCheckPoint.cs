@@ -8,10 +8,8 @@ public class GroundCheckPoint : MonoBehaviour
     {
         if (transform.parent.TryGetComponent<Mole>(out Mole mole))
         {
-            Debug.Log("∏Ù ¿÷¿Ω !");
             if (other.CompareTag("Ground") && mole.isFalling)
             {
-                Debug.Log("∂• π‚¿Ω !");
                 mole.IsFallingToggle();
 
                 mole.animator.SetTrigger("FallingToRoll");
