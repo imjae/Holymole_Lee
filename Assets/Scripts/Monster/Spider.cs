@@ -29,7 +29,7 @@ public class Spider : Monster
         Health.GodMode = false;
 
         AttackValue = 10f;
-        AttackRange = 3f;
+        AttackRange = 1f;
         SpeedValue = 3f;
 
         DetectionTime = 0.5f;
@@ -76,7 +76,7 @@ public class Spider : Monster
             {
                 OnIdleStatus();
                 yield return new WaitForSeconds(DetectionTime);
-                OnRunStatus();
+                OnWalkStatus();
                 yield return new WaitForSeconds(DetectionIntervalTime);
             }
             yield return null;
@@ -94,9 +94,9 @@ public class Spider : Monster
 
 
     // 아래부터 재정의 함수
-    protected override void OnRunStatus()
+    protected override void OnWalkStatus()
     {
-        base.OnRunStatus();
+        base.OnWalkStatus();
     }
 
     protected override void OnIdleStatus()

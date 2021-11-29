@@ -91,31 +91,24 @@ public abstract class Monster : Character
         }
     }
 
-    // 달리기 상태일때 동작
-    protected virtual void OnRunStatus()
+    // 걷기기 상태일때 동작
+    protected virtual void OnWalkStatus()
     {
         Agent.enabled = true;
         DetectionLocationTarget(Player);
-        Animator.SetTrigger("RunTrigger");
-    }
-    // 달리기 상태일때 동작
-    protected virtual void OnRunStatus(Transform target)
-    {
-        Agent.enabled = true;
-        DetectionLocationTarget(target);
-        Animator.SetTrigger("RunTrigger");
+        Animator.SetTrigger("Walk");
     }
     // IDLE 상태일때 동작
     protected virtual void OnIdleStatus()
     {
-        Animator.SetTrigger("IdleTrigger");
+        Animator.SetTrigger("Idle");
         Agent.enabled = false;
         Agent.velocity = Vector3.zero;
     }
     // IDLE 상태일때 동작
     protected virtual void OnHitStatus()
     {
-        Animator.SetTrigger("HitTrigger");
+        Animator.SetTrigger("Hit");
         Agent.enabled = false;
         Agent.velocity = Vector3.zero;
     }
@@ -124,7 +117,7 @@ public abstract class Monster : Character
     {
         Agent.enabled = false;
         Agent.velocity = Vector3.zero;
-        Animator.SetTrigger("AttackTrigger");
+        Animator.SetTrigger("Attack");
     }
     // 죽음
     protected virtual void Die()
