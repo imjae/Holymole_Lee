@@ -8,7 +8,8 @@ public class AttackPoint : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            other.SendMessage("KnockBack", (transform.forward + transform.up).normalized * 3f);
+            Debug.Log("¿Ã∞≈ æ»∂‰?");
+            other.SendMessage("KnockBack", (transform.forward + transform.up*2).normalized * 3f);
         }
     }
 }

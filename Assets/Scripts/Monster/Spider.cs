@@ -38,7 +38,7 @@ public class Spider : Monster
         Agent.speed = SpeedValue;
 
         Detection = DetectionRoutine();
-        StartCoroutine(Detection);
+        // StartCoroutine(Detection);
     }
 
     void Update()
