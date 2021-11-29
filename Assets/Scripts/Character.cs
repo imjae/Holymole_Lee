@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private float _attackValue;
+    private float _attackRange;
+    private float _speedValue;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float AttackValue { get; set;}
+    public float AttackRange { get; set;}
+    public float SpeedValue { get; set;}
 }
