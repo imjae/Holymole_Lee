@@ -20,7 +20,11 @@ public class PushingCheckPoint : MonoBehaviour
     {
         if (transform.parent.TryGetComponent<Mole>(out Mole mole))
         {
-            mole.animator.Play("Run Blend Tree");
+            GameObject target = other.gameObject;
+            if (target.TryGetComponent<Obtacle>(out Obtacle t))
+            {
+                mole.animator.Play("Run Blend Tree");
+            }
         }
     }
 }
