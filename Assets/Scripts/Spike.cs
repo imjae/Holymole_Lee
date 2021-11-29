@@ -25,7 +25,7 @@ public class Spike : MonoBehaviour
             
             Vector3 pushVelocity = (a + b).normalized * 5f;
 
-            other.gameObject.SendMessage("HitSpike", pushVelocity);
+            other.gameObject.SendMessage("KnockBack", pushVelocity);
 
             if(other.gameObject.TryGetComponent<Rigidbody>(out Rigidbody rigid))
             {

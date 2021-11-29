@@ -256,4 +256,16 @@ public class Mole : Singleton<Mole>
 
         return result;
     }
+
+    void KnockBack(Vector3 knockBackVelocity)
+    {
+        velocity = knockBackVelocity;
+        StartCoroutine(DelayVectorZero(.5f));
+    }
+
+    IEnumerator DelayVectorZero(float time)
+    {
+        yield return new WaitForSeconds(time);
+        velocity = Vector3.zero;
+    }
 }

@@ -119,6 +119,19 @@ public class Spider : Monster
         // 공격 실행 후 캐릭터 위치를 보게함.
         transform.LookAt(Player.transform);
 
+        ActiveAttackPoint();
+
         base.Attack();
+    }
+
+    public void ActiveAttackPoint()
+    {
+        var attackPoint = transform.Find("AttackPoint").GetComponent<SphereCollider>();
+        attackPoint.enabled = true;
+    }
+    public void UnActiveAttackPoint()
+    {
+        var attackPoint = transform.Find("AttackPoint").GetComponent<SphereCollider>();
+        attackPoint.enabled = false;
     }
 }

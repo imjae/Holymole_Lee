@@ -115,7 +115,7 @@ public class HealthSystem : MonoBehaviour
     //==============================================================
     private void UpdateHealthBar()
     {
-        slider.value = hitPoint / maxHitPoint;
+        // slider.value = hitPoint / maxHitPoint;
     }
 
 
