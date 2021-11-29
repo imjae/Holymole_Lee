@@ -142,15 +142,20 @@ public class Mole : Singleton<Mole>
 
     public void ComboReset()
     {
-        IsAttackedToggle();
+        IsAttackedFalse();
         comboPossible = false;
         comboStep = 0;
     }
 
-    public void IsAttackedToggle()
+    public void IsAttackedTrue()
     {
-        isAttacked = !isAttacked;
+        isAttacked = true;
     }
+    public void IsAttackedFalse()
+    {
+        isAttacked = false;
+    }
+
     public void IsFallingToggle()
     {
         isFalling = !isFalling;

@@ -3906,6 +3906,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1162804738, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166278837, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
+      propertyPath: m_Size.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166278837, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
+      propertyPath: m_Size.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166278837, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878438369, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
+      propertyPath: m_Size.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878438369, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
+      propertyPath: m_Size.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878438369, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1513090705227320026, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
       propertyPath: m_Name
       value: HolyMoleLee
@@ -3954,27 +3982,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8532106198917528666, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
---- !u!1 &1589645443 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1513090705227320026, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
-  m_PrefabInstance: {fileID: 1589645442}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &1589645444
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589645443}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.1605043
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.53128195, z: 0}
 --- !u!23 &1590530242
 MeshRenderer:
   m_ObjectHideFlags: 0

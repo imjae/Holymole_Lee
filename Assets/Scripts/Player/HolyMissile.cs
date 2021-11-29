@@ -6,6 +6,7 @@ public class HolyMissile : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        other.gameObject.SendMessage("Damage", 2f, SendMessageOptions.DontRequireReceiver);
+        // if (other.GetComponent<Attackable>())
+        //     other.gameObject.SendMessage("Damage", 2f, SendMessageOptions.DontRequireReceiver);
     }
 }
