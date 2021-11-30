@@ -32,10 +32,10 @@ public class Mole : Player
 
     void Start()
     {
-        MoveSpeed = 4f;
+        MoveSpeed = 3f;
         HangOnMoveSpeed = 1f;
         GroundDistance = 0.1f;
-        JumpHeight = 1.5f;
+        JumpHeight = 1.2f;
 
         IsMovement = false;
         IsGrounded = true;

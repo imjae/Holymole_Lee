@@ -6171,7 +6171,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1510742732}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b8d80524dc9a0e4996b93f0d0097863, type: 3}
+  m_Script: {fileID: 11500000, guid: 12411f99a75877b4bb918f3051c81e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1513652408
@@ -6594,9 +6594,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1623992286}
   - component: {fileID: 1623992288}
-  - component: {fileID: 1623992290}
   - component: {fileID: 1623992287}
   - component: {fileID: 1623992289}
+  - component: {fileID: 1623992290}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7896,10 +7896,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HolyMoleLee
       objectReference: {fileID: 0}
-    - target: {fileID: 1516726937735045603, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 2032495895}
     - target: {fileID: 2461377765063485521, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -7949,11 +7945,6 @@ PrefabInstance:
 --- !u!4 &2032495888 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2461377765063485521, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
-  m_PrefabInstance: {fileID: 2032495887}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2032495895 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1197888110948089818, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
   m_PrefabInstance: {fileID: 2032495887}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2081772444

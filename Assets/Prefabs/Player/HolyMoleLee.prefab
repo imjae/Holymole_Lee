@@ -314,7 +314,7 @@ MonoBehaviour:
     m_Bits: 1024
   controller: {fileID: 3159135094007575616}
   velocity: {x: 0, y: 0, z: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 1197888110948089818}
   comboStep: 0
   comboPossible: 0
 --- !u!136 &1723211768
