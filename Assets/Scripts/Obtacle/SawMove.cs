@@ -16,26 +16,34 @@ public class SawMove : MonoBehaviour
     }
     void Update()
     {
-        Moving();
+        transform.Translate(Vector3.forward * mSpeed * direction);
     }
 
-    public void Moving()
+    private void OnTriggerEnter(Collider other)
     {
-        railLength = transform.parent.GetComponent<MeshCollider>().bounds.size.z;//饭老狼 气
-        sawLength = gameObject.GetComponent<MeshCollider>().bounds.size.z;//砰聪狼 气
-        
-        if (transform.localPosition.z >= Math.Abs(railLength - sawLength))
+        if (other.name == "FrontCheck")
         {
             direction = -1;
         }
-        else if(transform.localPosition.z <= -Math.Abs(railLength - sawLength))
+        else if (other.name == "BackCheck")
         {
             direction = 1;
         }
-
-        transform.Translate(Vector3.forward * mSpeed * direction);
-        Debug.Log(railLength);
-        Debug.Log(sawLength);
-        Debug.Log(railLength - sawLength);
     }
+    //public void Moving()
+    //{
+    //    railLength = transform.parent.GetComponent<MeshCollider>().bounds.size.z;//饭老狼 气
+    //    sawLength = gameObject.GetComponent<MeshCollider>().bounds.size.z;//砰聪狼 气
+
+    //    if (transform.localPosition.z >= Math.Abs(railLength - sawLength))
+    //    {
+    //        direction = -1;
+    //    }
+    //    else if(transform.localPosition.z <= -Math.Abs(railLength - sawLength))
+    //    {
+    //        direction = 1;
+    //    }
+    //    transform.Translate(Vector3.forward * mSpeed * direction);
+    //}
+
 }
