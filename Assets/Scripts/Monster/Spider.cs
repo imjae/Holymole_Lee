@@ -113,11 +113,6 @@ public class Spider : Monster
         base.OnHitStatus();
     }
 
-    protected override void Die()
-    {
-        base.Die();
-    }
-
     protected override void Attack()
     {
         // 공격 실행 후 캐릭터 위치를 보게함.

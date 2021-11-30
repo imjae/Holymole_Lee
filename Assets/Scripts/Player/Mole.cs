@@ -32,6 +32,13 @@ public class Mole : Player
 
     void Start()
     {
+        if (!TryGetComponent<CharacterController>(out controller))
+            Debug.LogError("CharacterController 컴포넌트 없습니다.");
+        if (!TryGetComponent<Animator>(out animator))
+            Debug.LogError("Animator 컴포넌트 없습니다.");
+
+        Health = gameObject.GetComponent<HealthSystem>();
+
         MoveSpeed = 3f;
         HangOnMoveSpeed = 1f;
         GroundDistance = 0.1f;
@@ -43,14 +50,16 @@ public class Mole : Player
         IsHangOn = false;
         IsFalling = false;
 
+        Health.hitPoint = 30f;
+        Health.maxHitPoint = 30f;
+        Health.regenerate = false;
+        Health.isDecrease = false;
+        Health.GodMode = false;
+
         // StandardTransform = CameraManager.Instance.currentNode.Value;
         velocity = Vector3.zero;
         IsAttacked = false;
 
-        if (!TryGetComponent<CharacterController>(out controller))
-            Debug.LogError("CharacterController 컴포넌트가 없습니다.");
-        if (!TryGetComponent<Animator>(out animator))
-            Debug.LogError("Animator 컴포넌트가 없습니다.");
     }
 
     // Update is called once per frame
@@ -88,6 +97,11 @@ public class Mole : Player
             animator.SetTrigger("FallingIdle");
         }
 
+        if (Health.hitPoint <= 0 && !IsDie)
+        {
+            Die();
+        }
+
         controller.Move(velocity * Time.deltaTime);
     }
 
@@ -99,7 +113,7 @@ public class Mole : Player
     public int comboStep;
     public bool comboPossible;
 
-    public void Attack()
+    protected override void Attack()
     {
         if (comboStep == 0)
         {
@@ -254,6 +268,12 @@ public class Mole : Player
         velocity = knockBackVelocity;
         StartCoroutine(DelayVectorZero(.5f));
     }
+
+    // void TakeDamage(float damage)
+    // {
+    //     Debug.Log(Health.hitPoint + "현재 체력");
+    //     Health.TakeDamage(damage);
+    // }
 
     IEnumerator DelayVectorZero(float time)
     {

@@ -9,7 +9,6 @@ public abstract class Monster : Character
     private Animator _animator;
     private Transform _player;
     private NavMeshAgent _agent;
-    private HealthSystem _healthSystem;
     private Camera _faceCamera;
 
     private float _detectionTime;
@@ -34,11 +33,6 @@ public abstract class Monster : Character
         get { return _agent; }
         set { _agent = value; }
     }
-    public HealthSystem Health
-    {
-        get { return _healthSystem; }
-        set { _healthSystem = value; }
-    }
 
     protected float DetectionTime
     {
@@ -52,11 +46,6 @@ public abstract class Monster : Character
         set { _detectionIntervalTime = value; }
     }
 
-    protected bool IsDie
-    {
-        get { return _isDie; }
-        set { _isDie = value; }
-    }
     protected Camera FaceCamera
     {
         get { return _faceCamera; }
@@ -107,14 +96,14 @@ public abstract class Monster : Character
         Agent.velocity = Vector3.zero;
     }
     // 공격
-    protected virtual void Attack()
+    protected override void Attack()
     {
         Agent.enabled = false;
         Agent.velocity = Vector3.zero;
         Animator.SetTrigger("Attack");
     }
     // 죽음
-    protected virtual void Die()
+    protected override void Die()
     {
         // 실행중이던 애니메이션 트리거 전부 종료
         IsDie = true;
