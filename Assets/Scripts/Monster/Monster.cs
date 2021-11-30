@@ -91,7 +91,7 @@ public abstract class Monster : Character
         }
     }
 
-    // 걷기기 상태일때 동작
+    // 걷기 상태일때 동작
     protected virtual void OnWalkStatus()
     {
         Agent.enabled = true;
@@ -123,7 +123,6 @@ public abstract class Monster : Character
     protected virtual void Die()
     {
         // 실행중이던 애니메이션 트리거 전부 종료
-
         IsDie = true;
         Agent.velocity = Vector3.zero;
         Agent.enabled = false;
@@ -154,7 +153,7 @@ public abstract class Monster : Character
         IsAttacked = false;
     }
 
-    private IEnumerator SwitchDelayIntoAction(float time, Action action)
+    private IEnumerator DelayIntoAction(float time, Action action)
     {
         yield return new WaitForSeconds(time);
         action();

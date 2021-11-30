@@ -2153,6 +2153,18 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1723211767}
+    - target: {fileID: 1479621413, guid: a81cfdb3f3b757345a955fb9947163c8, type: 3}
+      propertyPath: m_Radius
+      value: 0.77366525
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479621413, guid: a81cfdb3f3b757345a955fb9947163c8, type: 3}
+      propertyPath: m_Center.x
+      value: -0.0009139844
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479621413, guid: a81cfdb3f3b757345a955fb9947163c8, type: 3}
+      propertyPath: m_Center.z
+      value: 0.117851004
+      objectReference: {fileID: 0}
     - target: {fileID: 1557585983417840, guid: a81cfdb3f3b757345a955fb9947163c8, type: 3}
       propertyPath: m_Name
       value: Spider
@@ -3908,7 +3920,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2461377765063485521, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.4
+      value: 0.265
       objectReference: {fileID: 0}
     - target: {fileID: 2461377765063485521, guid: 09279f6b942b4ab468cc86f5e2ef9315, type: 3}
       propertyPath: m_LocalPosition.z
