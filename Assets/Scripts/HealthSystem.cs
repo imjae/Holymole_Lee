@@ -121,7 +121,6 @@ public class HealthSystem : MonoBehaviour
 
     public void TakeDamage(float Damage)
     {
-        // Debug.Log($"{Damage} 데미지 입음 / {hitPoint}");
         hitPoint -= Damage;
         if (hitPoint < 1)
         {
