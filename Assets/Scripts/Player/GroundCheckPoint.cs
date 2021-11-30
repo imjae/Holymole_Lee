@@ -8,7 +8,7 @@ public class GroundCheckPoint : MonoBehaviour
     {
         if (transform.parent.TryGetComponent<Mole>(out Mole mole))
         {
-            if (other.CompareTag("Ground") && mole.isFalling)
+            if (other.CompareTag("Ground") && mole.IsFalling)
             {
                 mole.IsFallingToggle();
 
