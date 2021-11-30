@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class AttackPoint : MonoBehaviour
 {
+    Monster monster;
+
     void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        monster = transform.parent.GetComponent<Monster>();
+
+        // 대상이 플레이어이고, 죽지 않았을 경우
+        if (other.CompareTag("Player") && !other.GetComponent<Player>().IsDie)
         {
-            Debug.Log("이거 안뜸?");
-            other.SendMessage("KnockBack", (transform.forward + transform.up*2).normalized * 3f);
+            other.SendMessage("KnockBack", (transform.forward + transform.up * 2).normalized * 3f);
+            other.SendMessage("TakeDamage", monster.AttackValue);
         }
     }
 }

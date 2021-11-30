@@ -7,19 +7,26 @@ using UnityEngine.AI;
 public class Spider : Monster
 {
     public GameObject target;
+    private Rigidbody rigid;
 
     private void OnEnable()
     {
         // 게임이 시작되면 게임 오브젝트에 부착된 NavMeshAgent 컴포넌트를 가져와서 저장
         Agent = this.GetComponent<NavMeshAgent>();
+        rigid = this.GetComponent<Rigidbody>();
     }
 
     private void Start()
     {
+        Debug.Log("거미 생성");
         IsAttacked = false;
+
+        target = FindObjectOfType<Player>().gameObject;
 
         Animator = this.GetComponent<Animator>();
         Health = this.GetComponent<HealthSystem>();
+
+        Debug.Log(target.name);
         Player = target.transform;
 
         // 몬스터 세부 사항 설정
@@ -113,11 +120,6 @@ public class Spider : Monster
         base.OnHitStatus();
     }
 
-    protected override void Die()
-    {
-        base.Die();
-    }
-
     protected override void Attack()
     {
         // 공격 실행 후 캐릭터 위치를 보게함.
@@ -127,6 +129,7 @@ public class Spider : Monster
 
         base.Attack();
     }
+
 
     public void ActiveAttackPoint()
     {

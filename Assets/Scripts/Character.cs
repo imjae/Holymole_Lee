@@ -13,8 +13,10 @@ public class Character : MonoBehaviour
     private float _attackValue;
     private float _attackRange;
     private float _speedValue;
+    private HealthSystem _healthSystem;
 
 
+    private bool _isDie;
     private bool _isMovement;
     private bool _isGrounded;
     private bool _isAttacked;
@@ -31,9 +33,27 @@ public class Character : MonoBehaviour
     public float JumpHeight { get { return _jumpHeight; } set { _jumpHeight = value; } }
     public float DistanceFromFloor { get { return _distanceFromFloor; } set { _distanceFromFloor = value; } }
 
+    public HealthSystem Health { get { return _healthSystem; } set { _healthSystem = value; } }
+    public bool IsDie { get { return _isDie; } set { _isDie = value; } }
     public bool IsMovement { get { return _isMovement; } set { _isMovement = value; } }
     public bool IsGrounded { get { return _isGrounded; } set { _isGrounded = value; } }
     public bool IsAttacked { get { return _isAttacked; } set { _isAttacked = value; } }
     public bool IsHangOn { get { return _isHangOn; } set { _isHangOn = value; } }
     public bool IsFalling { get { return _isFalling; } set { _isFalling = value; } }
+
+    // °ø°Ý
+    protected virtual void Attack()
+    {
+
+    }
+    // Á×À½
+    protected virtual void Die()
+    {
+
+    }
+
+    protected virtual void KnockBack(Vector3 knockBackVelocity)
+    {
+
+    }
 }

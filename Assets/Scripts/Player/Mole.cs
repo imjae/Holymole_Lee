@@ -32,10 +32,18 @@ public class Mole : Player
 
     void Start()
     {
+        if (!TryGetComponent<CharacterController>(out controller))
+            Debug.LogError("CharacterController 컴포넌트 없습니다.");
+        if (!TryGetComponent<Animator>(out animator))
+            Debug.LogError("Animator 컴포넌트 없습니다.");
+
+        Health = gameObject.GetComponent<HealthSystem>();
+
         MoveSpeed = 3f;
         HangOnMoveSpeed = 1f;
         GroundDistance = 0.1f;
         JumpHeight = 1.2f;
+        AttackValue = 30f;
 
         IsMovement = false;
         IsGrounded = true;
@@ -43,14 +51,16 @@ public class Mole : Player
         IsHangOn = false;
         IsFalling = false;
 
+        Health.hitPoint = 30f;
+        Health.maxHitPoint = 30f;
+        Health.regenerate = false;
+        Health.isDecrease = false;
+        Health.GodMode = false;
+
         // StandardTransform = CameraManager.Instance.currentNode.Value;
         velocity = Vector3.zero;
         IsAttacked = false;
 
-        if (!TryGetComponent<CharacterController>(out controller))
-            Debug.LogError("CharacterController 컴포넌트가 없습니다.");
-        if (!TryGetComponent<Animator>(out animator))
-            Debug.LogError("Animator 컴포넌트가 없습니다.");
     }
 
     // Update is called once per frame
@@ -88,6 +98,11 @@ public class Mole : Player
             animator.SetTrigger("FallingIdle");
         }
 
+        if (Health.hitPoint <= 0 && !IsDie)
+        {
+            Die();
+        }
+
         controller.Move(velocity * Time.deltaTime);
     }
 
@@ -99,7 +114,7 @@ public class Mole : Player
     public int comboStep;
     public bool comboPossible;
 
-    public void Attack()
+    protected override void Attack()
     {
         if (comboStep == 0)
         {
@@ -249,7 +264,7 @@ public class Mole : Player
         return result;
     }
 
-    void KnockBack(Vector3 knockBackVelocity)
+    protected override void KnockBack(Vector3 knockBackVelocity)
     {
         velocity = knockBackVelocity;
         StartCoroutine(DelayVectorZero(.5f));
@@ -259,5 +274,19 @@ public class Mole : Player
     {
         yield return new WaitForSeconds(time);
         velocity = Vector3.zero;
+    }
+
+    
+    // 죽음
+    protected override void Die()
+    {
+        Debug.Log("죽음 !");
+        animator.SetTrigger("Die");
+
+        // 실행중이던 애니메이션 트리거 전부 종료
+        IsDie = true;
+        IsAttacked = false;
+        IsFalling = false;
+        IsGrounded = false;
     }
 }
