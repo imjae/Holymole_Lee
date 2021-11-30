@@ -34,7 +34,7 @@ public class Character : MonoBehaviour
     public float DistanceFromFloor { get { return _distanceFromFloor; } set { _distanceFromFloor = value; } }
 
     public HealthSystem Health { get { return _healthSystem; } set { _healthSystem = value; } }
-    protected bool IsDie { get { return _isDie; } set { _isDie = value; } }
+    public bool IsDie { get { return _isDie; } set { _isDie = value; } }
     public bool IsMovement { get { return _isMovement; } set { _isMovement = value; } }
     public bool IsGrounded { get { return _isGrounded; } set { _isGrounded = value; } }
     public bool IsAttacked { get { return _isAttacked; } set { _isAttacked = value; } }

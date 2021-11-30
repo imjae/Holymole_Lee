@@ -269,15 +269,23 @@ public class Mole : Player
         StartCoroutine(DelayVectorZero(.5f));
     }
 
-    // void TakeDamage(float damage)
-    // {
-    //     Debug.Log(Health.hitPoint + "현재 체력");
-    //     Health.TakeDamage(damage);
-    // }
-
     IEnumerator DelayVectorZero(float time)
     {
         yield return new WaitForSeconds(time);
         velocity = Vector3.zero;
+    }
+
+    
+    // 죽음
+    protected override void Die()
+    {
+        Debug.Log("죽음 !");
+        animator.SetTrigger("Die");
+
+        // 실행중이던 애니메이션 트리거 전부 종료
+        IsDie = true;
+        IsAttacked = false;
+        IsFalling = false;
+        IsGrounded = false;
     }
 }

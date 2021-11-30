@@ -10,9 +10,9 @@ public class AttackPoint : MonoBehaviour
     {
         monster = transform.parent.GetComponent<Monster>();
 
-        if (other.CompareTag("Player"))
+        // 대상이 플레이어이고, 죽지 않았을 경우
+        if (other.CompareTag("Player") && !other.GetComponent<Player>().IsDie)
         {
-            Debug.Log(other.name);
             other.SendMessage("KnockBack", (transform.forward + transform.up * 2).normalized * 3f);
             other.SendMessage("TakeDamage", monster.AttackValue);
         }
