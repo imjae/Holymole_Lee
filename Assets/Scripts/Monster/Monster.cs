@@ -111,7 +111,15 @@ public abstract class Monster : Character
         Agent.enabled = false;
         IsAttacked = false;
 
+        Animator.SetTrigger("Die");
+        StartCoroutine(DelayIntoAction(2f, () => SelfDestroy()));
+
         StopCoroutine(Detection);
+    }
+
+    protected override void KnockBack(Vector3 knockBackVelocity)
+    {
+        Agent.velocity = knockBackVelocity;
     }
 
 

@@ -5,9 +5,12 @@ using UnityEngine;
 public class HolyMissile : MonoBehaviour
 {
     public GameObject hitEffect;
+    Player player;
 
     void OnTriggerEnter(Collider other)
     {
+        player = transform.parent.GetComponent<Player>();
+
         if (other.GetComponent<Destroyable>())
             other.gameObject.SendMessage("Damage", 2f, SendMessageOptions.DontRequireReceiver);
 
@@ -15,8 +18,9 @@ public class HolyMissile : MonoBehaviour
         {
             other.gameObject.SendMessage("KnockBack", transform.forward.normalized * 4f);
             var tmpEffect = Instantiate(hitEffect, other.bounds.center, Quaternion.identity);
-
             StartCoroutine(DelayDestroy(tmpEffect, 2f));
+
+            other.gameObject.SendMessage("TakeDamage", player.AttackValue);
         }
 
     }

@@ -43,17 +43,17 @@ public class Character : MonoBehaviour
 
     // °ø°Ý
     protected virtual void Attack()
-    { 
+    {
 
     }
     // Á×À½
     protected virtual void Die()
     {
-        
+
     }
 
     protected virtual void KnockBack(Vector3 knockBackVelocity)
     {
-        
+
     }
 }

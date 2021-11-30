@@ -125,10 +125,6 @@ public class Spider : Monster
         base.Attack();
     }
     
-    protected override void KnockBack(Vector3 knockBackVelocity)
-    {
-        Agent.velocity = knockBackVelocity;
-    }
 
     public void ActiveAttackPoint()
     {

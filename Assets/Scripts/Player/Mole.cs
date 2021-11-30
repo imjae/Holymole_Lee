@@ -43,6 +43,7 @@ public class Mole : Player
         HangOnMoveSpeed = 1f;
         GroundDistance = 0.1f;
         JumpHeight = 1.2f;
+        AttackValue = 30f;
 
         IsMovement = false;
         IsGrounded = true;
