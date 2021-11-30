@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4418525, g: 0.49079067, b: 0.5707517, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1374,6 +1374,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Tiles_216
       objectReference: {fileID: 0}
+    - target: {fileID: 139220, guid: 704795cfbb02b844591f900d2b76342e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 468454, guid: 704795cfbb02b844591f900d2b76342e, type: 3}
       propertyPath: m_RootOrder
       value: 38
@@ -1903,6 +1907,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Tiles_212
       objectReference: {fileID: 0}
+    - target: {fileID: 127758, guid: 0e2d311aa2f76c2479ed7bbf11aa4ffb, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 463042, guid: 0e2d311aa2f76c2479ed7bbf11aa4ffb, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2052,6 +2060,10 @@ PrefabInstance:
     - target: {fileID: 184820, guid: 9e2131326fc97464987f58ebcb08832a, type: 3}
       propertyPath: m_Name
       value: SM_Env_Tiles_67
+      objectReference: {fileID: 0}
+    - target: {fileID: 184820, guid: 9e2131326fc97464987f58ebcb08832a, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 491958, guid: 9e2131326fc97464987f58ebcb08832a, type: 3}
       propertyPath: m_RootOrder
@@ -2509,6 +2521,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Tiles_217
       objectReference: {fileID: 0}
+    - target: {fileID: 127758, guid: 0e2d311aa2f76c2479ed7bbf11aa4ffb, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 463042, guid: 0e2d311aa2f76c2479ed7bbf11aa4ffb, type: 3}
       propertyPath: m_RootOrder
       value: 64
@@ -2658,6 +2674,10 @@ PrefabInstance:
     - target: {fileID: 137298, guid: 9830f561f80768b4f92139c1c15bc835, type: 3}
       propertyPath: m_Name
       value: SM_Env_Tiles_75
+      objectReference: {fileID: 0}
+    - target: {fileID: 137298, guid: 9830f561f80768b4f92139c1c15bc835, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 450008, guid: 9830f561f80768b4f92139c1c15bc835, type: 3}
       propertyPath: m_RootOrder
@@ -2964,6 +2984,10 @@ PrefabInstance:
     - target: {fileID: 139220, guid: 704795cfbb02b844591f900d2b76342e, type: 3}
       propertyPath: m_Name
       value: SM_Env_Tiles_214
+      objectReference: {fileID: 0}
+    - target: {fileID: 139220, guid: 704795cfbb02b844591f900d2b76342e, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 468454, guid: 704795cfbb02b844591f900d2b76342e, type: 3}
       propertyPath: m_RootOrder
@@ -3567,6 +3591,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Tiles_215
       objectReference: {fileID: 0}
+    - target: {fileID: 139220, guid: 704795cfbb02b844591f900d2b76342e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 468454, guid: 704795cfbb02b844591f900d2b76342e, type: 3}
       propertyPath: m_RootOrder
       value: 31
@@ -4145,7 +4173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1609510613
 Transform:
   m_ObjectHideFlags: 0
@@ -4950,6 +4978,10 @@ PrefabInstance:
     - target: {fileID: 139220, guid: 704795cfbb02b844591f900d2b76342e, type: 3}
       propertyPath: m_Name
       value: SM_Env_Tiles_213
+      objectReference: {fileID: 0}
+    - target: {fileID: 139220, guid: 704795cfbb02b844591f900d2b76342e, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 468454, guid: 704795cfbb02b844591f900d2b76342e, type: 3}
       propertyPath: m_RootOrder
@@ -5828,7 +5860,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8687198504032872576, guid: 0b1352b10b9938240ab6c245d6fbab70, type: 3}
       propertyPath: m_Name
-      value: CameraPoint5
+      value: CameraPoint05
       objectReference: {fileID: 0}
     - target: {fileID: 8687198504032872588, guid: 0b1352b10b9938240ab6c245d6fbab70, type: 3}
       propertyPath: m_RootOrder
@@ -5848,31 +5880,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8687198504032872588, guid: 0b1352b10b9938240ab6c245d6fbab70, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: -0.6671571
       objectReference: {fileID: 0}
     - target: {fileID: 8687198504032872588, guid: 0b1352b10b9938240ab6c245d6fbab70, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.06510046
       objectReference: {fileID: 0}
     - target: {fileID: 8687198504032872588, guid: 0b1352b10b9938240ab6c245d6fbab70, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.99527293
+      value: 0.7385591
       objectReference: {fileID: 0}
     - target: {fileID: 8687198504032872588, guid: 0b1352b10b9938240ab6c245d6fbab70, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.09711761
+      value: -0.07206778
       objectReference: {fileID: 0}
     - target: {fileID: 8687198504032872588, guid: 0b1352b10b9938240ab6c245d6fbab70, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 11.146
+      value: 1.122
       objectReference: {fileID: 0}
     - target: {fileID: 8687198504032872588, guid: 0b1352b10b9938240ab6c245d6fbab70, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 264.293
       objectReference: {fileID: 0}
     - target: {fileID: 8687198504032872588, guid: 0b1352b10b9938240ab6c245d6fbab70, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 11.09
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b1352b10b9938240ab6c245d6fbab70, type: 3}

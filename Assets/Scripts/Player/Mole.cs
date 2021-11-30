@@ -2,25 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mole : Singleton<Mole>
+public class Mole : Player
 {
-    public float moveSpeed = 10f;
-    public float hangOnMoveSpeed = 1f;
-    public float groundDistance = 2f;
     public Transform groundCheckPoint;
     public Transform hangOnCheckPoint;
     public LayerMask groundLayer;
 
-    public float jumpHeight = 0.1f;
 
-
-    public bool isMovement = true;
-    public bool isGrounded = true;
-    public bool isAttacked { get; set; }
-    public bool isHangOn = false;
-
-
-    float gravity = -19.62f;
+    float gravity = -13.62f;
     public CharacterController controller;
     Vector3 direction;
     private Transform _standardTransform;
@@ -41,31 +30,53 @@ public class Mole : Singleton<Mole>
     //     }
     // }
 
-    // Start is called before the first frame update
     void Start()
     {
+        if (!TryGetComponent<CharacterController>(out controller))
+            Debug.LogError("CharacterController 컴포넌트 없습니다.");
+        if (!TryGetComponent<Animator>(out animator))
+            Debug.LogError("Animator 컴포넌트 없습니다.");
+
+        Health = gameObject.GetComponent<HealthSystem>();
+
+        MoveSpeed = 3f;
+        HangOnMoveSpeed = 1f;
+        GroundDistance = 0.1f;
+        JumpHeight = 1.2f;
+        AttackValue = 30f;
+
+        IsMovement = false;
+        IsGrounded = true;
+        IsAttacked = false;
+        IsHangOn = false;
+        IsFalling = false;
+
+        Health.hitPoint = 30f;
+        Health.maxHitPoint = 30f;
+        Health.regenerate = false;
+        Health.isDecrease = false;
+        Health.GodMode = false;
+
         // StandardTransform = CameraManager.Instance.currentNode.Value;
         velocity = Vector3.zero;
-        isAttacked = false;
+        IsAttacked = false;
 
-        if (!TryGetComponent<CharacterController>(out controller))
-            Debug.LogError("CharacterController 컴포넌트가 없습니다.");
-        if (!TryGetComponent<Animator>(out animator))
-            Debug.LogError("Animator 컴포넌트가 없습니다.");
     }
 
     // Update is called once per frame
     void Update()
     {
-        isGrounded = gameObject.GroundCheck(groundCheckPoint, groundLayer, groundDistance);
+        DistanceFromFloor = GetDistanceFromFloor();
+        IsGrounded = gameObject.GroundCheck(groundCheckPoint, groundLayer, GroundDistance);
 
-        if (!isHangOn)
+        #region Move, Jump, Attack
+        if (!IsHangOn)
         {
             animator.SetBool("IsHangOn", false);
             ApplyGravity();
             InputMovement();
 
-            if (Input.GetButtonDown("Jump") && isGrounded)
+            if (Input.GetButtonDown("Jump") && IsGrounded)
                 InputJump();
 
             if (Input.GetButtonDown("Attack"))
@@ -79,6 +90,18 @@ public class Mole : Singleton<Mole>
             if (Input.GetButtonDown("Jump"))
                 InputHangOnJump();
         }
+        #endregion
+
+        if (DistanceFromFloor > 3)
+        {
+            IsFallingToggle();
+            animator.SetTrigger("FallingIdle");
+        }
+
+        if (Health.hitPoint <= 0 && !IsDie)
+        {
+            Die();
+        }
 
         controller.Move(velocity * Time.deltaTime);
     }
@@ -91,8 +114,7 @@ public class Mole : Singleton<Mole>
     public int comboStep;
     public bool comboPossible;
 
-    // 칼 공격 콤보 관련 함수
-    public void Attack()
+    protected override void Attack()
     {
         if (comboStep == 0)
         {
@@ -132,14 +154,23 @@ public class Mole : Singleton<Mole>
 
     public void ComboReset()
     {
-        IsAttackedToggle();
+        IsAttackedFalse();
         comboPossible = false;
         comboStep = 0;
     }
 
-    public void IsAttackedToggle()
+    public void IsAttackedTrue()
     {
-        isAttacked = !isAttacked;
+        IsAttacked = true;
+    }
+    public void IsAttackedFalse()
+    {
+        IsAttacked = false;
+    }
+
+    public void IsFallingToggle()
+    {
+        IsFalling = !IsFalling;
     }
 
     void InputMovement()
@@ -160,9 +191,13 @@ public class Mole : Singleton<Mole>
         float percent = direction.magnitude;
         animator.SetFloat("RunPercent", percent, 0.1f, Time.deltaTime);
 
-        float finalSpeed = moveSpeed;
-        if(isAttacked)
-            finalSpeed = moveSpeed / 3f;
+        float finalSpeed = MoveSpeed;
+
+        if (IsAttacked)
+            finalSpeed = MoveSpeed / 3f;
+
+        else if (IsFalling)
+            finalSpeed = MoveSpeed / 2f;
 
         controller.Move(Vector3.Scale(direction, new Vector3(1f, 0f, 1f)).normalized * finalSpeed * Time.deltaTime);
     }
@@ -175,21 +210,20 @@ public class Mole : Singleton<Mole>
 
         animator.SetFloat("HangOnMovement", horizontal, 0.1f, Time.deltaTime);
 
-        controller.Move(direction.normalized * hangOnMoveSpeed * Time.deltaTime);
+        controller.Move(direction.normalized * HangOnMoveSpeed * Time.deltaTime);
     }
 
     void InputJump()
     {
-        if (isAttacked)
+        if (IsAttacked)
         {
-            // 공격중 : 대쉬
-            Debug.Log("대쉬!");
+            Debug.Log("Dash!!");
         }
         else
         {
             animator.SetTrigger("Jump");
-            // 일반상태 : 점프
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+
+            velocity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);
             controller.Move(velocity * Time.deltaTime);
         }
     }
@@ -197,13 +231,6 @@ public class Mole : Singleton<Mole>
     void InputHangOnJump()
     {
         animator.SetTrigger("HangOnJump");
-        // if(TryGetComponent<Rigidbody>(out Rigidbody rigid))
-        // {
-        //     rigid.AddForce(transform.forward * -100);
-        // }
-        //     // 일반상태 : 점프
-        // velocity.y = Mathf.Sqrt(jumpHeight/2f * -2f * gravity);
-        // controller.Move(velocity * Time.deltaTime);
     }
 
     public void HangOnClimbTranslate()
@@ -211,14 +238,55 @@ public class Mole : Singleton<Mole>
         Vector3 distance = new Vector3(-0.10125f, 1.4394f, 0.31301f) - new Vector3(-0.0021783f, 0.38276f, -0.031938f);
         controller.Move(distance * 1.2f);
 
-        isHangOn = false;
+        IsHangOn = false;
     }
 
     void ApplyGravity()
     {
-        if (isGrounded && velocity.y < 0)
+        if (IsGrounded && velocity.y < 0)
             velocity.y = -2f;
         else
             velocity.y += gravity * Time.deltaTime;
+    }
+
+    float GetDistanceFromFloor()
+    {
+        float result = 0f;
+
+        Debug.DrawRay(groundCheckPoint.position, (Vector3.down * 10f), Color.red);
+
+        RaycastHit hit;
+        if (Physics.Raycast(groundCheckPoint.position, Vector3.down, out hit, 100f))
+        {
+            result = hit.distance;
+        }
+
+        return result;
+    }
+
+    protected override void KnockBack(Vector3 knockBackVelocity)
+    {
+        velocity = knockBackVelocity;
+        StartCoroutine(DelayVectorZero(.5f));
+    }
+
+    IEnumerator DelayVectorZero(float time)
+    {
+        yield return new WaitForSeconds(time);
+        velocity = Vector3.zero;
+    }
+
+    
+    // 죽음
+    protected override void Die()
+    {
+        Debug.Log("죽음 !");
+        animator.SetTrigger("Die");
+
+        // 실행중이던 애니메이션 트리거 전부 종료
+        IsDie = true;
+        IsAttacked = false;
+        IsFalling = false;
+        IsGrounded = false;
     }
 }
