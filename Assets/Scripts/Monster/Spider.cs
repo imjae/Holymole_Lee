@@ -18,10 +18,15 @@ public class Spider : Monster
 
     private void Start()
     {
+        Debug.Log("거미 생성");
         IsAttacked = false;
+
+        target = FindObjectOfType<Player>().gameObject;
 
         Animator = this.GetComponent<Animator>();
         Health = this.GetComponent<HealthSystem>();
+
+        Debug.Log(target.name);
         Player = target.transform;
 
         // 몬스터 세부 사항 설정
@@ -124,7 +129,7 @@ public class Spider : Monster
 
         base.Attack();
     }
-    
+
 
     public void ActiveAttackPoint()
     {

@@ -5,12 +5,13 @@ using UnityEngine;
 public class MonsterSpawner : MonoBehaviour
 {
     public Transform spawnPoint;
-    public Monster monster;
-    
+    public GameObject monster;
+    MonsterGenerator gene;
+
     void Start()
     {
         spawnPoint = transform;
-
+        gene = gameObject.GetComponent<MonsterGenerator>();
         StartCoroutine(IntervalSpawn());
     }
 
@@ -25,7 +26,7 @@ public class MonsterSpawner : MonoBehaviour
         while (num <= 5)
         {
             yield return new WaitForSeconds(3f);
-            MonsterGenerator gene = gameObject.GetComponent<MonsterGenerator>();
+
             gene.Spawn(monster, spawnPoint);
         }
     }

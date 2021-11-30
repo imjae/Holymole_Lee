@@ -14,8 +14,6 @@ public abstract class Monster : Character
     private float _detectionTime;
     private float _detectionIntervalTime;
 
-    private bool _isDie;
-
     private IEnumerator _detection;
 
     protected Animator Animator
@@ -60,7 +58,7 @@ public abstract class Monster : Character
     // 추가 정의가 필요 없는 경우 virtual 키워드 붙이지 않음.
     protected void DetectionLocationTarget(Transform target)
     {
-        _agent.SetDestination(target.position);
+        Agent.SetDestination(target.position);
     }
 
     // 몬스터에 설정된 Range값 범위 안에 충돌일어 났을 경우에 취할 행동 정의

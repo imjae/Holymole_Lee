@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,16 +19,15 @@ public class HolyMissile : MonoBehaviour
         {
             other.gameObject.SendMessage("KnockBack", transform.forward.normalized * 4f);
             var tmpEffect = Instantiate(hitEffect, other.bounds.center, Quaternion.identity);
-            StartCoroutine(DelayDestroy(tmpEffect, 2f));
 
             other.gameObject.SendMessage("TakeDamage", player.AttackValue);
         }
 
     }
 
-    IEnumerator DelayDestroy(GameObject o, float time)
+    IEnumerator DelayDestroy(float time, Action action)
     {
         yield return new WaitForSeconds(time);
-        Destroy(o);
+        action();
     }
 }
