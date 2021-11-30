@@ -7,11 +7,13 @@ using UnityEngine.AI;
 public class Spider : Monster
 {
     public GameObject target;
+    private Rigidbody rigid;
 
     private void OnEnable()
     {
         // 게임이 시작되면 게임 오브젝트에 부착된 NavMeshAgent 컴포넌트를 가져와서 저장
         Agent = this.GetComponent<NavMeshAgent>();
+        rigid = this.GetComponent<Rigidbody>();
     }
 
     private void Start()
@@ -121,6 +123,11 @@ public class Spider : Monster
         // 공격 부위의 콜라이더 작동은 애니메이션중으로 관리
 
         base.Attack();
+    }
+    
+    protected override void KnockBack(Vector3 knockBackVelocity)
+    {
+        Agent.velocity = knockBackVelocity;
     }
 
     public void ActiveAttackPoint()

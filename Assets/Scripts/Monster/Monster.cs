@@ -114,6 +114,7 @@ public abstract class Monster : Character
         StopCoroutine(Detection);
     }
 
+
     protected virtual void SelfDestroy()
     {
         Destroy(gameObject);

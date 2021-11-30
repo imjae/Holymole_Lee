@@ -51,4 +51,9 @@ public class Character : MonoBehaviour
     {
         
     }
+
+    protected virtual void KnockBack(Vector3 knockBackVelocity)
+    {
+        
+    }
 }

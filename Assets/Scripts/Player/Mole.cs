@@ -263,7 +263,7 @@ public class Mole : Player
         return result;
     }
 
-    void KnockBack(Vector3 knockBackVelocity)
+    protected override void KnockBack(Vector3 knockBackVelocity)
     {
         velocity = knockBackVelocity;
         StartCoroutine(DelayVectorZero(.5f));
