@@ -225,6 +225,8 @@ GameObject:
   - component: {fileID: 3159135094007575616}
   - component: {fileID: 1516726937735045603}
   - component: {fileID: 1723211768}
+  - component: {fileID: 3052917948106309373}
+  - component: {fileID: 2032495890}
   m_Layer: 0
   m_Name: HolyMoleLee
   m_TagString: Player
@@ -305,22 +307,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f888d6a4f1e15e040884c37fc40c03c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
-  hangOnMoveSpeed: 0.8
-  groundDistance: 0.1
   groundCheckPoint: {fileID: 6178050432691713281}
   hangOnCheckPoint: {fileID: 5764620907422826170}
   groundLayer:
     serializedVersion: 2
     m_Bits: 1024
-  jumpHeight: 1.3
-  distanceFromFloor: 0
-  isMovement: 1
-  isGrounded: 1
-  isHangOn: 0
   controller: {fileID: 3159135094007575616}
   velocity: {x: 0, y: 0, z: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 1197888110948089818}
   comboStep: 0
   comboPossible: 0
 --- !u!136 &1723211768
@@ -337,6 +331,38 @@ CapsuleCollider:
   m_Height: 1.0332065
   m_Direction: 1
   m_Center: {x: 0, y: 0.47732782, z: 0}
+--- !u!114 &3052917948106309373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513090705227320026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bcae4d1ea2eb6645b3fc6a960b28573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoint: 100
+  maxHitPoint: 100
+  regenerate: 1
+  regen: 0.1
+  isDecrease: 1
+  decreaseHealth: 0.1
+  regenUpdateInterval: 1
+  GodMode: 0
+--- !u!114 &2032495890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513090705227320026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8d80524dc9a0e4996b93f0d0097863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1658309597707802101
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,8 +1162,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.79894567, y: 0.50652444, z: 0.60122716}
-  m_Center: {x: -0.0011174997, y: -0.12677395, z: 0.048192084}
+  m_Size: {x: 0.79894567, y: 0.50652444, z: 0.70181096}
+  m_Center: {x: -0.0011175016, y: -0.12677395, z: 0.09848387}
 --- !u!114 &4770442837663236811
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,18 +13,11 @@ public class CameraManager : Singleton<CameraManager>
     public LinkedListNode<Transform> currentNode;
 
     private Camera mainCamera;
-    void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-        // 인스턴스가 존재하는 경우 새로생기는 인스턴스를 삭제한다.
-        else if (Instance != this)
-            Destroy(gameObject);
-        // 아래의 함수를 사용하여 씬이 전환되더라도 선언되었던 인스턴스가 파괴되지 않는다.
-    }
 
     void Start()
     {
+        mainCamera = Camera.main;
+
         Transform[] tmpArr = Resources.LoadAll<Transform>("CameraTransform");
         cameraTransformList = new LinkedList<Transform>(tmpArr);
 
@@ -32,11 +25,9 @@ public class CameraManager : Singleton<CameraManager>
         {
             // 첫 번째 노드 초기화
             currentNode = cameraTransformList.First;
-            mainCamera = Camera.main;
 
             TransferCamera(currentNode);
         }
-
     }
 
     // 노드의 위치값을 카메라에 덮어쓰기
