@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 3159135094007575616}
   - component: {fileID: 1516726937735045603}
   - component: {fileID: 1723211768}
+  - component: {fileID: 3052917948106309373}
   m_Layer: 0
   m_Name: HolyMoleLee
   m_TagString: Player
@@ -337,6 +338,26 @@ CapsuleCollider:
   m_Height: 1.0332065
   m_Direction: 1
   m_Center: {x: 0, y: 0.47732782, z: 0}
+--- !u!114 &3052917948106309373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513090705227320026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bcae4d1ea2eb6645b3fc6a960b28573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoint: 100
+  maxHitPoint: 100
+  regenerate: 1
+  regen: 0.1
+  isDecrease: 1
+  decreaseHealth: 0.1
+  regenUpdateInterval: 1
+  GodMode: 0
 --- !u!1 &1658309597707802101
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,24 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mole : Singleton<Mole>
+public class Mole : Character
 {
-    public float moveSpeed = 10f;
-    public float hangOnMoveSpeed = 1f;
-    public float groundDistance = 2f;
     public Transform groundCheckPoint;
     public Transform hangOnCheckPoint;
     public LayerMask groundLayer;
 
-    public float jumpHeight = 0.1f;
-    public float distanceFromFloor = 0f;
-
-
-    public bool isMovement = true;
-    public bool isGrounded = true;
-    public bool isAttacked { get; set; }
-    public bool isHangOn = false;
-    public bool isFalling { get; set; }
 
     float gravity = -13.62f;
     public CharacterController controller;
@@ -44,9 +32,20 @@ public class Mole : Singleton<Mole>
 
     void Start()
     {
+        MoveSpeed = 10f;
+        HangOnMoveSpeed = 1f;
+        GroundDistance = 2f;
+        JumpHeight = 0.1f;
+
+        IsMovement = false;
+        IsGrounded = true;
+        IsAttacked = false;
+        IsHangOn = false;
+        IsFalling = false;
+
         // StandardTransform = CameraManager.Instance.currentNode.Value;
         velocity = Vector3.zero;
-        isAttacked = false;
+        IsAttacked = false;
 
         if (!TryGetComponent<CharacterController>(out controller))
             Debug.LogError("CharacterController 컴포넌트가 없습니다.");
@@ -57,17 +56,17 @@ public class Mole : Singleton<Mole>
     // Update is called once per frame
     void Update()
     {
-        distanceFromFloor = DistanceFromFloor();
-        isGrounded = gameObject.GroundCheck(groundCheckPoint, groundLayer, groundDistance);
+        DistanceFromFloor = GetDistanceFromFloor();
+        IsGrounded = gameObject.GroundCheck(groundCheckPoint, groundLayer, GroundDistance);
 
         #region Move, Jump, Attack
-        if (!isHangOn)
+        if (!IsHangOn)
         {
             animator.SetBool("IsHangOn", false);
             ApplyGravity();
             InputMovement();
 
-            if (Input.GetButtonDown("Jump") && isGrounded)
+            if (Input.GetButtonDown("Jump") && IsGrounded)
                 InputJump();
 
             if (Input.GetButtonDown("Attack"))
@@ -83,7 +82,7 @@ public class Mole : Singleton<Mole>
         }
         #endregion
 
-        if (distanceFromFloor > 3)
+        if (DistanceFromFloor > 3)
         {
             IsFallingToggle();
             animator.SetTrigger("FallingIdle");
@@ -147,16 +146,16 @@ public class Mole : Singleton<Mole>
 
     public void IsAttackedTrue()
     {
-        isAttacked = true;
+        IsAttacked = true;
     }
     public void IsAttackedFalse()
     {
-        isAttacked = false;
+        IsAttacked = false;
     }
 
     public void IsFallingToggle()
     {
-        isFalling = !isFalling;
+        IsFalling = !IsFalling;
     }
 
     void InputMovement()
@@ -177,13 +176,13 @@ public class Mole : Singleton<Mole>
         float percent = direction.magnitude;
         animator.SetFloat("RunPercent", percent, 0.1f, Time.deltaTime);
 
-        float finalSpeed = moveSpeed;
+        float finalSpeed = MoveSpeed;
 
-        if (isAttacked)
-            finalSpeed = moveSpeed / 3f;
+        if (IsAttacked)
+            finalSpeed = MoveSpeed / 3f;
 
-        else if (isFalling)
-            finalSpeed = moveSpeed / 2f;
+        else if (IsFalling)
+            finalSpeed = MoveSpeed / 2f;
 
         controller.Move(Vector3.Scale(direction, new Vector3(1f, 0f, 1f)).normalized * finalSpeed * Time.deltaTime);
     }
@@ -196,12 +195,12 @@ public class Mole : Singleton<Mole>
 
         animator.SetFloat("HangOnMovement", horizontal, 0.1f, Time.deltaTime);
 
-        controller.Move(direction.normalized * hangOnMoveSpeed * Time.deltaTime);
+        controller.Move(direction.normalized * HangOnMoveSpeed * Time.deltaTime);
     }
 
     void InputJump()
     {
-        if (isAttacked)
+        if (IsAttacked)
         {
             Debug.Log("Dash!!");
         }
@@ -209,7 +208,7 @@ public class Mole : Singleton<Mole>
         {
             animator.SetTrigger("Jump");
 
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            velocity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);
             controller.Move(velocity * Time.deltaTime);
         }
     }
@@ -217,13 +216,6 @@ public class Mole : Singleton<Mole>
     void InputHangOnJump()
     {
         animator.SetTrigger("HangOnJump");
-        // if(TryGetComponent<Rigidbody>(out Rigidbody rigid))
-        // {
-        //     rigid.AddForce(transform.forward * -100);
-        // }
-        //     // ?????? : ????
-        // velocity.y = Mathf.Sqrt(jumpHeight/2f * -2f * gravity);
-        // controller.Move(velocity * Time.deltaTime);
     }
 
     public void HangOnClimbTranslate()
@@ -231,18 +223,18 @@ public class Mole : Singleton<Mole>
         Vector3 distance = new Vector3(-0.10125f, 1.4394f, 0.31301f) - new Vector3(-0.0021783f, 0.38276f, -0.031938f);
         controller.Move(distance * 1.2f);
 
-        isHangOn = false;
+        IsHangOn = false;
     }
 
     void ApplyGravity()
     {
-        if (isGrounded && velocity.y < 0)
+        if (IsGrounded && velocity.y < 0)
             velocity.y = -2f;
         else
             velocity.y += gravity * Time.deltaTime;
     }
 
-    float DistanceFromFloor()
+    float GetDistanceFromFloor()
     {
         float result = 0f;
 
