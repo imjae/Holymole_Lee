@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : Singleton<Character>
+public class Character : MonoBehaviour
 {
     private float _moveSpeed;
     private float _hangOnMoveSpeed;
@@ -15,11 +15,11 @@ public class Character : Singleton<Character>
     private float _speedValue;
 
 
-    private bool _isMovement = true;
-    private bool _isGrounded = true;
-    private bool _isAttacked { get; set; }
-    private bool _isHangOn = false;
-    private bool _isFalling { get; set; }
+    private bool _isMovement;
+    private bool _isGrounded;
+    private bool _isAttacked;
+    private bool _isHangOn;
+    private bool _isFalling;
 
 
     public float AttackValue { get { return _attackValue; } set { _attackValue = value; } }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mole : Character
+public class Mole : Player
 {
     public Transform groundCheckPoint;
     public Transform hangOnCheckPoint;
@@ -32,10 +32,10 @@ public class Mole : Character
 
     void Start()
     {
-        MoveSpeed = 10f;
+        MoveSpeed = 4f;
         HangOnMoveSpeed = 1f;
-        GroundDistance = 2f;
-        JumpHeight = 0.1f;
+        GroundDistance = 0.1f;
+        JumpHeight = 1.5f;
 
         IsMovement = false;
         IsGrounded = true;

@@ -53,11 +53,6 @@ public abstract class Monster : Character
         set { _detectionIntervalTime = value; }
     }
 
-    protected bool IsAttacked
-    {
-        get { return _isAttacked; }
-        set { _isAttacked = value; }
-    }
     protected bool IsDie
     {
         get { return _isDie; }
