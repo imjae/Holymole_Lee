@@ -15,7 +15,6 @@ public abstract class Monster : Character
     private float _detectionTime;
     private float _detectionIntervalTime;
 
-    private bool _isAttacked;
     private bool _isDie;
 
     private IEnumerator _detection;
