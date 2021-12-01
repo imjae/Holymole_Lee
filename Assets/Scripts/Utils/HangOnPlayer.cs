@@ -10,7 +10,7 @@ public class HangOnPlayer : MonoBehaviour
         if(other.CompareTag("HangOnTarget"))
         {
             player = transform.parent.GetComponent<Mole>();
-            player.isHangOn = true;
+            player.IsHangOn = true;
             player.velocity = Vector3.zero;
             player.animator.SetTrigger("HangOnBlendTree");
 
@@ -24,7 +24,7 @@ public class HangOnPlayer : MonoBehaviour
         {
             // player.animator.SetTrigger("RunBlendTree");
             player = transform.parent.GetComponent<Mole>();
-            player.isHangOn = false;
+            player.IsHangOn = false;
         }
     }
 }

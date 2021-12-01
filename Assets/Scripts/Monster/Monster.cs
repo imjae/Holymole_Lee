@@ -9,14 +9,10 @@ public abstract class Monster : Character
     private Animator _animator;
     private Transform _player;
     private NavMeshAgent _agent;
-    private HealthSystem _healthSystem;
     private Camera _faceCamera;
 
     private float _detectionTime;
     private float _detectionIntervalTime;
-
-    private bool _isAttacked;
-    private bool _isDie;
 
     private IEnumerator _detection;
 
@@ -35,11 +31,6 @@ public abstract class Monster : Character
         get { return _agent; }
         set { _agent = value; }
     }
-    public HealthSystem Health
-    {
-        get { return _healthSystem; }
-        set { _healthSystem = value; }
-    }
 
     protected float DetectionTime
     {
@@ -53,16 +44,6 @@ public abstract class Monster : Character
         set { _detectionIntervalTime = value; }
     }
 
-    protected bool IsAttacked
-    {
-        get { return _isAttacked; }
-        set { _isAttacked = value; }
-    }
-    protected bool IsDie
-    {
-        get { return _isDie; }
-        set { _isDie = value; }
-    }
     protected Camera FaceCamera
     {
         get { return _faceCamera; }
@@ -77,7 +58,7 @@ public abstract class Monster : Character
     // 추가 정의가 필요 없는 경우 virtual 키워드 붙이지 않음.
     protected void DetectionLocationTarget(Transform target)
     {
-        _agent.SetDestination(target.position);
+        Agent.SetDestination(target.position);
     }
 
     // 몬스터에 설정된 Range값 범위 안에 충돌일어 났을 경우에 취할 행동 정의
@@ -91,7 +72,7 @@ public abstract class Monster : Character
         }
     }
 
-    // 걷기기 상태일때 동작
+    // 걷기 상태일때 동작
     protected virtual void OnWalkStatus()
     {
         Agent.enabled = true;
@@ -113,24 +94,32 @@ public abstract class Monster : Character
         Agent.velocity = Vector3.zero;
     }
     // 공격
-    protected virtual void Attack()
+    protected override void Attack()
     {
         Agent.enabled = false;
         Agent.velocity = Vector3.zero;
         Animator.SetTrigger("Attack");
     }
     // 죽음
-    protected virtual void Die()
+    protected override void Die()
     {
         // 실행중이던 애니메이션 트리거 전부 종료
-
         IsDie = true;
         Agent.velocity = Vector3.zero;
         Agent.enabled = false;
         IsAttacked = false;
 
+        Animator.SetTrigger("Die");
+        StartCoroutine(DelayIntoAction(2f, () => SelfDestroy()));
+
         StopCoroutine(Detection);
     }
+
+    protected override void KnockBack(Vector3 knockBackVelocity)
+    {
+        Agent.velocity = knockBackVelocity;
+    }
+
 
     protected virtual void SelfDestroy()
     {
@@ -154,7 +143,7 @@ public abstract class Monster : Character
         IsAttacked = false;
     }
 
-    private IEnumerator SwitchDelayIntoAction(float time, Action action)
+    private IEnumerator DelayIntoAction(float time, Action action)
     {
         yield return new WaitForSeconds(time);
         action();
