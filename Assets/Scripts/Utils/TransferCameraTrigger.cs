@@ -10,6 +10,7 @@ public class TransferCameraTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log($"Camera name: {CameraManager.Instance.currentNode.Value.name}");
             var dir = Vector3.Angle(transform.forward, other.transform.position - transform.position);
             if (dir < 90f)
             {
@@ -21,6 +22,7 @@ public class TransferCameraTrigger : MonoBehaviour
                 // 이전 카메라
                 CameraManager.Instance.PreviousCamera(step);
             }
+            Debug.Log($"Camera name: {CameraManager.Instance.currentNode.Value.name}");
         }
     }
 }

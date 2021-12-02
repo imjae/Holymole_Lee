@@ -22,6 +22,8 @@ public class CameraManager : Singleton<CameraManager>
         Transform[] tmpArr = Resources.LoadAll<Transform>("CameraTransform");
         cameraTransformList = new LinkedList<Transform>(tmpArr);
 
+        Debug.Log($"리스트 사이즈 : {cameraTransformList.Count}");
+
         if (currentNode == null)
         {
             // 첫 번째 노드 초기화
@@ -62,7 +64,7 @@ public class CameraManager : Singleton<CameraManager>
     }
     public void PreviousCamera(int _step)
     {
-        for(int i=0;i<_step;i++)
+        for(int i = 0; i < _step; i++)
         {
             TransferCamera(PreviousNode());
         }
