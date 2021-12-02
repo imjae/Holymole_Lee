@@ -10,9 +10,8 @@ public class Spear : MonoBehaviour
 
     void OnTriggerEnter(Collider other) 
     {
-        if(other.name == "Burrow")
+        if(other.CompareTag("Player"))
         {
-            Debug.Log("충돌");
             shoot = true;
         }
     }
