@@ -5360,18 +5360,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1345638242158132806, guid: 9b75665ebe6ce26498259899a2bb338f, type: 3}
-      propertyPath: m_Parameters.widthMultiplier
-      value: 0.02
-      objectReference: {fileID: 0}
     - target: {fileID: 1345638242158132807, guid: 9b75665ebe6ce26498259899a2bb338f, type: 3}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 441648155}
-    - target: {fileID: 1345638243136002464, guid: 9b75665ebe6ce26498259899a2bb338f, type: 3}
-      propertyPath: m_Parameters.widthMultiplier
-      value: 0.02
-      objectReference: {fileID: 0}
     - target: {fileID: 1345638243136002465, guid: 9b75665ebe6ce26498259899a2bb338f, type: 3}
       propertyPath: m_InteractionManager
       value: 
