@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TransferCameraTrigger : MonoBehaviour
 {
-
     public int step;
     void OnTriggerExit(Collider other)
     {
