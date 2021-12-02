@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TransferCameraTrigger : MonoBehaviour
 {
+    public int step;
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -12,12 +13,12 @@ public class TransferCameraTrigger : MonoBehaviour
             if (dir < 90f)
             {
                 // 다음 카메라
-                CameraManager.Instance.NextCamera();
+                CameraManager.Instance.NextCamera(step);
             }
             else
             {
                 // 이전 카메라
-                CameraManager.Instance.PreviousCamera();
+                CameraManager.Instance.PreviousCamera(step);
             }
         }
     }

@@ -49,13 +49,18 @@ public class CameraManager : Singleton<CameraManager>
         return currentNode;
     }
 
-    public void NextCamera()
+    public void NextCamera(int _step)
     {
-
-        TransferCamera(NextNode());
+        for (int i = 0; i < _step; i++)
+        {
+            TransferCamera(NextNode());
+        }
     }
-    public void PreviousCamera()
+    public void PreviousCamera(int _step)
     {
-        TransferCamera(PreviousNode());
+        for(int i=0;i<_step;i++)
+        {
+            TransferCamera(PreviousNode());
+        }
     }
 }
