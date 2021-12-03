@@ -16,5 +16,6 @@ public class Ax : MonoBehaviour
     void Update()
     {
         transform.localRotation = Quaternion.Euler(0, 0, Mathf.Sin(Time.realtimeSinceStartup * speed) * angle);
+        SoundManager.Instance.EffectPlay("Ax");
     }
 }
