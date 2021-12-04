@@ -38,6 +38,7 @@ public class XRReleaseController : XRController
     {
         XRControllerState state;
         GetControllerState(out state);
+
         
         var selectState = state.selectInteractionState;
 
@@ -69,5 +70,10 @@ public class XRReleaseController : XRController
     public void Select()
     {
         m_Selected = true;
+    }
+
+    public void UnSelect()
+    {
+        m_Selected = false;
     }
 }

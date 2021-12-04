@@ -78,6 +78,7 @@ public class AxisDragInteractable : XRBaseInteractable
     {
         if (isSelected)
         {
+            Debug.Log("선택됨");
             if (updatePhase == XRInteractionUpdateOrder.UpdatePhase.Fixed)
             {
                 Vector3 WorldAxis = transform.TransformDirection(LocalAxis);
@@ -127,6 +128,7 @@ public class AxisDragInteractable : XRBaseInteractable
         }
         else
         {
+            Debug.Log("선택안됨");
             if (ReturnOnFree)
             {
                 Vector3 targetPoint = Vector3.MoveTowards(transform.position, m_StartPoint, ReturnSpeed * Time.deltaTime);

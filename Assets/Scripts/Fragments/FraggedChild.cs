@@ -2,7 +2,7 @@ using UnityEngine;
 
 [AddComponentMenu("FragChild")]
 
-public class FraggedChild : MonoBehaviour
+public class FraggedChild : Destroyable
 {
 
 	int forceMax;
