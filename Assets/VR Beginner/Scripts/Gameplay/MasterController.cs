@@ -41,7 +41,6 @@ public class MasterController : MonoBehaviour
     XRReleaseController m_LeftController;
 
     bool m_LastFrameRightEnable = false;
-    bool m_LastFrameLeftEnable = false;
 
     LayerMask m_OriginalRightMask;
     LayerMask m_OriginalLeftMask;

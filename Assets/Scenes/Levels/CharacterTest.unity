@@ -2357,7 +2357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1837324664885972823, guid: d45e8a6999317d2428a51593da44d3ab, type: 3}
       propertyPath: m_CameraYOffset
-      value: 9.9
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 1837324664885972823, guid: d45e8a6999317d2428a51593da44d3ab, type: 3}
       propertyPath: m_RequestedTrackingOriginMode
@@ -3103,7 +3103,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1074894774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.54, y: 1.36, z: 11}
+  m_LocalPosition: {x: -32.18, y: 1.36, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3179,14 +3179,14 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+  standardDirection: 0
   MovingRigidbody: {fileID: 0}
   LocalAxis: {x: 1, y: 0, z: 0}
-  AxisLength: 10
-  Steps: 10
-  SnapOnlyOnRelease: 1
-  ReturnOnFree: 0
+  AxisLength: 5
+  Steps: 0
+  SnapOnlyOnRelease: 0
+  ReturnOnFree: 1
   ReturnSpeed: 0
-  SnapAudioClip: {fileID: 0}
   OnDragDistance:
     m_PersistentCalls:
       m_Calls: []
@@ -4968,8 +4968,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048935182}
-  m_LocalRotation: {x: -0.33767095, y: 0.04091968, z: -0.009609065, w: -0.94032526}
-  m_LocalPosition: {x: -36.71855, y: 9.90866, z: 2.4855833}
+  m_LocalRotation: {x: -0.23332086, y: -0.086801134, z: 0.025242215, w: -0.96818894}
+  m_LocalPosition: {x: -37.549713, y: 6.7211084, z: 3.293539}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
