@@ -5990,15 +5990,10 @@ Transform:
   m_Children:
   - {fileID: 1623246828}
   - {fileID: 815673618}
-<<<<<<< HEAD
-  - {fileID: 2032495888}
-  - {fileID: 2110563123}
-=======
   - {fileID: 1381854805}
   - {fileID: 1698878690}
   - {fileID: 700235611}
   - {fileID: 847043248}
->>>>>>> 4dc9fddbb9118fb5aea1c9d2814096f008de58fd
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
