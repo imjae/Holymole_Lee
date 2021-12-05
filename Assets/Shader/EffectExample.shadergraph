@@ -258,7 +258,7 @@
     },
     "m_PreviewData": {
         "serializedMesh": {
-            "m_SerializedMesh": "{\"mesh\":{\"fileID\":10202,\"guid\":\"0000000000000000e000000000000000\",\"type\":0}}",
+            "m_SerializedMesh": "{\"mesh\":{\"fileID\":4300000,\"guid\":\"fba2cfc8eca2de846a79fee5c6966b15\",\"type\":3}}",
             "m_Guid": ""
         }
     },
@@ -387,7 +387,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Power",
     "m_StageCapability": 3,
-    "m_Value": 4.0,
+    "m_Value": 5.0,
     "m_DefaultValue": 1.0,
     "m_Labels": []
 }
@@ -1150,10 +1150,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -612.1520385742188,
-            "y": 440.7495422363281,
-            "width": 0.0,
-            "height": 0.0
+            "x": -618.0,
+            "y": 456.0,
+            "width": 208.0,
+            "height": 326.0
         }
     },
     "m_Slots": [
@@ -1238,7 +1238,7 @@
             "r": 119.42823028564453,
             "g": 82.42890167236328,
             "b": 0.0,
-            "a": 0.7019608020782471
+            "a": 0.20000000298023225
         },
         "mode": 1
     }

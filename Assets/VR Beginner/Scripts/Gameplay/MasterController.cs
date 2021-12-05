@@ -16,7 +16,6 @@ public class MasterController : MonoBehaviour
 
     [Header("Setup")]
     public bool DisableSetupForDebug = false;
-    public Transform StartingPosition;
 
     [Header("Reference")]
     public XRRayInteractor RightInteractor;
@@ -80,12 +79,6 @@ public class MasterController : MonoBehaviour
         m_RightLineRenderer = RightInteractor.GetComponent<LineRenderer>();
         m_LeftLineRenderer = LeftInteractor.GetComponent<LineRenderer>();
 
-        if (!DisableSetupForDebug)
-        {
-            transform.position = StartingPosition.position;
-            transform.rotation = StartingPosition.rotation;
-        }
-
         InputDeviceCharacteristics leftTrackedControllerFilter = InputDeviceCharacteristics.HeldInHand | InputDeviceCharacteristics.Left;
         List<InputDevice> foundControllers = new List<InputDevice>();
 
@@ -101,8 +94,6 @@ public class MasterController : MonoBehaviour
         if (foundControllers.Count > 0)
             m_RightInputDevice = foundControllers[0];
 
-        if (m_Rig.currentTrackingOriginMode != TrackingOriginModeFlags.Floor)
-            m_Rig.cameraYOffset = StartingPosition.position.y;
     }
 
     void RegisterDevices(InputDevice connectedDevice)
