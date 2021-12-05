@@ -986,8 +986,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisableSetupForDebug: 0
   StartingPosition: {fileID: 0}
-  RightTeleportInteractor: {fileID: 3487965464052155653}
-  LeftTeleportInteractor: {fileID: 2712973386093634028}
+  RightInteractor: {fileID: 0}
+  LeftInteractor: {fileID: 0}
 --- !u!1 &2401297254481166880
 GameObject:
   m_ObjectHideFlags: 0

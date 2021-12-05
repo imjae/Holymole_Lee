@@ -7,10 +7,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 using CommonUsages = UnityEngine.XR.CommonUsages;
 using InputDevice = UnityEngine.XR.InputDevice;
 
-/// <summary>
-/// Master script that will handle reading some input on the controller and trigger special events like Teleport or
-/// activating the MagicTractorBeam
-/// </summary>
 public class MasterController : MonoBehaviour
 {
     static MasterController s_Instance = null;
@@ -23,8 +19,8 @@ public class MasterController : MonoBehaviour
     public Transform StartingPosition;
 
     [Header("Reference")]
-    public XRRayInteractor RightTeleportInteractor;
-    public XRRayInteractor LeftTeleportInteractor;
+    public XRRayInteractor RightInteractor;
+    public XRRayInteractor LeftInteractor;
 
     XRRig m_Rig;
 
@@ -44,6 +40,9 @@ public class MasterController : MonoBehaviour
 
     LayerMask m_OriginalRightMask;
     LayerMask m_OriginalLeftMask;
+
+    LineRenderer m_LeftLineRenderer;
+    LineRenderer m_RightLineRenderer;
 
     List<XRBaseInteractable> m_InteractableCache = new List<XRBaseInteractable>(16);
 
@@ -66,17 +65,20 @@ public class MasterController : MonoBehaviour
 
     void Start()
     {
-        m_RightLineVisual = RightTeleportInteractor.GetComponent<XRInteractorLineVisual>();
+        m_RightLineVisual = RightInteractor.GetComponent<XRInteractorLineVisual>();
         m_RightLineVisual.enabled = false;
 
-        m_LeftLineVisual = LeftTeleportInteractor.GetComponent<XRInteractorLineVisual>();
+        m_LeftLineVisual = LeftInteractor.GetComponent<XRInteractorLineVisual>();
         m_LeftLineVisual.enabled = false;
 
-        m_RightController = RightTeleportInteractor.GetComponent<XRReleaseController>();
-        m_LeftController = LeftTeleportInteractor.GetComponent<XRReleaseController>();
+        m_RightController = RightInteractor.GetComponent<XRReleaseController>();
+        m_LeftController = LeftInteractor.GetComponent<XRReleaseController>();
 
-        m_OriginalRightMask = RightTeleportInteractor.interactionLayerMask;
-        m_OriginalLeftMask = LeftTeleportInteractor.interactionLayerMask;
+        m_OriginalRightMask = RightInteractor.interactionLayerMask;
+        m_OriginalLeftMask = LeftInteractor.interactionLayerMask;
+
+        m_RightLineRenderer = RightInteractor.GetComponent<LineRenderer>();
+        m_LeftLineRenderer = LeftInteractor.GetComponent<LineRenderer>();
 
         if (!DisableSetupForDebug)
         {
@@ -126,28 +128,33 @@ public class MasterController : MonoBehaviour
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
             Application.Quit();
 
-        RightTeleportUpdate();
+        RightControllertUpdate();
     }
 
-    void RightTeleportUpdate()
+    void RightControllertUpdate()
     {
         bool isTriggerButton;
         bool isGripButton;
         m_RightInputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out isTriggerButton);
         m_RightInputDevice.TryGetFeatureValue(CommonUsages.gripButton, out isGripButton);
 
+
         m_RightLineVisual.enabled = isTriggerButton;
+        // m_RightLineVisual.enabled = !isGripButton && isTriggerButton;
 
         if (isTriggerButton && isGripButton)
         {
             m_RightController.Select();
+
+            m_RightLineVisual.lineLength = 0.1f;
         }
         else
         {
             m_RightController.UnSelect();
+            m_RightLineVisual.lineLength = 20f;
         }
 
-        RightTeleportInteractor.interactionLayerMask = m_LastFrameRightEnable ? m_OriginalRightMask : new LayerMask();
+        RightInteractor.interactionLayerMask = m_LastFrameRightEnable ? m_OriginalRightMask : new LayerMask();
 
         m_LastFrameRightEnable = m_RightLineVisual.enabled;
     }

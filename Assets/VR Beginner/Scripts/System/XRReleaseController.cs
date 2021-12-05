@@ -39,7 +39,7 @@ public class XRReleaseController : XRController
         XRControllerState state;
         GetControllerState(out state);
 
-        
+
         var selectState = state.selectInteractionState;
 
         if(m_Selected)
