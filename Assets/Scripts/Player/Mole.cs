@@ -22,13 +22,6 @@ public class Mole : Player
     public Vector3 velocity;
     public Animator animator;
 
-    // void Awake()
-    // {
-    //     if (FindObjectsOfType<Mole>().Length != 1)
-    //     {
-    //         Destroy(gameObject);
-    //     }
-    // }
 
     void Start()
     {
@@ -76,11 +69,15 @@ public class Mole : Player
             ApplyGravity();
             InputMovement();
 
-            if (Input.GetButtonDown("Jump") && IsGrounded)
-                InputJump();
+            // 대쉬 상태가 아닐때 점프와 공격 가능.
+            if (!IsDash)
+            {
+                if (Input.GetButtonDown("Jump") && IsGrounded)
+                    InputJump();
 
-            if (Input.GetButtonDown("Attack"))
-                InputAttack();
+                if (Input.GetButtonDown("Attack"))
+                    InputAttack();
+            }
         }
         else
         {
@@ -108,7 +105,15 @@ public class Mole : Player
 
     void InputAttack()
     {
-        Attack();
+        if(IsGrounded)
+            Attack();
+        else
+        {
+            velocity.y = Mathf.Sqrt(JumpHeight*1.2f * -2f * gravity);
+            controller.Move(velocity * Time.deltaTime);
+            animator.SetTrigger("JumpAttack");
+
+        }
     }
 
     public int comboStep;
@@ -168,6 +173,15 @@ public class Mole : Player
         IsAttacked = false;
     }
 
+    public void IsDashTrue()
+    {
+        IsDash = true;
+    }
+    public void IsDashFalse()
+    {
+        IsDash = false;
+    }
+
     public void IsFallingToggle()
     {
         IsFalling = !IsFalling;
@@ -217,7 +231,28 @@ public class Mole : Player
     {
         if (IsAttacked)
         {
-            Debug.Log("Dash!!");
+            animator.SetTrigger("Dash");
+            ComboReset();
+
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+
+            // StandardTransform = CameraManager.Instance.currentNode.Value;
+            StandardTransform = Camera.main.transform;
+
+            direction = StandardTransform.forward * vertical + StandardTransform.right * horizontal;
+
+            if (direction != Vector3.zero)
+            {
+                float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            }
+            float percent = direction.magnitude;
+            animator.SetFloat("RunPercent", percent, 0.1f, Time.deltaTime);
+
+            float finalSpeed = 80f;
+
+            controller.Move(Vector3.Scale(direction, new Vector3(1f, 0f, 1f)).normalized * finalSpeed * Time.deltaTime);
         }
         else
         {
@@ -276,8 +311,8 @@ public class Mole : Player
         velocity = Vector3.zero;
     }
 
-    
-    // 죽음
+
+    // ????
     protected override void Die()
     {
         Debug.Log("죽음 !");

@@ -14,19 +14,12 @@ public class MonsterSpawner : MonoBehaviour
         gene = gameObject.GetComponent<MonsterGenerator>();
         StartCoroutine(IntervalSpawn());
     }
-
-    void Update()
-    {
-
-    }
-
     IEnumerator IntervalSpawn()
     {
         int num = 1;
         while (num <= 5)
         {
             yield return new WaitForSeconds(3f);
-
             gene.Spawn(monster, spawnPoint);
         }
     }
