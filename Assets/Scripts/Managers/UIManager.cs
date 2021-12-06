@@ -9,17 +9,17 @@ using InputDevice = UnityEngine.XR.InputDevice;
 
 public class UIManager : Singleton<UIManager>
 {
-    public static GameObject ingameMenu;  
+    public GameObject ingameMenu;
     public GameObject printingText;
     public Button returnBtn, exitBtn;
 
     //
     // Menu Open, Close  
-    public static void OpenMenu()
+    public void OpenMenu()
     {
         ingameMenu.SetActive(true);
     }
-    public static void CloseMenu()
+    public void CloseMenu()
     {
         ingameMenu.SetActive(false);
     }
@@ -30,12 +30,17 @@ public class UIManager : Singleton<UIManager>
     void Start()
     {
         ingameMenu = returnBtn.transform.parent.gameObject;
-        DontDestroyOnLoad(gameObject);
-        DontDestroyOnLoad(ingameMenu);
-        DontDestroyOnLoad(printingText);
     }
     void update()
     {
+        if (Input.GetButtonDown("Menu"))
+        {
+            ingameMenu.SetActive(!ingameMenu.activeSelf);
+        }
 
+        if (Input.GetButtonDown("Cancel"))
+        {
+            ingameMenu.SetActive(false);
+        }
     }
 }
