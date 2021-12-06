@@ -27,6 +27,9 @@ public class UIManager : Singleton<UIManager>
     {
         Application.Quit();
     }
+
+    //
+    // Print
     void Start()
     {
         ingameMenu = returnBtn.transform.parent.gameObject;
