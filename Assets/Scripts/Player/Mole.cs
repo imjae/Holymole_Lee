@@ -366,5 +366,12 @@ public class Mole : Player
             transform.LookAt(Camera.main.transform.position - transform.position);
             Debug.Log(Camera.main.transform);
         }
+
+        if(other.CompareTag("Door"))
+        {
+            IsKey = false;
+
+            
+        }
     }
 }
