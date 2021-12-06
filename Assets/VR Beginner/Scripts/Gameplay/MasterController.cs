@@ -121,25 +121,6 @@ public class MasterController : MonoBehaviour
 
         RightControllertUpdate();
     }
-    void LeftControllertUpdate()
-    {
-        bool isYButton;
-        bool isXButton;
-        m_RightInputDevice.TryGetFeatureValue(CommonUsages.secondaryButton, out isYButton);
-        m_RightInputDevice.TryGetFeatureValue(CommonUsages.primaryButton, out isXButton);
-
-        if(isYButton == true)
-        {
-            if(UIManager.ingameMenu.activeSelf == false)
-                UIManager.OpenMenu();
-        }
-
-        if(isXButton == true)
-        {
-            if(UIManager.ingameMenu.activeSelf == true)
-                UIManager.CloseMenu();
-        }
-    }
     void RightControllertUpdate()
     {
         bool isTriggerButton;

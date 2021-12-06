@@ -9,7 +9,7 @@ using InputDevice = UnityEngine.XR.InputDevice;
 
 public class UIManager : Singleton<UIManager>
 {
-    public GameObject ingameMenu;  
+    public GameObject ingameMenu;
     public GameObject printingText;
     public Button returnBtn, exitBtn;
 
@@ -33,6 +33,14 @@ public class UIManager : Singleton<UIManager>
     }
     void update()
     {
+        if (Input.GetButtonDown("Menu"))
+        {
+            ingameMenu.SetActive(!ingameMenu.activeSelf);
+        }
 
+        if (Input.GetButtonDown("Cancel"))
+        {
+            ingameMenu.SetActive(false);
+        }
     }
 }
