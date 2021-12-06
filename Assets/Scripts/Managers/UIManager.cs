@@ -35,11 +35,13 @@ public class UIManager : Singleton<UIManager>
     {
         if (Input.GetButtonDown("Menu"))
         {
+            Debug.Log("메뉴 !");
             ingameMenu.SetActive(!ingameMenu.activeSelf);
         }
 
         if (Input.GetButtonDown("Cancel"))
         {
+            Debug.Log("취소 !");
             ingameMenu.SetActive(false);
         }
     }

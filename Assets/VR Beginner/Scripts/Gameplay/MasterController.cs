@@ -93,7 +93,6 @@ public class MasterController : MonoBehaviour
 
         if (foundControllers.Count > 0)
             m_RightInputDevice = foundControllers[0];
-
     }
 
     void RegisterDevices(InputDevice connectedDevice)

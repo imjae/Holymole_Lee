@@ -1222,7 +1222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &383075391
 Transform:
   m_ObjectHideFlags: 0
@@ -1647,13 +1647,49 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1510742733}
     m_Modifications:
+    - target: {fileID: 4931716098443958108, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931716098443958108, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
+      propertyPath: m_SmoothMovement
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931716098443958108, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
+      propertyPath: m_OverrideInteractorLineLength
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6202168812729639340, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
       propertyPath: m_LineType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6202168812729639340, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
       propertyPath: m_RaycastMask.m_Bits
       value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202168812729639340, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
+      propertyPath: m_InteractionLayerMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7284569707925849453, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
+      propertyPath: m_Name
+      value: LeftObtacleController
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345023393244437867, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345023393244437867, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
+      propertyPath: m_Parameters.alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345023393244437867, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
+      propertyPath: m_Parameters.textureMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9154204769825737217, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
+      propertyPath: m_Name
+      value: RightObtacleController
       objectReference: {fileID: 0}
     - target: {fileID: 9154204770821401597, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
       propertyPath: m_Name
@@ -6767,7 +6803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1356876240
 RectTransform:
   m_ObjectHideFlags: 0
