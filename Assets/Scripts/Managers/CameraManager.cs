@@ -11,7 +11,7 @@ public class CameraManager : Singleton<CameraManager>
     public LinkedList<Transform> cameraTransformList;
 
     public LinkedListNode<Transform> currentNode;
-    public GameObject xrOrigin;
+    public GameObject xrRig;
 
     private Camera mainCamera;
 
@@ -40,8 +40,9 @@ public class CameraManager : Singleton<CameraManager>
         // Debug.Log(node.Value.name);
         // mainCamera.transform.position = node.Value.position;
         // mainCamera.transform.rotation = node.Value.rotation;
-        xrOrigin.transform.position = node.Value.position;
-        xrOrigin.transform.rotation = node.Value.rotation;
+        xrRig.transform.position = node.Value.position;
+        MasterController.Instance.Rig.cameraYOffset = node.Value.position.y;
+        xrRig.transform.rotation = node.Value.rotation;
     }
 
     private LinkedListNode<Transform> NextNode()
