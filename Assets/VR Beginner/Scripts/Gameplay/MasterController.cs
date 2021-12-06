@@ -121,25 +121,6 @@ public class MasterController : MonoBehaviour
 
         RightControllertUpdate();
     }
-    void LeftControllertUpdate()
-    {
-        bool isYButton;
-        bool isXButton;
-        m_RightInputDevice.TryGetFeatureValue(CommonUsages.secondaryButton, out isYButton);
-        m_RightInputDevice.TryGetFeatureValue(CommonUsages.primaryButton, out isXButton);
-
-        if(isYButton == true)
-        {
-            if(UIManager.ingameMenu.activeSelf == false)
-                UIManager.OpenMenu();
-        }
-
-        if(isXButton == true)
-        {
-            if(UIManager.ingameMenu.activeSelf == true)
-                UIManager.CloseMenu();
-        }
-    }
     void RightControllertUpdate()
     {
         bool isTriggerButton;
@@ -147,14 +128,12 @@ public class MasterController : MonoBehaviour
         m_RightInputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out isTriggerButton);
         m_RightInputDevice.TryGetFeatureValue(CommonUsages.gripButton, out isGripButton);
 
-
         m_RightLineVisual.enabled = isTriggerButton;
         // m_RightLineVisual.enabled = !isGripButton && isTriggerButton;
 
         if (isTriggerButton && isGripButton)
         {
             m_RightController.Select();
-
             m_RightLineVisual.lineLength = 0.1f;
         }
         else
