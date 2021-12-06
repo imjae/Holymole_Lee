@@ -22,6 +22,20 @@ public class Mole : Player
     public Vector3 velocity;
     public Animator animator;
 
+    private bool _isKey;
+
+    public bool IsKey
+    {
+        get => _isKey;
+        set
+        {
+            _isKey = value;
+            var key = GameManager.Instance.mole.transform.Find("Key");
+            key.GetChild(0).gameObject.SetActive(_isKey);
+        }
+    }
+    bool isDancing = false;
+
 
     void Start()
     {
@@ -62,50 +76,54 @@ public class Mole : Player
         DistanceFromFloor = GetDistanceFromFloor();
         IsGrounded = gameObject.GroundCheck(groundCheckPoint, groundLayer, GroundDistance);
 
-        #region Move, Jump, Attack
-        if (!IsHangOn)
+        if (!isDancing)
         {
-            animator.SetBool("IsHangOn", false);
-            ApplyGravity();
-            InputMovement();
-
-            // 대쉬 상태가 아닐때 점프와 공격 가능.
-            if (!IsDash)
+            #region Move, Jump, Attack
+            if (!IsHangOn)
             {
-                if (Input.GetButtonDown("Jump") && IsGrounded)
-                    InputJump();
+                animator.SetBool("IsHangOn", false);
+                ApplyGravity();
+                InputMovement();
 
-                if (Input.GetButtonDown("Attack"))
-                    InputAttack();
+                // 대쉬 상태가 아닐때 점프와 공격 가능.
+                if (!IsDash)
+                {
+                    if (Input.GetButtonDown("Jump") && IsGrounded)
+                        InputJump();
+
+                    if (Input.GetButtonDown("Attack"))
+                        InputAttack();
+                }
             }
-        }
-        else
-        {
-            animator.SetBool("IsHangOn", true);
-            InputHangOnMovement();
+            else
+            {
+                animator.SetBool("IsHangOn", true);
+                InputHangOnMovement();
 
-            if (Input.GetButtonDown("Jump"))
-                InputHangOnJump();
-        }
-        #endregion
+                if (Input.GetButtonDown("Jump"))
+                    InputHangOnJump();
+            }
+            #endregion
 
-        if (DistanceFromFloor > 3 && !IsHangOn)
-        {
-            IsFallingToggle();
-            animator.SetTrigger("FallingIdle");
-        }
+            if (DistanceFromFloor > 3 && !IsHangOn)
+            {
+                Debug.Log($"이게 여기 외들어와 ?IsHangOn : {IsHangOn}");
+                IsFallingToggle();
+                animator.SetTrigger("FallingIdle");
+            }
 
-        if (Health.hitPoint <= 0 && !IsDie)
-        {
-            Die();
-        }
+            if (Health.hitPoint <= 0 && !IsDie)
+            {
+                Die();
+            }
 
-        controller.Move(velocity * Time.deltaTime);
+            controller.Move(velocity * Time.deltaTime);
+        }
     }
 
     void InputAttack()
     {
-        if(IsGrounded)
+        if (IsGrounded)
             Attack();
         else
         {
@@ -323,5 +341,30 @@ public class Mole : Player
         IsAttacked = false;
         IsFalling = false;
         IsGrounded = false;
+    }
+
+
+    public void IsDancingTrue()
+    {
+        isDancing = true;
+    }
+    public void IsDancingFalse()
+    {
+        isDancing = false;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        // 키 획득 로직
+        if (other.CompareTag("Key"))
+        {
+            IsKey = true;
+            animator.SetTrigger("SalsaDancing");
+
+            Destroy(other.gameObject);
+
+            transform.LookAt(Camera.main.transform.position);
+            Debug.Log(Camera.main.transform);
+        }
     }
 }

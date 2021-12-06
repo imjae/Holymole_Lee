@@ -138,7 +138,7 @@ public class MasterController : MonoBehaviour
         else
         {
             m_RightController.UnSelect();
-            m_RightLineVisual.lineLength = 20f;
+            m_RightLineVisual.lineLength = 40f;
         }
 
         RightInteractor.interactionLayerMask = m_LastFrameRightEnable ? m_OriginalRightMask : new LayerMask();
