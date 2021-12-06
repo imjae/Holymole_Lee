@@ -371,7 +371,10 @@ public class Mole : Player
         {
             IsKey = false;
 
-            
+            if(other.TryGetComponent<Animator>(out Animator animator))
+            {
+                animator.SetTrigger("DoorKeyInsert");
+            }
         }
     }
 }
