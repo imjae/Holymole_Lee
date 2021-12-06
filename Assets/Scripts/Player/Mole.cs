@@ -89,7 +89,7 @@ public class Mole : Player
         }
         #endregion
 
-        if (DistanceFromFloor > 3)
+        if (DistanceFromFloor > 3 && !IsHangOn)
         {
             IsFallingToggle();
             animator.SetTrigger("FallingIdle");
@@ -109,7 +109,7 @@ public class Mole : Player
             Attack();
         else
         {
-            velocity.y = Mathf.Sqrt(JumpHeight*1.2f * -2f * gravity);
+            velocity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);
             controller.Move(velocity * Time.deltaTime);
             animator.SetTrigger("JumpAttack");
 
