@@ -1675,6 +1675,10 @@ PrefabInstance:
       propertyPath: m_InteractionLayerMask.m_Bits
       value: 512
       objectReference: {fileID: 0}
+    - target: {fileID: 6954666933212427832, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
+      propertyPath: m_ModelPrefab
+      value: 
+      objectReference: {fileID: 2658339691737914131, guid: 7f56c9c0325841e4480fbf83f6746e9b, type: 3}
     - target: {fileID: 7284569707925849453, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
       propertyPath: m_Name
       value: LeftObtacleController
@@ -1691,6 +1695,10 @@ PrefabInstance:
       propertyPath: m_Parameters.textureMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8741571900352509602, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
+      propertyPath: m_ModelPrefab
+      value: 
+      objectReference: {fileID: 2658339691737914131, guid: 7f56c9c0325841e4480fbf83f6746e9b, type: 3}
     - target: {fileID: 9154204769825737217, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
       propertyPath: m_Name
       value: RightObtacleController

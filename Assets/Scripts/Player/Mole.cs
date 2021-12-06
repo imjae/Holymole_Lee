@@ -363,7 +363,7 @@ public class Mole : Player
 
             Destroy(other.gameObject);
 
-            transform.LookAt(Camera.main.transform.position);
+            transform.LookAt(Camera.main.transform.position - transform.position);
             Debug.Log(Camera.main.transform);
         }
     }
