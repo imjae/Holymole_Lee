@@ -1643,6 +1643,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1510742733}
     m_Modifications:
     - target: {fileID: 6202168812729639340, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
+      propertyPath: m_LineType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202168812729639340, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
       propertyPath: m_RaycastMask.m_Bits
       value: 512
       objectReference: {fileID: 0}

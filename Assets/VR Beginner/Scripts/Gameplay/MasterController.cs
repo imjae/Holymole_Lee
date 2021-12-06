@@ -135,7 +135,6 @@ public class MasterController : MonoBehaviour
         if (isTriggerButton && isGripButton)
         {
             m_RightController.Select();
-
             m_RightLineVisual.lineLength = 0.1f;
         }
         else
