@@ -129,7 +129,6 @@ public class MasterController : MonoBehaviour
         m_RightInputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out isTriggerButton);
         m_RightInputDevice.TryGetFeatureValue(CommonUsages.gripButton, out isGripButton);
 
-
         m_RightLineVisual.enabled = isTriggerButton;
         // m_RightLineVisual.enabled = !isGripButton && isTriggerButton;
 
