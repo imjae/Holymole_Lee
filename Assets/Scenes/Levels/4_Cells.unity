@@ -11599,11 +11599,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5833831302240494894, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
       propertyPath: txt.Array.data[0]
-      value: '- THERE ARE TRAPS EVERYWHERE.'
+      value: THERE ARE TRAPS EVERYWHERE.
       objectReference: {fileID: 0}
     - target: {fileID: 5833831302240494894, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
       propertyPath: txt.Array.data[1]
-      value: '- WHERE WILL YOU GO, LEE?'
+      value: WHERE WILL YOU GO, LEE?
       objectReference: {fileID: 0}
     - target: {fileID: 5833831302240494894, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
       propertyPath: txt.Array.data[2]
@@ -14423,11 +14423,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5833831302240494894, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
       propertyPath: txt.Array.data[1]
-      value: I CAN FELL THE HEAT AND DANGER
+      value: WON'T BE ABLE TO FIX SOMETHING
       objectReference: {fileID: 0}
     - target: {fileID: 5833831302240494894, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
       propertyPath: txt.Array.data[2]
-      value: I CAN FELL THE HEAT AND DANGER
+      value: I THINK YOU NEED MY HELP
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
