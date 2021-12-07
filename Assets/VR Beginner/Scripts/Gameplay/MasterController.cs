@@ -40,9 +40,6 @@ public class MasterController : MonoBehaviour
     LayerMask m_OriginalRightMask;
     LayerMask m_OriginalLeftMask;
 
-    LineRenderer m_LeftLineRenderer;
-    LineRenderer m_RightLineRenderer;
-
     List<XRBaseInteractable> m_InteractableCache = new List<XRBaseInteractable>(16);
 
     void Awake()
@@ -75,9 +72,6 @@ public class MasterController : MonoBehaviour
 
         m_OriginalRightMask = RightInteractor.interactionLayerMask;
         m_OriginalLeftMask = LeftInteractor.interactionLayerMask;
-
-        m_RightLineRenderer = RightInteractor.GetComponent<LineRenderer>();
-        m_LeftLineRenderer = LeftInteractor.GetComponent<LineRenderer>();
 
         InputDeviceCharacteristics leftTrackedControllerFilter = InputDeviceCharacteristics.HeldInHand | InputDeviceCharacteristics.Left;
         List<InputDevice> foundControllers = new List<InputDevice>();
@@ -133,12 +127,12 @@ public class MasterController : MonoBehaviour
         if (isTriggerButton && isGripButton)
         {
             m_RightController.Select();
-            m_RightLineVisual.lineLength = 0.1f;
+            // m_RightLineVisual.lineLength = 0.1f;
         }
         else
         {
             m_RightController.UnSelect();
-            m_RightLineVisual.lineLength = 40f;
+            // m_RightLineVisual.lineLength = 40f;
         }
 
         RightInteractor.interactionLayerMask = m_LastFrameRightEnable ? m_OriginalRightMask : new LayerMask();

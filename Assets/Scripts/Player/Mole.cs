@@ -105,9 +105,8 @@ public class Mole : Player
             }
             #endregion
 
-            if (DistanceFromFloor > 3 && !IsHangOn)
+            if (!IsFalling && DistanceFromFloor > 3 && !IsHangOn)
             {
-                Debug.Log($"이게 여기 외들어와 ?IsHangOn : {IsHangOn}");
                 IsFallingToggle();
                 animator.SetTrigger("FallingIdle");
             }
