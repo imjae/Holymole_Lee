@@ -18,8 +18,10 @@ public class MasterController : MonoBehaviour
     public bool DisableSetupForDebug = false;
 
     [Header("Reference")]
-    public XRRayInteractor RightInteractor;
-    public XRRayInteractor LeftInteractor;
+    public XRRayInteractor RightObtacleInteractor;
+    public XRRayInteractor LeftObtacleInteractor;
+    public XRDirectInteractor RightPuzzleInteractor;
+    public XRDirectInteractor LeftPuzzleInteractor;
 
     XRRig m_Rig;
 
@@ -61,17 +63,17 @@ public class MasterController : MonoBehaviour
 
     void Start()
     {
-        m_RightLineVisual = RightInteractor.GetComponent<XRInteractorLineVisual>();
+        m_RightLineVisual = RightObtacleInteractor.GetComponent<XRInteractorLineVisual>();
         m_RightLineVisual.enabled = false;
 
-        m_LeftLineVisual = LeftInteractor.GetComponent<XRInteractorLineVisual>();
+        m_LeftLineVisual = LeftObtacleInteractor.GetComponent<XRInteractorLineVisual>();
         m_LeftLineVisual.enabled = false;
 
-        m_RightController = RightInteractor.GetComponent<XRReleaseController>();
-        m_LeftController = LeftInteractor.GetComponent<XRReleaseController>();
+        m_RightController = RightObtacleInteractor.GetComponent<XRReleaseController>();
+        m_LeftController = LeftObtacleInteractor.GetComponent<XRReleaseController>();
 
-        m_OriginalRightMask = RightInteractor.interactionLayerMask;
-        m_OriginalLeftMask = LeftInteractor.interactionLayerMask;
+        m_OriginalRightMask = RightObtacleInteractor.interactionLayerMask;
+        m_OriginalLeftMask = LeftObtacleInteractor.interactionLayerMask;
 
         InputDeviceCharacteristics leftTrackedControllerFilter = InputDeviceCharacteristics.HeldInHand | InputDeviceCharacteristics.Left;
         List<InputDevice> foundControllers = new List<InputDevice>();
@@ -135,7 +137,7 @@ public class MasterController : MonoBehaviour
             // m_RightLineVisual.lineLength = 40f;
         }
 
-        RightInteractor.interactionLayerMask = m_LastFrameRightEnable ? m_OriginalRightMask : new LayerMask();
+        RightObtacleInteractor.interactionLayerMask = m_LastFrameRightEnable ? m_OriginalRightMask : new LayerMask();
 
         m_LastFrameRightEnable = m_RightLineVisual.enabled;
     }
