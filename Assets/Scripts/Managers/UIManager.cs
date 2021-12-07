@@ -56,9 +56,6 @@ public class UIManager : Singleton<UIManager>
         CancelInvoke();
     }
 
-    void Start()
-    {
-    }
     void Update()
     {
         if (Input.GetButtonDown("Menu"))
