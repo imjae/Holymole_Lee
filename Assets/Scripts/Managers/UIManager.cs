@@ -6,12 +6,12 @@ using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using CommonUsages = UnityEngine.XR.CommonUsages;
 using InputDevice = UnityEngine.XR.InputDevice;
-
+using TMPro;
 public class UIManager : Singleton<UIManager>
 {
     public GameObject ingameMenu;
     public GameObject printingText;
-    public Button returnBtn, exitBtn;
+    private TextMeshProUGUI temp;
 
     //
     // Menu Open, Close  
@@ -30,10 +30,18 @@ public class UIManager : Singleton<UIManager>
 
     //
     // Print
-    void Start()
+    public void PrintText(string txt, float durationTime) //내용, 지속시간
     {
-        ingameMenu = returnBtn.transform.parent.gameObject;
+        printingText.transform.parent.gameObject.SetActive(true);
+        temp = printingText.GetComponent<TextMeshProUGUI>();
+        temp.text = txt.ToString();
+        Invoke("DisableText", durationTime);
     }
+    public void DisableText()
+    {
+        printingText.transform.parent.gameObject.SetActive(false);
+    }
+
     void update()
     {
         if (Input.GetButtonDown("Menu"))
