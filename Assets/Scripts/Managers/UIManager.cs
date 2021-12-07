@@ -30,19 +30,36 @@ public class UIManager : Singleton<UIManager>
 
     //
     // Print
-    public void PrintText(string txt, float durationTime) //내용, 지속시간
+    public void PrintText(string txt, float durationTime) //주로 트리거에 부딪혔을 때 사용
     {
         printingText.transform.parent.gameObject.SetActive(true);
         temp = printingText.GetComponent<TextMeshProUGUI>();
         temp.text = txt.ToString();
-        Invoke("DisableText", durationTime);
+        Invoke("DisableTextPanel", durationTime);
     }
-    public void DisableText()
+    IEnumerator PrintText(List<string> txtList, float durationTime) //주로 스테이지에 진입했을 때 사용
+    {
+        float sentencePrintingTime = durationTime/txtList.Count; // 문장당 출력시간
+        printingText.transform.parent.gameObject.SetActive(true);
+        temp = printingText.GetComponent<TextMeshProUGUI>();
+        for(int i=0; i < txtList.Count; i++)
+        {
+            temp.text = txtList[i];
+            if(sentencePrintingTime * i <= durationTime)
+            yield return new WaitForSeconds(sentencePrintingTime);
+        }
+        DisableTextPanel();
+    }
+    public void DisableTextPanel()
     {
         printingText.transform.parent.gameObject.SetActive(false);
+        CancelInvoke();
     }
 
-    void update()
+    void Start()
+    {
+    }
+    void Update()
     {
         if (Input.GetButtonDown("Menu"))
         {
