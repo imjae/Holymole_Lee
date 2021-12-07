@@ -363,18 +363,35 @@ public class Mole : Player
 
             Destroy(other.gameObject);
 
-            transform.LookAt(Camera.main.transform.position - transform.position);
-            Debug.Log(Camera.main.transform);
+            transform.rotation = Quaternion.LookRotation(Camera.main.transform.position - transform.position);
+
+            // transform.LookAt(Camera.main.transform.position - transform.position);
+            // Debug.Log(Camera.main.transform);
         }
 
-        if(other.CompareTag("Door"))
+        if (other.CompareTag("Door"))
         {
             IsKey = false;
+            
+            if(other.TryGetComponent<Door>(out Door door))
+            {
+                // 문이 열렸다는 플래그 변수 셋팅(콜라이더를 disable 시킨다.)
+                door.IsOpened = true;
+            }
 
-            if(other.TryGetComponent<Animator>(out Animator animator))
+            if (other.TryGetComponent<Animator>(out Animator animator))
             {
                 animator.SetTrigger("DoorKeyInsert");
             }
+
+            for (int i = 0; i < other.transform.childCount; i++)
+            {
+                if (other.transform.GetChild(i).TryGetComponent<DoorRotateInteractable>(out DoorRotateInteractable interactable))
+                {
+                    interactable.enabled = true;
+                }
+            }
+
         }
     }
 }

@@ -1467,7 +1467,7 @@ MonoBehaviour:
   m_BlendVisualLinePoints: 1
   m_MaxRaycastDistance: 30
   m_ReferenceFrame: {fileID: 0}
-  m_Velocity: 16
+  m_Velocity: 32
   m_Acceleration: 9.8
   m_AdditionalGroundHeight: 0.1
   m_AdditionalFlightTime: 0.5
