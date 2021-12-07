@@ -11,6 +11,7 @@ public class TextFuncTrigger : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             UIManager.Instance.PrintText(txt, time);
+            Destroy(this);
         }
     }
 }
