@@ -37,7 +37,11 @@ public class UIManager : Singleton<UIManager>
         temp.text = txt.ToString();
         Invoke("DisableTextPanel", durationTime);
     }
-    IEnumerator PrintText(List<string> txtList, float durationTime) //주로 스테이지에 진입했을 때 사용
+    public void PrintText(List<string> txtList, float durationTime)
+    {
+        StartCoroutine(PrintTextCouroutine(txtList, durationTime));
+    }
+    IEnumerator PrintTextCouroutine(List<string> txtList, float durationTime) //주로 스테이지에 진입했을 때 사용
     {
         float sentencePrintingTime = durationTime/txtList.Count; // 문장당 출력시간
         printingText.transform.parent.gameObject.SetActive(true);
