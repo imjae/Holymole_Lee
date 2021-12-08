@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FallingDeathTrigger : MonoBehaviour
 {
-    public Transform respawnSpot, player;
+    public Transform respawnSpot;
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
