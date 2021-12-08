@@ -27313,6 +27313,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraPoint16
       objectReference: {fileID: 0}
+    - target: {fileID: 1589937161295572577, guid: 0e2a5ab87f959664ea42a6e4e75f38ba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1589937161295572605, guid: 0e2a5ab87f959664ea42a6e4e75f38ba, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -27414,6 +27418,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraPoint17
       objectReference: {fileID: 0}
+    - target: {fileID: 3024333645637384117, guid: bdaf6f7e163a6774c93ef6632913af82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdaf6f7e163a6774c93ef6632913af82, type: 3}
 --- !u!1001 &3154185673543023411
@@ -27426,6 +27434,10 @@ PrefabInstance:
     - target: {fileID: 3154185675144809409, guid: 68450d78cda8108498b3e991400a7a38, type: 3}
       propertyPath: m_Name
       value: CameraPoint18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154185675144809409, guid: 68450d78cda8108498b3e991400a7a38, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3154185675144809413, guid: 68450d78cda8108498b3e991400a7a38, type: 3}
       propertyPath: m_RootOrder
