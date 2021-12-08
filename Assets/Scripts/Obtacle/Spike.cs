@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Spike : MonoBehaviour
+public class Spike : Obtacle
 {
     private Vector3 originPos;
     private float timer, speed;
@@ -11,29 +11,34 @@ public class Spike : MonoBehaviour
     public float tempTimer_atk = 2.1f;
     public float tempTimer_back = 3.3f;
 
-    //Zì¶• ê¸°ì¤€ìœ¼ë¡œ ì›€ì§ì´ëŠ” í•¨ì •ìž…ë‹ˆë‹¤.
+    //Zì¶? ê¸°ì???œ¼ë¡? ???ì§ì´?Š” ?•¨? •?ž…?‹ˆ?‹¤.
 
-    void OnTriggerEnter(Collider other)
-    {
-        Vector3 a = gameObject.transform.forward;
-        Vector3 b = gameObject.transform.up;
-        Debug.Log("dmdkr11111"); 
-        if(other.CompareTag("Player") && timer > 0 && timer < 5)
-        {
-            // Debug.Log("dmdkr222");
-            // other.gameObject.GetComponent<Mole>().velocity = (a + b).normalized * 5f;
+    // void OnTriggerEnter(Collider other)
+    // {
+    //     Vector3 forwardForce = gameObject.transform.forward;
+    //     Vector3 upsideForce = gameObject.transform.up;
+    //     if(other.CompareTag("Player") && timer > 0 && timer < 5)
+    //     {
+    //         var mole = other.GetComponent<Mole>();
+    //         mole.controller.enabled = false;
+    //         other.transform.position = respawnPos.transform.position;
+    //         mole.controller.enabled = true;
+    //         UIManager.Instance.FadeOn();
+
+    //         // Debug.Log("dmdkr222");
+    //         // other.gameObject.GetComponent<Mole>().velocity = (a + b).normalized * 5f;
             
-            Vector3 pushVelocity = (a + b).normalized * 5f;
+    //         Vector3 pushVelocity = (forwardForce + upsideForce).normalized * 5f;
 
-            other.gameObject.SendMessage("KnockBack", pushVelocity);
+    //         other.gameObject.SendMessage("KnockBack", pushVelocity);
 
-            if(other.gameObject.TryGetComponent<Rigidbody>(out Rigidbody rigid))
-            {
-                Debug.Log("dmdkr");
-                rigid.AddForce((a + b).normalized * 1005f);
-            }
-        }
-    }
+    //         if(other.gameObject.TryGetComponent<Rigidbody>(out Rigidbody rigid))
+    //         {
+    //             Debug.Log("dmdkr");
+    //             rigid.AddForce((forwardForce + upsideForce).normalized * 1005f);
+    //         }
+    //     }
+    // }
     public void Attack()
     {
         if(timer > tempTimer_atk)
