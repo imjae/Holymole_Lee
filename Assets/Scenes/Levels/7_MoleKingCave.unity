@@ -1986,6 +1986,95 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 456254, guid: f65b497ff807d95439b38e7da2fab667, type: 3}
   m_PrefabInstance: {fileID: 24181451}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &170410035
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5833831302240494801, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
+      propertyPath: m_Name
+      value: TextCoroutineTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833831302240494890, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833831302240494890, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 27.88358
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833831302240494890, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6.0417037
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833831302240494890, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3155268
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833831302240494890, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.2352314
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833831302240494890, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.5291195
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833831302240494890, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -156.66785
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833831302240494890, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.043141276
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833831302240494890, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833831302240494890, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.999069
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833831302240494890, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833831302240494890, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833831302240494890, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 175.055
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833831302240494890, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833831302240494892, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833831302240494894, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
+      propertyPath: time
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833831302240494894, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
+      propertyPath: txt.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833831302240494894, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
+      propertyPath: txt.Array.data[0]
+      value: IT SMELLS TERRIBLE.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833831302240494894, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
+      propertyPath: txt.Array.data[1]
+      value: SMELL OF DEATH.
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 851f69fd60ab7ef49922c50454207703, type: 3}
 --- !u!4 &177185550 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 411370, guid: 1c757b8a6a985284aa7fd4a80e427dd9, type: 3}
@@ -5892,7 +5981,7 @@ Transform:
   - {fileID: 1431434300}
   - {fileID: 322872510}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &504580727
 PrefabInstance:
@@ -6057,7 +6146,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &508706607
 PrefabInstance:
@@ -7022,7 +7111,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 408159859508049781, guid: f994e8f87fc39a141b2f59fab57bc555, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 408159859508049781, guid: f994e8f87fc39a141b2f59fab57bc555, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9648,7 +9737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2461377765063485521, guid: 57a84962196002e41b24a8f231fdde34, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2461377765063485521, guid: 57a84962196002e41b24a8f231fdde34, type: 3}
       propertyPath: m_LocalScale.x
@@ -15091,7 +15180,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1220756749 stripped
 Transform:
@@ -15302,7 +15391,7 @@ Transform:
   m_LocalScale: {x: 14.3622, y: 14.3622, z: 14.3622}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &1242710544 stripped
 Transform:
