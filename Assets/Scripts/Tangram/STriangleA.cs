@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class STriangleA : Tangram
 {
-    private void Start()
-    {
-        isCorrectTransform = false;
-    }
+ 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == gameObject.tag)
         {
             Debug.Log(other.name);
-            if (other.transform.eulerAngles.z < 215 && other.transform.eulerAngles.z > 210)
+            if (other.transform.eulerAngles.z > 165 && other.transform.eulerAngles.z < 170)
             {
                 Debug.Log("다섯번째위치ok");
                 isCorrectTransform = true;
