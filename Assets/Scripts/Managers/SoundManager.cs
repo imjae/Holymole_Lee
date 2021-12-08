@@ -20,13 +20,10 @@ public class SoundManager : Singleton<SoundManager>
 
     void Start()
     {
-           
-    }
-    public void BGMPlay()
-    {
         bgmPlayer.clip = bgmSound.clip;
         bgmPlayer.Play();
     }
+    
     public void BGMPause()
     {
         bgmPlayer.Pause();
