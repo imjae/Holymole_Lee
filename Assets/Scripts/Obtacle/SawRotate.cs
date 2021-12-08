@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class SawRotate : MonoBehaviour
+public class SawRotate : Obtacle
 {
     public float rSpeed = 1000f;
-    void Start()
-    {
-        
-    }
+ 
 
     void Update()
     {
