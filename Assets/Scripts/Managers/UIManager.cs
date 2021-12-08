@@ -96,7 +96,7 @@ public class UIManager : Singleton<UIManager>
             yield return null;
         }
     }
-    public void FadeON()
+    public void FadeOn()
     {
         StartCoroutine(FadeEffect());
     }

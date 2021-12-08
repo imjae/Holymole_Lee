@@ -2,18 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stone : MonoBehaviour
+public class Stone : Obtacle
 {
     public float speed;
     private float fallingY;
     private Vector3 originPos;
-    void OnCollisionEnter(Collision other)
-    {
-        if(other.transform.CompareTag("Player"))
-        {
-            //Á×´Â ÀÌº¥Æ®
-        }
-    }
+
     void Start()
     {
         originPos = transform.position; 
