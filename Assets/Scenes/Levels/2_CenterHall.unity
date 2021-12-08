@@ -10226,6 +10226,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1703566225}
     m_Modifications:
+    - target: {fileID: 1505139627310159106, guid: 28cf75532ae32b945b18a2a8ec363291, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136035910186095298, guid: 28cf75532ae32b945b18a2a8ec363291, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057524903857873370, guid: 28cf75532ae32b945b18a2a8ec363291, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584681878971648860, guid: 28cf75532ae32b945b18a2a8ec363291, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6263160803023004510, guid: 28cf75532ae32b945b18a2a8ec363291, type: 3}
       propertyPath: m_Name
       value: Fragged Vine 01
@@ -32830,7 +32846,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2138336807, guid: c44fafd591a0f624c9d8a67a72cc6652, type: 3}
       propertyPath: m_InteractionLayerMask.m_Bits
-      value: 0
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 64779058866331498, guid: c44fafd591a0f624c9d8a67a72cc6652, type: 3}
+      propertyPath: m_CookingOptions
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c44fafd591a0f624c9d8a67a72cc6652, type: 3}

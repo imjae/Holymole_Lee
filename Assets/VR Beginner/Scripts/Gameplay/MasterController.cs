@@ -42,11 +42,13 @@ public class MasterController : Singleton<MasterController>
 
     List<XRBaseInteractable> m_InteractableCache = new List<XRBaseInteractable>(16);
 
+    public GameObject xrInteractionManager;
+
     void Awake()
     {
         m_Rig = GetComponent<XRRig>();
 
-
+        xrInteractionManager = GameObject.Find("XR Interaction Manager");
     }
 
     void OnEnable()
