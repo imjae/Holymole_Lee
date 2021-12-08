@@ -7,10 +7,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 using CommonUsages = UnityEngine.XR.CommonUsages;
 using InputDevice = UnityEngine.XR.InputDevice;
 
-public class MasterController : MonoBehaviour
+public class MasterController : Singleton<MasterController>
 {
-    static MasterController s_Instance = null;
-    public static MasterController Instance => s_Instance;
 
     public XRRig Rig => m_Rig;
 
@@ -46,10 +44,9 @@ public class MasterController : MonoBehaviour
 
     void Awake()
     {
-        s_Instance = this;
         m_Rig = GetComponent<XRRig>();
 
-        
+
     }
 
     void OnEnable()
@@ -112,9 +109,6 @@ public class MasterController : MonoBehaviour
 
     void Update()
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
-            Application.Quit();
-
         RightControllertUpdate();
     }
     void RightControllertUpdate()
@@ -130,13 +124,10 @@ public class MasterController : MonoBehaviour
         if (isTriggerButton && isGripButton)
         {
             m_RightController.Select();
-            // m_RightLineVisual.lineLength = 0.1f;
+            m_RightLineVisual.lineLength = 0.1f;
         }
-        else
-        {
-            m_RightController.UnSelect();
-            // m_RightLineVisual.lineLength = 40f;
-        }
+
+        m_RightLineVisual.lineLength = 40f;
 
         RightObtacleInteractor.interactionLayerMask = m_LastFrameRightEnable ? m_OriginalRightMask : new LayerMask();
 
