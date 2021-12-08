@@ -20,7 +20,7 @@ public class Obtacle : MonoBehaviour
     IEnumerator IsDying(Player player)
     {
         player.IsDie = true;
-        yield return new  WaitForSeconds(3f);
+        yield return new WaitForSeconds(3f);
         player.IsDie = false;
     }
 }
