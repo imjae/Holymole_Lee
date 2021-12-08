@@ -30,14 +30,18 @@ public class UIManager : Singleton<UIManager>
 
     //
     // Print
-    public void PrintText(string txt, float durationTime) //주로 트리거에 부딪혔을 때 사용
+    // public void PrintText(string txt, float durationTime) //주로 트리거에 부딪혔을 때 사용
+    // {
+    //     printingText.transform.parent.gameObject.SetActive(true);
+    //     temp = printingText.GetComponent<TextMeshProUGUI>();
+    //     temp.text = txt.ToString();
+    //     Invoke("DisableTextPanel", durationTime);
+    // }
+    public void PrintText(List<string> txtList, float durationTime)
     {
-        printingText.transform.parent.gameObject.SetActive(true);
-        temp = printingText.GetComponent<TextMeshProUGUI>();
-        temp.text = txt.ToString();
-        Invoke("DisableTextPanel", durationTime);
+        StartCoroutine(PrintTextCouroutine(txtList, durationTime));
     }
-    IEnumerator PrintText(List<string> txtList, float durationTime) //주로 스테이지에 진입했을 때 사용
+    IEnumerator PrintTextCouroutine(List<string> txtList, float durationTime) //주로 스테이지에 진입했을 때 사용
     {
         float sentencePrintingTime = durationTime/txtList.Count; // 문장당 출력시간
         printingText.transform.parent.gameObject.SetActive(true);
@@ -48,17 +52,14 @@ public class UIManager : Singleton<UIManager>
             if(sentencePrintingTime * i <= durationTime)
             yield return new WaitForSeconds(sentencePrintingTime);
         }
-        DisableTextPanel();
+        // DisableTextPanel();
     }
-    public void DisableTextPanel()
-    {
-        printingText.transform.parent.gameObject.SetActive(false);
-        CancelInvoke();
-    }
+    // public void DisableTextPanel()
+    // {
+    //     printingText.transform.parent.gameObject.SetActive(false);
+    //     CancelInvoke();
+    // }
 
-    void Start()
-    {
-    }
     void Update()
     {
         if (Input.GetButtonDown("Menu"))
