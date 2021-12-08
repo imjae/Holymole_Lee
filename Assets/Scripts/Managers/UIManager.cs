@@ -89,7 +89,7 @@ public class UIManager : Singleton<UIManager>
             fadeInNOut.SetActive(true);
             while(fadeCount > 0)
             {
-                fadeCount -= 0.001f;
+                fadeCount -= 0.005f;
                 fadeInNOut.GetComponent<Image>().color = new Color(0,0,0,fadeCount);
                 yield return new WaitForSeconds(0.01f);
             }
@@ -102,6 +102,7 @@ public class UIManager : Singleton<UIManager>
     }
     void Start()
     {
+        StartCoroutine(FadeEffect());
     }
     void Update()
     {

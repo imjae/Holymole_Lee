@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FallingDeathTrigger : MonoBehaviour
+public class DyingTrigger : MonoBehaviour
 {
-    public Transform respawnSpot, player;
+    public Transform respawnSpot;
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

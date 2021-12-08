@@ -10,6 +10,7 @@ public class TextCoroutineTrigger : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            Debug.Log("txt check");
             UIManager.Instance.PrintText(txt, time);
             Destroy(this);
         }
