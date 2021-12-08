@@ -2268,7 +2268,6 @@ GameObject:
   - component: {fileID: 9154204770821401599}
   - component: {fileID: 9154204770821401598}
   - component: {fileID: 9154204770821401592}
-  - component: {fileID: 508783510}
   - component: {fileID: 3450620398000817432}
   m_Layer: 0
   m_Name: XR Rig
@@ -2329,18 +2328,6 @@ MonoBehaviour:
   LeftObtacleInteractor: {fileID: 4887341671158269253}
   RightPuzzleInteractor: {fileID: 621974144}
   LeftPuzzleInteractor: {fileID: 975258993}
---- !u!114 &508783510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9154204770821401597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b8d80524dc9a0e4996b93f0d0097863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3450620398000817432
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MoveToSceneObject : Singleton<MoveToSceneObject>
 {
-
     void Awake()
     {
         DontDestroyOnLoad(gameObject);

@@ -49,6 +49,7 @@ public class MasterController : MonoBehaviour
         s_Instance = this;
         m_Rig = GetComponent<XRRig>();
 
+        
     }
 
     void OnEnable()
