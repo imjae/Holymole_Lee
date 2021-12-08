@@ -76,48 +76,52 @@ public class Mole : Player
         DistanceFromFloor = GetDistanceFromFloor();
         IsGrounded = gameObject.GroundCheck(groundCheckPoint, groundLayer, GroundDistance);
 
-        if (!isDancing)
+        if (!IsDie)
         {
-            #region Move, Jump, Attack
-            if (!IsHangOn)
+            if (!isDancing)
             {
-                animator.SetBool("IsHangOn", false);
-                ApplyGravity();
-                InputMovement();
-
-                // 대쉬 상태가 아닐때 점프와 공격 가능.
-                if (!IsDash)
+                #region Move, Jump, Attack
+                if (!IsHangOn)
                 {
-                    if (Input.GetButtonDown("Jump") && IsGrounded)
-                        InputJump();
+                    animator.SetBool("IsHangOn", false);
+                    ApplyGravity();
+                    InputMovement();
 
-                    if (Input.GetButtonDown("Attack"))
-                        InputAttack();
+                    // 대쉬 상태가 아닐때 점프와 공격 가능.
+                    if (!IsDash)
+                    {
+                        if (Input.GetButtonDown("Jump") && IsGrounded)
+                            InputJump();
+
+                        if (Input.GetButtonDown("Attack"))
+                            InputAttack();
+                    }
                 }
-            }
-            else
-            {
-                animator.SetBool("IsHangOn", true);
-                InputHangOnMovement();
+                else
+                {
+                    animator.SetBool("IsHangOn", true);
+                    InputHangOnMovement();
 
-                if (Input.GetButtonDown("Jump"))
-                    InputHangOnJump();
-            }
-            #endregion
+                    if (Input.GetButtonDown("Jump"))
+                        InputHangOnJump();
+                }
+                #endregion
 
-            if (!IsFalling && DistanceFromFloor > 3 && !IsHangOn)
-            {
-                IsFallingToggle();
-                animator.SetTrigger("FallingIdle");
-            }
+                if (!IsFalling && DistanceFromFloor > 3 && !IsHangOn)
+                {
+                    IsFallingToggle();
+                    animator.SetTrigger("FallingIdle");
+                }
 
-            if (Health.hitPoint <= 0 && !IsDie)
-            {
-                Die();
-            }
+                if (Health.hitPoint <= 0 && !IsDie)
+                {
+                    Die();
+                }
 
-            controller.Move(velocity * Time.deltaTime);
+                controller.Move(velocity * Time.deltaTime);
+            }
         }
+
     }
 
     void InputAttack()
@@ -371,8 +375,8 @@ public class Mole : Player
         if (other.CompareTag("Door"))
         {
             IsKey = false;
-            
-            if(other.TryGetComponent<Door>(out Door door))
+
+            if (other.TryGetComponent<Door>(out Door door))
             {
                 // 문이 열렸다는 플래그 변수 셋팅(콜라이더를 disable 시킨다.)
                 door.IsOpened = true;
