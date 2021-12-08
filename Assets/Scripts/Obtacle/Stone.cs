@@ -21,8 +21,6 @@ public class Stone : MonoBehaviour
     void Update()
     {
         fallingY = transform.position.y;
-        Debug.Log(fallingY);
-        Debug.Log(originPos);
         transform.Translate(Vector3.down * (speed/10));
         if(fallingY < -100f)
         {

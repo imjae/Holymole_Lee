@@ -81,7 +81,18 @@ public class AxisDragInteractable : XRBaseInteractable
     {
         if (isSelected)
         {
-            transform.GetChild(0).GetComponent<Renderer>().enabled = true;
+            for(int i=0; i<transform.childCount; i++)
+            {
+                var child = transform.GetChild(0);
+                if(child.name.Equals("SelectedMesh")) 
+                {
+                    if(TryGetComponent<Renderer>(out Renderer renderer))
+                    {
+                        renderer.enabled = true;
+                    }
+                }
+            }
+            // transform.GetChild(0).GetComponent<Renderer>().enabled = true;
             if (updatePhase == XRInteractionUpdateOrder.UpdatePhase.Fixed)
             {
                 Vector3 WorldAxis = transform.TransformDirection(LocalAxis);
@@ -127,7 +138,18 @@ public class AxisDragInteractable : XRBaseInteractable
         }
         else
         {
-            transform.GetChild(0).GetComponent<Renderer>().enabled = false;
+            // transform.GetChild(0).GetComponent<Renderer>().enabled = false;
+            for(int i=0; i<transform.childCount; i++)
+            {
+                var child = transform.GetChild(0);
+                if(child.name.Equals("SelectedMesh")) 
+                {
+                    if(TryGetComponent<Renderer>(out Renderer renderer))
+                    {
+                        renderer.enabled = false;
+                    }
+                }
+            }
             // if (ReturnOnFree)
             // {
             //     Vector3 targetPoint = Vector3.MoveTowards(transform.position, m_StartPoint, ReturnSpeed * Time.deltaTime);
