@@ -121,7 +121,6 @@ public class MasterController : MonoBehaviour
 
         RightControllertUpdate();
     }
-
     void RightControllertUpdate()
     {
         bool isTriggerButton;
@@ -129,14 +128,12 @@ public class MasterController : MonoBehaviour
         m_RightInputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out isTriggerButton);
         m_RightInputDevice.TryGetFeatureValue(CommonUsages.gripButton, out isGripButton);
 
-
         m_RightLineVisual.enabled = isTriggerButton;
         // m_RightLineVisual.enabled = !isGripButton && isTriggerButton;
 
         if (isTriggerButton && isGripButton)
         {
             m_RightController.Select();
-
             m_RightLineVisual.lineLength = 0.1f;
         }
         else
