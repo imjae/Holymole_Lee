@@ -30,13 +30,13 @@ public class UIManager : Singleton<UIManager>
 
     //
     // Print
-    public void PrintText(string txt, float durationTime) //주로 트리거에 부딪혔을 때 사용
-    {
-        printingText.transform.parent.gameObject.SetActive(true);
-        temp = printingText.GetComponent<TextMeshProUGUI>();
-        temp.text = txt.ToString();
-        Invoke("DisableTextPanel", durationTime);
-    }
+    // public void PrintText(string txt, float durationTime) //주로 트리거에 부딪혔을 때 사용
+    // {
+    //     printingText.transform.parent.gameObject.SetActive(true);
+    //     temp = printingText.GetComponent<TextMeshProUGUI>();
+    //     temp.text = txt.ToString();
+    //     Invoke("DisableTextPanel", durationTime);
+    // }
     public void PrintText(List<string> txtList, float durationTime)
     {
         StartCoroutine(PrintTextCouroutine(txtList, durationTime));
@@ -52,13 +52,13 @@ public class UIManager : Singleton<UIManager>
             if(sentencePrintingTime * i <= durationTime)
             yield return new WaitForSeconds(sentencePrintingTime);
         }
-        DisableTextPanel();
+        // DisableTextPanel();
     }
-    public void DisableTextPanel()
-    {
-        printingText.transform.parent.gameObject.SetActive(false);
-        CancelInvoke();
-    }
+    // public void DisableTextPanel()
+    // {
+    //     printingText.transform.parent.gameObject.SetActive(false);
+    //     CancelInvoke();
+    // }
 
     void Update()
     {
