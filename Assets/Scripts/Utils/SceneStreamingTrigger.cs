@@ -34,13 +34,14 @@ public class SceneStreamingTrigger : MonoBehaviour
         if(targetScene.isLoaded)
         {
             var currentScene = SceneManager.GetSceneByName(triggerOwnScene);
-            SceneManager.MoveGameObjectToScene(GameObject.FindGameObjectWithTag("MoveToSceneObject"), currentScene);
+            // SceneManager.MoveGameObjectToScene(GameObject.FindGameObjectWithTag("MoveToSceneObject"), currentScene);
 
-            var op = SceneManager.UnloadSceneAsync(streamTargetScene);
-            while(!op.isDone)
-            {
+            // TODO 지나간 맵 언로드시 핸드컨트롤러 레이가 고장나버림
+            // var op = SceneManager.UnloadSceneAsync(streamTargetScene);
+            // while(!op.isDone)
+            // {
                 yield return null;
-            }
+            // }
         }
 
     }

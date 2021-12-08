@@ -42,7 +42,6 @@ public class AxisDragInteractable : XRBaseInteractable
     Vector3 m_StartPoint;
     Vector3 m_GrabbedOffset;
     float m_CurrentDistance;
-    int m_CurrentStep;
     XRBaseInteractor m_GrabbingInteractor;
 
     float m_StepLength;
@@ -76,8 +75,6 @@ public class AxisDragInteractable : XRBaseInteractable
         {
             MovingRigidbody = GetComponentInChildren<Rigidbody>();
         }
-
-        m_CurrentStep = 0;
     }
 
     public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)

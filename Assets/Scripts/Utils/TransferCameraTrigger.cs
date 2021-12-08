@@ -28,10 +28,6 @@ public class TransferCameraTrigger : MonoBehaviour
         {
             exitAngle = Vector3.Angle(transform.forward, other.transform.position - transform.position);
 
-
-            Debug.Log($"Enter : {enterAngle} / Exit : {exitAngle}");
-
-
             if (enterAngle < 90f && exitAngle < 90f)
             {
                 // 다음 카메라
@@ -42,7 +38,6 @@ public class TransferCameraTrigger : MonoBehaviour
                 // 이전 카메라
                 CameraManager.Instance.PreviousCamera(step);
             }
-            // Debug.Log($"Camera name: {CameraManager.Instance.currentNode.Value.name}");
         }
     }
 }
