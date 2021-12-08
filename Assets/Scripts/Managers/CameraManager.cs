@@ -37,7 +37,7 @@ public class CameraManager : Singleton<CameraManager>
     // 노드의 위치값을 카메라에 덮어쓰기
     private void TransferCamera(LinkedListNode<Transform> node)
     {
-        // Debug.Log(node.Value.name);
+        Debug.Log($"여기로 이동 {node.Value.name}");
         // mainCamera.transform.position = node.Value.position;
         // mainCamera.transform.rotation = node.Value.rotation;
         xrRig.transform.position = node.Value.position;

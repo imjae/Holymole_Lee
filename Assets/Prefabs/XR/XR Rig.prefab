@@ -1593,7 +1593,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7284569707925849453}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
   m_Name: 
@@ -2328,6 +2328,7 @@ MonoBehaviour:
   LeftObtacleInteractor: {fileID: 4887341671158269253}
   RightPuzzleInteractor: {fileID: 621974144}
   LeftPuzzleInteractor: {fileID: 975258993}
+  xrInteractionManager: {fileID: 0}
 --- !u!114 &3450620398000817432
 MonoBehaviour:
   m_ObjectHideFlags: 0
