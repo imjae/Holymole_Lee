@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class Trapezium : Tangram
 {
-    private void Start()
-    {
-        isCorrectTransform = false;
-    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == gameObject.tag)
         {
             Debug.Log(other.name);
-            if (other.transform.eulerAngles.z < -100 && other.transform.eulerAngles.z > -110 )
+            if (other.transform.eulerAngles.z > 75 && other.transform.eulerAngles.z < 80 )
             {
                 Debug.Log("네번째위치ok");
                 isCorrectTransform = true;
