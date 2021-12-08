@@ -71,9 +71,4 @@ public class XRReleaseController : XRController
     {
         m_Selected = true;
     }
-
-    public void UnSelect()
-    {
-        m_Selected = false;
-    }
 }
