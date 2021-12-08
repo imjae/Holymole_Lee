@@ -380,7 +380,7 @@ public class Mole : Player
 
             if (other.TryGetComponent<Animator>(out Animator animator))
             {
-                animator.SetTrigger("DoorKeyInsert");
+                animator.SetTrigger("DoorInsertKey");
             }
 
             for (int i = 0; i < other.transform.childCount; i++)
