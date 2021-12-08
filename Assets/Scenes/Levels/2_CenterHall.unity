@@ -32828,6 +32828,10 @@ PrefabInstance:
       propertyPath: LocalAxis.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2138336807, guid: c44fafd591a0f624c9d8a67a72cc6652, type: 3}
+      propertyPath: m_InteractionLayerMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c44fafd591a0f624c9d8a67a72cc6652, type: 3}
 --- !u!4 &2061157605 stripped

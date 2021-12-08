@@ -1934,6 +1934,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1510742733}
     m_Modifications:
+    - target: {fileID: 3628666641523521316, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202168812729639340, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
+      propertyPath: m_LineType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202168812729639340, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
+      propertyPath: m_MaxRaycastDistance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298129004062579612, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9154204770821401597, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
       propertyPath: m_Name
       value: XR Rig
@@ -1982,7 +1998,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4887341671158269253, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
+    - {fileID: 3628666641523521316, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
+    - {fileID: 7298129004062579612, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
 --- !u!4 &508783508 stripped
 Transform:
