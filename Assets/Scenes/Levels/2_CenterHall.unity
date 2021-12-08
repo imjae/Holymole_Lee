@@ -19728,6 +19728,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap_Spikes
       objectReference: {fileID: 0}
+    - target: {fileID: 7281499820243740865, guid: 025088a3a8f4c9c419737beed1504f98, type: 3}
+      propertyPath: tempTimer_atk
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281499820243740865, guid: 025088a3a8f4c9c419737beed1504f98, type: 3}
+      propertyPath: tempTimer_back
+      value: 2.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 025088a3a8f4c9c419737beed1504f98, type: 3}
 --- !u!4 &1228098525 stripped
@@ -25309,6 +25317,14 @@ PrefabInstance:
     - target: {fileID: 7281499820113002371, guid: 025088a3a8f4c9c419737beed1504f98, type: 3}
       propertyPath: m_Name
       value: Trap_Spikes
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281499820243740865, guid: 025088a3a8f4c9c419737beed1504f98, type: 3}
+      propertyPath: tempTimer_atk
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281499820243740865, guid: 025088a3a8f4c9c419737beed1504f98, type: 3}
+      propertyPath: tempTimer_back
+      value: 2.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 025088a3a8f4c9c419737beed1504f98, type: 3}
