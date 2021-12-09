@@ -11532,7 +11532,7 @@ GameObject:
   - component: {fileID: 1361120268}
   m_Layer: 9
   m_Name: KeyBox
-  m_TagString: Untagged
+  m_TagString: Keybox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12952,7 +12952,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1534869695}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
