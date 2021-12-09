@@ -19,32 +19,14 @@ public class UIManager : Singleton<UIManager>
     public void OpenMenu()
     {
         ingameMenu.SetActive(true);
-        PauseOnOff();
     }
     public void CloseMenu()
     {
         ingameMenu.SetActive(false);
-        PauseOnOff();
     }
     public void Exit()
     {
         Application.Quit();
-    }
-
-    // pause
-    public void PauseOnOff()
-    {
-        if(isPause == false)
-        {
-            Time.timeScale = 0;
-            isPause = true;
-        }
-        else if(isPause == true)
-        {
-            Time.timeScale = 1;
-            isPause = false;
-            CancelInvoke();
-        }
     }
 
     //
@@ -116,6 +98,27 @@ public class UIManager : Singleton<UIManager>
         {
             Debug.Log("취소 !");
             ingameMenu.SetActive(false);
+        }
+
+        if(ingameMenu != null && ingameMenu.activeSelf == false)
+        {
+            Time.timeScale = 1;
+
+            if(printingText.TryGetComponent<TextMeshProUGUI>(out TextMeshProUGUI tmproText))
+            tmproText.color = new Color(1,1,1,1);
+
+            if(printingText.GetComponentInParent<Image>() != null)
+            printingText.GetComponentInParent<Image>().color = new Color(0,0,0,0.6f);
+        }
+        else
+        {
+            Time.timeScale = 0;
+            if(printingText.TryGetComponent<TextMeshProUGUI>(out TextMeshProUGUI tmproText))
+            tmproText.color = new Color(0,0,0,0);
+
+            if(printingText.GetComponentInParent<Image>() != null)
+            printingText.GetComponentInParent<Image>().color = new Color(0,0,0,0); // 투명하게
+        
         }
     }
 }
