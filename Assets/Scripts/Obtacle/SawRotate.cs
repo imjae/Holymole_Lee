@@ -12,6 +12,4 @@ public class SawRotate : Obtacle
     {
         transform.Rotate(new Vector3(Time.deltaTime*rSpeed, 0, 0));
     }
-
-
 }
