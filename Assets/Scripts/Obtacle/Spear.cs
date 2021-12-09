@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spear : MonoBehaviour
+public class Spear : Obtacle
 {
     private float originYPos, spearLength, speed;
     private bool shoot;
     public GameObject spear;
 
-    void OnTriggerEnter(Collider other) 
+    void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             shoot = true;
         }
@@ -25,9 +25,11 @@ public class Spear : MonoBehaviour
 
     void Update()
     {
-        if(shoot == true && spear.transform.position.y <= originYPos + spearLength)
+        if (shoot == true && spear.transform.position.y <= originYPos + spearLength)
         {
-             spear.transform.Translate(transform.up * speed);
+            spear.transform.Translate(transform.up * speed);
+
+            transform.Find("Spears").GetComponent<AudioSource>().Play();
         }
     }
 }

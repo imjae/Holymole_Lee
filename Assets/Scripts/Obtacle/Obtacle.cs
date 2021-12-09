@@ -20,6 +20,7 @@ public class Obtacle : MonoBehaviour
     IEnumerator IsDying(Player player)
     {
         player.IsDie = true;
+        SoundManager.Instance.EffectPlay("Die2");
         yield return new WaitForSeconds(3f);
         player.IsDie = false;
     }

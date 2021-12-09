@@ -13,12 +13,16 @@ public class HolyMissile : MonoBehaviour
         player = transform.parent.GetComponent<Player>();
 
         if (other.GetComponent<Destroyable>())
+        {
             other.gameObject.SendMessage("Damage", 2f, SendMessageOptions.DontRequireReceiver);
+            Instantiate(hitEffect, other.bounds.center, Quaternion.identity);
+        }
+
 
         if (other.GetComponent<Monster>() != null)
         {
             other.gameObject.SendMessage("KnockBack", transform.forward.normalized * 4f);
-            var tmpEffect = Instantiate(hitEffect, other.bounds.center, Quaternion.identity);
+            Instantiate(hitEffect, other.bounds.center, Quaternion.identity);
 
             other.gameObject.SendMessage("TakeDamage", player.AttackValue);
         }
