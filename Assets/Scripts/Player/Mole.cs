@@ -23,6 +23,7 @@ public class Mole : Player
     public Animator animator;
 
     private bool _isKey;
+    private bool _isBrokenKey;
 
     public bool IsKey
     {
@@ -34,6 +35,17 @@ public class Mole : Player
             key.GetChild(0).gameObject.SetActive(_isKey);
         }
     }
+    public bool IsBrokenKey
+    {
+        get => _isBrokenKey;
+        set
+        {
+            _isBrokenKey = value;
+            var brokenKey = GameManager.Instance.mole.transform.Find("BrokenKey");
+            brokenKey.GetChild(0).gameObject.SetActive(_isBrokenKey);
+        }
+    }
+
     bool isDancing = false;
 
 
@@ -333,10 +345,8 @@ public class Mole : Player
     }
 
 
-    // ????
     protected override void Die()
     {
-        Debug.Log("Á×À½ !");
         animator.SetTrigger("Die");
 
         // ½ÇÇàÁßÀÌ´ø ¾Ö´Ï¸ÞÀÌ¼Ç Æ®¸®°Å ÀüºÎ Á¾·á
@@ -358,7 +368,7 @@ public class Mole : Player
 
     void OnTriggerEnter(Collider other)
     {
-        // Å° È¹µæ ·ÎÁ÷
+        // Å° È¹µæ
         if (other.CompareTag("Key"))
         {
             IsKey = true;
@@ -372,7 +382,16 @@ public class Mole : Player
             // Debug.Log(Camera.main.transform);
         }
 
-        if (other.CompareTag("Door"))
+        // ºÎ·¯Áø Å° È¹µæ
+        if(other.CompareTag("BrokenKey"))
+        {
+            IsBrokenKey = true;
+
+            Destroy(other.gameObject);
+        }
+
+        // Å°°¡ È¹µæ »óÅÂ¿¡¼­ ¹®¿¡ ´ê¾ÒÀ» ¶§
+        if (other.CompareTag("Door") && IsKey)
         {
             IsKey = false;
 
@@ -394,7 +413,15 @@ public class Mole : Player
                     interactable.enabled = true;
                 }
             }
+        }
 
+        // È­´ö ´ê¾ÒÀ» ¶§
+        if(other.CompareTag("FirePit") && IsBrokenKey)
+        {
+            IsBrokenKey = false;
+            IsKey = true;
+
+            animator.SetTrigger("SalsaDancing");
         }
     }
 }
