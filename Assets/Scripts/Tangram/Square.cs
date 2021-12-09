@@ -5,12 +5,12 @@ using UnityEngine;
 public class Square : Tangram
 {
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.tag == gameObject.tag)
         {
             Debug.Log(other.name);
-            if (other.transform.eulerAngles.z > 30 && other.transform.eulerAngles.z < 35)
+            if (other.transform.eulerAngles.z > minAngle && other.transform.eulerAngles.z < maxAngle)
             {
                 Debug.Log("여섯번째위치ok");
                 isCorrectTransform = true;
