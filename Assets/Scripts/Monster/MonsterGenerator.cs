@@ -12,6 +12,7 @@ public class MonsterGenerator : MonsterFactory<GameObject>
         NavMeshHit hit;
         if(NavMesh.SamplePosition(transform.position, out hit, 10f, NavMesh.AllAreas))
         {
+            Debug.Log("@@@@@@@@@@@@@@@@@@@@@@@@ ?");
             monster = Instantiate<GameObject>(_type, hit.position, Quaternion.identity);
         }
         
