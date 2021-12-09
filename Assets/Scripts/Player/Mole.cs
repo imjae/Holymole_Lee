@@ -345,10 +345,8 @@ public class Mole : Player
     }
 
 
-    // ????
     protected override void Die()
     {
-        Debug.Log("죽음 !");
         animator.SetTrigger("Die");
 
         // 실행중이던 애니메이션 트리거 전부 종료

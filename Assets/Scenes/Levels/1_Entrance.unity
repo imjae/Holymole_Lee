@@ -2003,6 +2003,10 @@ PrefabInstance:
       propertyPath: m_MaxRaycastDistance
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 6202168812729639340, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
+      propertyPath: m_InteractionLayerMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 7298129004062579612, guid: 3f03e0ba266d7b54ba69d37d17a23f45, type: 3}
       propertyPath: m_Enabled
       value: 0
