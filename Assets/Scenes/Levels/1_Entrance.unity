@@ -8613,6 +8613,10 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1587982324078603851, guid: 0b4af8ea336ffba40a5ee6e88c052f41, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5cde9713272ed1b44a1b5d55756aad82, type: 3}
+    - target: {fileID: 1587982324078603851, guid: 0b4af8ea336ffba40a5ee6e88c052f41, type: 3}
       propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
       value: 0.0013888889
       objectReference: {fileID: 0}
