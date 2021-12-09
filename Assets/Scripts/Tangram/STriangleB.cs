@@ -9,7 +9,7 @@ public class STriangleB : Tangram
     {
         if (other.tag == gameObject.tag)
         {
-            Debug.Log(other.name);
+            // Debug.Log(other.name);
             if (other.transform.eulerAngles.z > minAngle && other.transform.eulerAngles.z < maxAngle)
             {
                 Debug.Log("일곱번째위치ok");

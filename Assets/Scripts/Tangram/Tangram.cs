@@ -41,7 +41,7 @@ public class Tangram : MonoBehaviour
                 e.transform.position = e.okPosition;
             });
             */
-            Debug.Log("완성");
+            // Debug.Log("완성");
             for (int i = 0; i < pieceList.Length; i++)
             {
                 pieceList[i].transform.position = pieceList[i].originPos;
