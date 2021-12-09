@@ -76,23 +76,6 @@ public class SpiderDropKey : Spider
         }
     }
 
-    protected IEnumerator DetectionRoutine()
-    {
-        WaitForSeconds detectionTime = new WaitForSeconds(DetectionTime);
-        WaitForSeconds detectionIntervalTime = new WaitForSeconds(DetectionIntervalTime);
-        // 죽지 않았을 때만 플레이어 감지
-        while (!IsDie)
-        {
-            if (!IsAttacked)
-            {
-                // OnIdleStatus();
-                yield return detectionTime;
-                OnWalkStatus();
-                yield return detectionIntervalTime;
-            }
-            yield return null;
-        }
-    }
     // 해당 애니메이션이 끝나고나서 동작할 행위 정의
     private void AnimationCompleteToAction(string animationName, Action action)
     {

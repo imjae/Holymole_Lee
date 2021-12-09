@@ -33,6 +33,11 @@ public class Mole : Player
             _isKey = value;
             var key = GameManager.Instance.mole.transform.Find("Key");
             key.GetChild(0).gameObject.SetActive(_isKey);
+
+            if(_isKey)
+            {
+                SoundManager.Instance.EffectPlay("UI");
+            }
         }
     }
     public bool IsBrokenKey
@@ -43,6 +48,11 @@ public class Mole : Player
             _isBrokenKey = value;
             var brokenKey = GameManager.Instance.mole.transform.Find("BrokenKey");
             brokenKey.GetChild(0).gameObject.SetActive(_isBrokenKey);
+            
+            if(_isBrokenKey)
+            {
+                SoundManager.Instance.EffectPlay("UI");
+            }
         }
     }
 
@@ -289,6 +299,7 @@ public class Mole : Player
         }
         else
         {
+            SoundManager.Instance.EffectPlay("Jump");
             animator.SetTrigger("Jump");
 
             velocity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);

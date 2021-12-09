@@ -17,7 +17,7 @@ public class Trapezium : Tangram
             }
             */
 
-            Debug.Log(other.name);
+            // Debug.Log(other.name);
             if (other.transform.eulerAngles.z > minAngle && other.transform.eulerAngles.z < maxAngle )
             {
                 Debug.Log("네번째위치ok");
