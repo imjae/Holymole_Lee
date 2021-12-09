@@ -86,7 +86,7 @@ public class AxisDragInteractable : XRBaseInteractable
                 var child = transform.GetChild(0);
                 if(child.name.Equals("SelectedMesh")) 
                 {
-                    if(TryGetComponent<Renderer>(out Renderer renderer))
+                    if(child.TryGetComponent<Renderer>(out Renderer renderer))
                     {
                         renderer.enabled = true;
                     }
@@ -144,7 +144,7 @@ public class AxisDragInteractable : XRBaseInteractable
                 var child = transform.GetChild(0);
                 if(child.name.Equals("SelectedMesh")) 
                 {
-                    if(TryGetComponent<Renderer>(out Renderer renderer))
+                    if(child.TryGetComponent<Renderer>(out Renderer renderer))
                     {
                         renderer.enabled = false;
                     }
