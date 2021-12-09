@@ -18,7 +18,7 @@ public class Spear : Obtacle
 
     void Start()
     {
-        speed = 0.1f;
+        speed = 0.15f;
         originYPos = spear.transform.position.y;
         spearLength = spear.GetComponent<MeshCollider>().bounds.size.y;
     }

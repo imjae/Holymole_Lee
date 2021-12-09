@@ -5,17 +5,18 @@ using UnityEngine;
 public class Tangram : MonoBehaviour
 {
     public bool isCorrectTransform;
-    public List<Tangram> examplePieceList = new List<Tangram>();
+    public List<Tangram> examplePieceList;
     public MoveOriginPos[] pieceList;
     public float maxAngle;
     public float minAngle;
 
     public void Start()
     {
+        examplePieceList = new List<Tangram>();
         examplePieceList.AddRange(FindObjectsOfType<Tangram>());
         examplePieceList.Remove(this);
 
-        pieceList = FindObjectsOfType<MoveOriginPos>() ;
+        pieceList = FindObjectsOfType<MoveOriginPos>();
 
         isCorrectTransform = false;
     }
@@ -30,7 +31,7 @@ public class Tangram : MonoBehaviour
         for (int i = 0; i < examplePieceList.Count; i++)
         {
             isComplete &= examplePieceList[i].isCorrectTransform;
-          
+
         }
         if (isComplete)
         {
@@ -41,13 +42,13 @@ public class Tangram : MonoBehaviour
             });
             */
             Debug.Log("¿Ï¼º");
-            for(int i=0; i< pieceList.Length; i++)
+            for (int i = 0; i < pieceList.Length; i++)
             {
                 pieceList[i].transform.position = pieceList[i].originPos;
                 pieceList[i].transform.eulerAngles = pieceList[i].originRota;
             }
 
-           
+
             Destroy(gameObject);
         }
 
