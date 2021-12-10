@@ -18,8 +18,8 @@ public class Spider : Monster
 
     private void Start()
     {
-        Debug.Log("거미 생성");
         IsAttacked = false;
+        IsDie = false;
 
         target = FindObjectOfType<Player>().gameObject;
 

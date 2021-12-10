@@ -43,7 +43,7 @@ public class CellsPuzzleStep : MonoBehaviour
         {
             if(door.transform.position.y > closePoint.transform.position.y)
             {
-                door.transform.Translate(Vector3.down * 0.03f);
+                door.transform.Translate(Vector3.down * 0.06f);
             }
         }
     }

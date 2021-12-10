@@ -22,6 +22,42 @@ public class Mole : Player
     public Vector3 velocity;
     public Animator animator;
 
+    private bool _isKey;
+    private bool _isBrokenKey;
+
+    public bool IsKey
+    {
+        get => _isKey;
+        set
+        {
+            _isKey = value;
+            var key = GameManager.Instance.mole.transform.Find("Key");
+            key.GetChild(0).gameObject.SetActive(_isKey);
+
+            if(_isKey)
+            {
+                SoundManager.Instance.EffectPlay("UI");
+            }
+        }
+    }
+    public bool IsBrokenKey
+    {
+        get => _isBrokenKey;
+        set
+        {
+            _isBrokenKey = value;
+            var brokenKey = GameManager.Instance.mole.transform.Find("BrokenKey");
+            brokenKey.GetChild(0).gameObject.SetActive(_isBrokenKey);
+            
+            if(_isBrokenKey)
+            {
+                SoundManager.Instance.EffectPlay("UI");
+            }
+        }
+    }
+
+    bool isDancing = false;
+
 
     void Start()
     {
@@ -34,7 +70,7 @@ public class Mole : Player
 
         MoveSpeed = 3f;
         HangOnMoveSpeed = 1f;
-        GroundDistance = 0.1f;
+        GroundDistance = 0.4f;
         JumpHeight = 1.2f;
         AttackValue = 30f;
 
@@ -62,54 +98,61 @@ public class Mole : Player
         DistanceFromFloor = GetDistanceFromFloor();
         IsGrounded = gameObject.GroundCheck(groundCheckPoint, groundLayer, GroundDistance);
 
-        #region Move, Jump, Attack
-        if (!IsHangOn)
+        if (!IsDie)
         {
-            animator.SetBool("IsHangOn", false);
-            ApplyGravity();
-            InputMovement();
-
-            // 대쉬 상태가 아닐때 점프와 공격 가능.
-            if (!IsDash)
+            if (!isDancing)
             {
-                if (Input.GetButtonDown("Jump") && IsGrounded)
-                    InputJump();
+                #region Move, Jump, Attack
+                if (!IsHangOn)
+                {
+                    animator.SetBool("IsHangOn", false);
+                    ApplyGravity();
+                    InputMovement();
 
-                if (Input.GetButtonDown("Attack"))
-                    InputAttack();
+                    // 대쉬 상태가 아닐때 점프와 공격 가능.
+                    if (!IsDash)
+                    {
+                        if (Input.GetButtonDown("Jump") && IsGrounded)
+                            InputJump();
+
+                        if (Input.GetButtonDown("Attack"))
+                            InputAttack();
+                    }
+                }
+                else
+                {
+                    animator.SetBool("IsHangOn", true);
+                    InputHangOnMovement();
+
+                    if (Input.GetButtonDown("Jump"))
+                        InputHangOnJump();
+                }
+                #endregion
+
+                if (!IsFalling && DistanceFromFloor > 3 && !IsHangOn)
+                {
+                    IsFallingToggle();
+                    animator.SetTrigger("FallingIdle");
+                }
+
+                if (Health.hitPoint <= 0 && !IsDie)
+                {
+                    Die();
+                }
+
+                controller.Move(velocity * Time.deltaTime);
             }
         }
-        else
-        {
-            animator.SetBool("IsHangOn", true);
-            InputHangOnMovement();
 
-            if (Input.GetButtonDown("Jump"))
-                InputHangOnJump();
-        }
-        #endregion
-
-        if (DistanceFromFloor > 3)
-        {
-            IsFallingToggle();
-            animator.SetTrigger("FallingIdle");
-        }
-
-        if (Health.hitPoint <= 0 && !IsDie)
-        {
-            Die();
-        }
-
-        controller.Move(velocity * Time.deltaTime);
     }
 
     void InputAttack()
     {
-        if(IsGrounded)
+        if (IsGrounded)
             Attack();
         else
         {
-            velocity.y = Mathf.Sqrt(JumpHeight*1.2f * -2f * gravity);
+            velocity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);
             controller.Move(velocity * Time.deltaTime);
             animator.SetTrigger("JumpAttack");
 
@@ -256,6 +299,7 @@ public class Mole : Player
         }
         else
         {
+            SoundManager.Instance.EffectPlay("Jump");
             animator.SetTrigger("Jump");
 
             velocity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);
@@ -312,10 +356,8 @@ public class Mole : Player
     }
 
 
-    // ????
     protected override void Die()
     {
-        Debug.Log("죽음 !");
         animator.SetTrigger("Die");
 
         // 실행중이던 애니메이션 트리거 전부 종료
@@ -323,5 +365,74 @@ public class Mole : Player
         IsAttacked = false;
         IsFalling = false;
         IsGrounded = false;
+    }
+
+
+    public void IsDancingTrue()
+    {
+        isDancing = true;
+    }
+    public void IsDancingFalse()
+    {
+        isDancing = false;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        // 키 획득
+        if (other.CompareTag("Key"))
+        {
+            IsKey = true;
+            animator.SetTrigger("SalsaDancing");
+
+            Destroy(other.gameObject);
+
+            transform.rotation = Quaternion.LookRotation(Camera.main.transform.position - transform.position);
+
+            // transform.LookAt(Camera.main.transform.position - transform.position);
+            // Debug.Log(Camera.main.transform);
+        }
+
+        // 부러진 키 획득
+        if(other.CompareTag("BrokenKey"))
+        {
+            IsBrokenKey = true;
+
+            Destroy(other.gameObject);
+        }
+
+        // 키가 획득 상태에서 문에 닿았을 때
+        if (other.CompareTag("Door") && IsKey)
+        {
+            IsKey = false;
+
+            if (other.TryGetComponent<Door>(out Door door))
+            {
+                // 문이 열렸다는 플래그 변수 셋팅(콜라이더를 disable 시킨다.)
+                door.IsOpened = true;
+            }
+
+            if (other.TryGetComponent<Animator>(out Animator animator))
+            {
+                animator.SetTrigger("DoorInsertKey");
+            }
+
+            for (int i = 0; i < other.transform.childCount; i++)
+            {
+                if (other.transform.GetChild(i).TryGetComponent<DoorRotateInteractable>(out DoorRotateInteractable interactable))
+                {
+                    interactable.enabled = true;
+                }
+            }
+        }
+
+        // 화덕 닿았을 때
+        if(other.CompareTag("FirePit") && IsBrokenKey)
+        {
+            IsBrokenKey = false;
+            IsKey = true;
+
+            animator.SetTrigger("SalsaDancing");
+        }
     }
 }

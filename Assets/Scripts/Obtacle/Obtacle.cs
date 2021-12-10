@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class Obtacle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject respawnPos;
+    void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            var mole = other.GetComponent<Mole>();
+            mole.controller.enabled = false;
+            other.transform.position = respawnPos.transform.position;
+            mole.controller.enabled = true;
+            UIManager.Instance.FadeOn();
+            StartCoroutine(IsDying(mole));
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    IEnumerator IsDying(Player player)
     {
-        
+        player.IsDie = true;
+        SoundManager.Instance.EffectPlay("Die2");
+        yield return new WaitForSeconds(3f);
+        player.IsDie = false;
     }
 }

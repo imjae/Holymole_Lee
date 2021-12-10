@@ -8,19 +8,41 @@ public class MonsterSpawner : MonoBehaviour
     public GameObject monster;
     MonsterGenerator gene;
 
+    public bool isSpawning = false;
+
+    IEnumerator spawnRoutine;
+
     void Start()
     {
-        spawnPoint = transform;
+        spawnRoutine = IntervalSpawn(20f);
         gene = gameObject.GetComponent<MonsterGenerator>();
-        StartCoroutine(IntervalSpawn());
+        
     }
-    IEnumerator IntervalSpawn()
+
+    IEnumerator IntervalSpawn(float time)
     {
-        int num = 1;
-        while (num <= 5)
+        while (isSpawning)
         {
-            yield return new WaitForSeconds(3f);
             gene.Spawn(monster, spawnPoint);
+            yield return new WaitForSeconds(time);
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            isSpawning = true;
+            StartCoroutine(spawnRoutine);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            isSpawning = false;
+            StopCoroutine(spawnRoutine);
         }
     }
 }
