@@ -44,8 +44,8 @@ public class Tangram : MonoBehaviour
             // Debug.Log("¿Ï¼º");
             for (int i = 0; i < pieceList.Length; i++)
             {
-                pieceList[i].transform.position = pieceList[i].originPos;
-                pieceList[i].transform.eulerAngles = pieceList[i].originRota;
+                pieceList[i].transform.localPosition = pieceList[i].originPos;
+                pieceList[i].transform.localEulerAngles = pieceList[i].originRota;
             }
 
 
